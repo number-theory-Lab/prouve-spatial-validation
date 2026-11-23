@@ -1,0 +1,27 @@
+{
+  "id": "./",
+  "name": "PROUVÉ Spatial — ผู้ช่วยสำรวจแปลงเกษตร",
+  "short_name": "PROUVÉ Spatial",
+  "description": "เครื่องมือวาดและวางแผนขอบเขตแปลงเกษตร พร้อมบันทึกข้อมูลในอุปกรณ์",
+  "lang": "th",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f2f5ef",
+  "theme_color": "#123b25",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

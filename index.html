@@ -1,0 +1,962 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#123b25"><meta name="description" content="ผู้ช่วยสำรวจและวางแผนแปลงเกษตร ทำงานกับข้อมูลแปลงในอุปกรณ์"><link rel="manifest" href="./manifest.webmanifest">
+<title>โปรเว่ สเปเชียล รุ่น 0.5.2 — วาดและตรวจแนวแปลง</title>
+<style>
+:root{--bg:#f4f6f5;--panel:#fff;--ink:#17231c;--muted:#65746a;--line:#d9e2dc;--green:#176b3a;--green2:#e8f4ec;--amber:#9a5b08;--amberbg:#fff5df;--blue:#2457a7;--bluebg:#eaf1ff;--red:#a52a2a;--redbg:#ffeded;--shadow:0 8px 26px rgba(22,50,33,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.48}header{background:#143d27;color:#fff;padding:20px clamp(16px,4vw,48px)}header .sub{opacity:.8;font-size:13px}header h1{margin:0;font-size:24px;letter-spacing:.02em}main{max-width:1440px;margin:0 auto;padding:20px;display:grid;grid-template-columns:340px minmax(0,1fr);gap:18px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow);padding:16px;min-width:0}.stack{display:flex;flex-direction:column;gap:14px}.section-title{font-weight:750;margin:0 0 10px;font-size:16px}.small{color:var(--muted);font-size:12px}.field{display:flex;flex-direction:column;gap:5px;margin:9px 0}label{font-size:13px;font-weight:650}input,select,textarea,button{font:inherit}input,select,textarea{width:100%;border:1px solid #cbd7ce;border-radius:8px;padding:9px;background:white;color:var(--ink);min-width:0}textarea{min-height:112px;resize:vertical;font-family:ui-monospace,monospace;font-size:12px}button{border:0;border-radius:9px;padding:9px 12px;cursor:pointer;font-weight:650;background:#e8eee9;color:#1d3b28}button:hover{filter:brightness(.97)}button.primary{background:var(--green);color:#fff}button.secondary{background:#e9f0eb}button.warning{background:var(--amberbg);color:var(--amber)}button.danger{background:var(--redbg);color:var(--red)}button:disabled{opacity:.45;cursor:not-allowed}.btnrow{display:flex;flex-wrap:wrap;gap:7px}.status{display:inline-flex;align-items:center;border-radius:999px;padding:4px 9px;font-size:11px;font-weight:750;letter-spacing:.02em}.status.DRAFT{background:#edf0ee;color:#56625a}.status.NEEDS_FIELD_CHECK{background:var(--amberbg);color:var(--amber)}.status.USER_CONFIRMED{background:var(--bluebg);color:var(--blue)}.status.SURVEY_VERIFIED{background:var(--green2);color:var(--green)}.tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}.tab{background:#e7ece8;border-radius:8px;padding:8px 12px;font-size:13px}.tab.active{background:#174b2d;color:#fff}.tabpage{display:none}.tabpage.active{display:block}.workspace-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:12px}.workspace-head h2{margin:0;font-size:18px}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}.metric{background:#f5f8f5;border:1px solid var(--line);border-radius:10px;padding:10px}.metric b{font-size:20px;display:block}.metric span{font-size:11px;color:var(--muted)}.canvas-wrap{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#f8fbf8;position:relative}.canvas-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 11px;border-bottom:1px solid var(--line);background:#fff}.canvas-toolbar .hint{font-size:12px;color:var(--muted)}svg{display:block;width:100%;height:auto;touch-action:none;cursor:crosshair}.gridline{stroke:#dfe9e1;stroke-width:.8}.axistext{font-size:10px;fill:#738078}.boundary{fill:rgba(57,143,83,.13);stroke:#237341;stroke-width:2.5;vector-effect:non-scaling-stroke}.survey{fill:rgba(49,100,186,.08);stroke:#2f64bb;stroke-width:2;stroke-dasharray:6 4;vector-effect:non-scaling-stroke}.vertex{fill:#fff;stroke:#14683a;stroke-width:2.5;vector-effect:non-scaling-stroke;cursor:grab}.vertex.selected{fill:#ffd76d;stroke:#8f5700}.svvertex{fill:#eaf1ff;stroke:#2457a7;stroke-width:1.8;vector-effect:non-scaling-stroke}.legend{display:flex;gap:14px;flex-wrap:wrap;padding:8px 11px;font-size:11px;color:var(--muted);background:#fff;border-top:1px solid var(--line)}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:10px}table{border-collapse:collapse;width:100%;font-size:12px}th,td{padding:7px 8px;border-bottom:1px solid #e8eee9;text-align:left;white-space:nowrap}th{background:#f5f8f5;color:#4b5a50;font-weight:700}td input{padding:6px;font-size:12px;min-width:110px}.pill{border-radius:7px;background:#eef4ef;padding:2px 6px;font-size:11px}.notice{border-radius:9px;padding:10px 11px;font-size:12px;background:#f0f5f1;border:1px solid #dce8de}.notice.warn{background:var(--amberbg);border-color:#f0dfb8;color:#754707}.notice.err{background:var(--redbg);border-color:#f1caca;color:#8a2525}.notice.ok{background:var(--green2);border-color:#cde4d4;color:#155c32}.checkline{display:flex;align-items:flex-start;gap:8px;font-size:12px;margin:10px 0}.checkline input{width:auto;margin-top:3px}.survey-bound-check{display:flex;align-items:flex-start;gap:9px;margin:10px 0;font-size:13px;line-height:1.45}.survey-bound-check input{width:22px;height:22px;min-width:22px;min-height:22px;margin:1px 0 0;flex:0 0 auto;accent-color:var(--green)}.hidden{display:none!important}.events{max-height:180px;overflow:auto;font-size:11px;color:var(--muted)}.events div{padding:5px 0;border-bottom:1px dashed #e3e9e4}.footer{max-width:1440px;margin:0 auto;padding:0 20px 24px;color:var(--muted);font-size:11px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.code{font-family:ui-monospace,monospace;font-size:12px}.statrow{display:flex;justify-content:space-between;gap:8px;font-size:12px;padding:6px 0;border-bottom:1px solid #edf0ee}.mutedbox{background:#f7f9f7;padding:10px;border-radius:9px;border:1px dashed #ccd9cf}
+@media(max-width:980px){main{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(3,1fr)}}@media(max-width:600px){main{padding:10px}.panel{padding:12px}.metrics{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}.workspace-head{flex-direction:column}}
+.public-image-prepare{margin:18px 0;border:2px solid #9dbca5;border-radius:14px;padding:13px 16px;background:#f5faf5}.public-image-prepare summary{font-size:19px;font-weight:850;cursor:pointer;color:#174d2b;padding:7px 3px;min-height:44px}.public-image-prepare[open]{padding-bottom:18px}.public-image-prepare input[type=file]{min-height:62px;padding:12px;font-size:16px;background:#fff}
+.self-service-file-picker{display:flex;align-items:center;gap:12px;flex-wrap:wrap;border:1px solid #b9c8ba;border-radius:12px;padding:10px;background:#fff}.self-service-file-button{display:inline-flex;align-items:center;justify-content:center;text-align:center;margin:0;cursor:pointer;min-height:56px}.self-service-file-picker span{font-size:16px;color:#33483a;overflow-wrap:anywhere;flex:1;min-width:130px}.self-service-file-input{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}.self-service-file-picker:focus-within{outline:3px solid #2868c7;outline-offset:2px}
+</style>
+<style>
+#leafletMap{height:560px;min-height:420px;border:1px solid #cfdad2;border-radius:12px;z-index:1;background:#edf2ee}
+.map-vertex-marker{width:14px!important;height:14px!important;border-radius:50%;background:#fff;border:3px solid #146b36;box-shadow:0 1px 4px #3338}
+.map-controls{display:flex;flex-wrap:wrap;gap:8px;align-items:end;margin:10px 0}
+.map-controls .field{min-width:170px;flex:1;margin:0}
+.map-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:#5d6c62;margin-top:8px}
+.map-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}
+.gps-import-note{font-size:12px;background:#f4f7fb;border:1px solid #d7e2f1;padding:10px;border-radius:9px;color:#304b70}
+@media(max-width:700px){#leafletMap{height:440px;min-height:360px}}
+</style>
+
+<style id="farmer-friendly-design">
+:root{--bg:#f2f5ef;--panel:#fff;--ink:#17251b;--muted:#46574b;--line:#cbd7cb;--green:#145c32;--green2:#e5f1e7;--amber:#754600;--amberbg:#fff3d6;--blue:#174d91;--bluebg:#e8f0fc;--red:#8c2020;--redbg:#ffeded;--shadow:0 5px 20px rgba(25,55,34,.09)}
+html{font-size:18px}body{font-size:18px;line-height:1.6;background:#f2f5ef;color:#17251b}header.farmer-header{display:flex;align-items:center;gap:16px;padding:18px clamp(18px,4vw,54px);background:#123b25;min-height:86px}.brand-mark{font-size:34px;line-height:1}.brand-copy{flex:1}.brand-name{font-size:25px;font-weight:850;letter-spacing:.02em}.brand-name span{font-size:16px;font-weight:600;opacity:.85;margin-left:7px}.brand-tagline{font-size:17px;opacity:.94}.header-help{background:#fff;color:#17472a;min-height:52px;padding:12px 18px;font-size:17px;border-radius:12px}
+.farmer-welcome{max-width:1440px;margin:18px auto 0;padding:0 22px;display:grid;grid-template-columns:1.1fr 1fr;gap:18px}.welcome-copy,.farmer-steps{background:#fff;border:1px solid #d4ded3;border-radius:18px;padding:22px 24px;box-shadow:var(--shadow)}.welcome-kicker{font-size:15px;font-weight:800;color:#176239;margin-bottom:4px}.welcome-copy h1{font-size:30px;line-height:1.28;margin:0 0 8px;font-weight:850}.welcome-copy p{font-size:19px;margin:0;color:#46574b}.farmer-steps{display:grid;grid-template-columns:1fr;gap:10px}.farmer-step{display:flex;align-items:center;gap:13px}.farmer-step>span{width:42px;height:42px;min-width:42px;display:grid;place-items:center;border-radius:50%;background:#145c32;color:#fff;font-weight:850;font-size:22px}.farmer-step b{display:block;font-size:19px}.farmer-step small{display:block;font-size:16px;color:#46574b}
+main.farmer-main{max-width:1440px;margin:18px auto;padding:0 22px 28px;display:block}.farmer-main>section.stack{display:block}.farmer-main>section.stack>.panel:first-child{display:none}.farmer-main>aside.advanced-drawer{display:none}.farmer-main>aside.advanced-drawer>.panel{margin-bottom:14px}body.show-advanced .farmer-main>aside.advanced-drawer{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:16px}body.show-advanced .farmer-main>section.stack>.panel:first-child{display:block;margin-bottom:16px}.farmer-main>section.stack>.panel:last-child{padding:18px 20px}.farmer-main .tabs{gap:10px;margin:0 0 18px;border-bottom:1px solid #d8e0d6;padding-bottom:12px}.farmer-main .tab{font-size:17px;min-height:52px;padding:11px 18px;border-radius:11px}.farmer-main .tab.active{background:#174d2c;color:#fff}.farmer-main .tabpage{padding-top:4px}.farmer-map-intro{padding:8px 2px 16px}.farmer-map-title-row{display:flex;justify-content:space-between;align-items:center;gap:14px}.step-label{font-size:16px;font-weight:850;color:#176239;margin-bottom:3px}.farmer-section-heading{font-size:29px;line-height:1.3;margin:0;font-weight:850}.farmer-map-intro p{font-size:19px;color:#46574b;margin:6px 0 14px}.big-step-icon{font-size:48px;background:#e6f1e8;border-radius:16px;padding:12px 17px}.farmer-field-name{max-width:560px;margin:12px 0 16px}.farmer-field-name label{font-size:18px;display:block;margin-bottom:6px}.farmer-field-name input{font-size:20px;min-height:58px;padding:12px 14px;border:2px solid #9aafa0;border-radius:12px}.farmer-action-row{display:flex;flex-wrap:wrap;gap:12px;margin:12px 0}.farmer-primary,.farmer-secondary,.farmer-light{min-height:62px;padding:13px 24px;font-size:19px;font-weight:800;border-radius:13px}.farmer-primary{background:#146235;color:#fff;box-shadow:0 3px 0 #0e4725}.farmer-secondary{background:#e2eee4;color:#174d2b;border:2px solid #9dbca5}.farmer-light{background:#f1f4f0;color:#25372a;border:1px solid #b9c8ba}.farmer-tip{display:flex;align-items:flex-start;gap:10px;padding:13px 15px;border-radius:12px;background:#eff6e9;border:1px solid #c8ddbd;font-size:17px;color:#263d2b}.farmer-caution{font-size:16px!important;padding:13px 16px!important}.basemap-field{max-width:440px}.basemap-field label{font-size:17px}.basemap-field select{min-height:54px;font-size:18px}.map-controls{gap:12px;margin:12px 0}.map-controls .field{min-width:220px}.compact-hidden{display:none!important}#leafletMap{height:min(62vh,650px);min-height:430px;border:2px solid #aabbaa;border-radius:16px;background:#edf2ec}#leafletMap .leaflet-control{font-size:16px}#leafletMap .leaflet-control-zoom a{width:46px;height:46px;line-height:44px;font-size:27px}#leafletMap .leaflet-control-attribution{font-size:11px}.farmer-map-message{font-size:18px;padding:15px 17px;border-radius:12px}.farmer-results{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}.result-box{background:#fff;border:2px solid #d0ddd0;border-radius:14px;padding:15px 18px}.result-box span{display:block;color:#46574b;font-size:16px;font-weight:700}.result-box strong{display:block;font-size:25px;line-height:1.35;margin-top:4px;color:#145c32}.farmer-after-map{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:16px 18px;background:#f6f8f4;border:1px solid #d3ddd0;border-radius:14px}.farmer-after-map b{font-size:19px}.farmer-after-map span{font-size:17px;color:#46574b;flex:1;min-width:220px}.farmer-import-details{margin:20px 0 4px;border:1px solid #cbd8cb;border-radius:13px;padding:13px 16px;background:#fafcf9}.farmer-import-details summary{font-size:18px;font-weight:800;cursor:pointer;color:#174d2b;padding:4px}.farmer-import-details[open]{padding-bottom:18px}.farmer-import-details input[type=file]{min-height:62px;padding:12px;font-size:16px;background:#fff}.farmer-import-details .gps-import-note{font-size:16px;line-height:1.55}.farmer-import-details .section-title{font-size:20px}.farmer-import-details #importGpsFile{margin-top:8px}
+.panel{border-radius:16px;padding:20px;box-shadow:var(--shadow)}.section-title{font-size:21px}.small{font-size:15px;color:#435448}.notice{font-size:16px;line-height:1.55;padding:13px 15px}.notice.warn{color:#704400}.notice.err{color:#8c2020}.notice.ok{color:#155b31}label{font-size:17px}.field{gap:7px;margin:12px 0}input,select,textarea{font-size:18px;min-height:52px;border-radius:10px;padding:11px 13px}textarea{font-size:16px}button{font-size:17px;min-height:48px;padding:10px 15px;border-radius:10px}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:4px solid #e1a72b;outline-offset:3px}.footer{font-size:14px;padding:0 22px 24px}.status{font-size:14px;padding:6px 12px}.farmer-tabs{position:sticky;top:0;background:#fff;z-index:20;padding-top:5px}.farmer-tabs .tab{white-space:nowrap}.farmer-main #surveyTab .field textarea,.farmer-main #guideTab ul{font-size:17px}.farmer-main #surveyTab .notice{margin:10px 0 15px}.farmer-main #metadataTab .small{font-size:16px}.advanced-drawer .section-title{font-size:20px}
+@media(max-width:900px){.farmer-welcome{grid-template-columns:1fr}.farmer-steps{grid-template-columns:repeat(3,1fr)}.farmer-step{align-items:flex-start}.farmer-step small{font-size:14px}body.show-advanced .farmer-main>aside.advanced-drawer{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){html{font-size:17px}.farmer-header{padding:13px 15px!important;gap:10px!important}.brand-mark{font-size:29px}.brand-name{font-size:20px}.brand-name span{font-size:13px;display:block;margin:0}.brand-tagline{font-size:15px}.header-help{font-size:14px!important;min-height:46px!important;padding:8px 11px!important}.farmer-welcome{padding:0 12px;margin-top:12px;gap:10px}.welcome-copy,.farmer-steps{padding:17px}.welcome-copy h1{font-size:25px}.welcome-copy p{font-size:17px}.farmer-steps{grid-template-columns:1fr;gap:9px}.farmer-step{align-items:center}.farmer-step b{font-size:17px}.farmer-step small{font-size:14px}.farmer-main{padding:0 12px 20px!important;margin-top:12px!important}.farmer-main>section.stack>.panel:last-child{padding:14px!important}.farmer-main .tabs{display:grid;grid-template-columns:1fr 1fr;gap:7px}.farmer-main .tab{font-size:15px;min-height:48px;padding:8px}.farmer-section-heading{font-size:24px}.farmer-map-intro p{font-size:17px}.big-step-icon{font-size:35px;padding:8px 11px}.farmer-action-row{display:grid;grid-template-columns:1fr 1fr}.farmer-action-row button:first-child{grid-column:1/-1}.farmer-primary,.farmer-secondary,.farmer-light{font-size:17px;min-height:58px;padding:12px}.farmer-tip{font-size:15px}.farmer-results{grid-template-columns:1fr 1fr;gap:8px}.result-box{padding:12px}.result-box span{font-size:14px}.result-box strong{font-size:21px}#leafletMap{height:52vh;min-height:380px}.map-controls{display:grid;grid-template-columns:1fr 1fr}.map-controls .field{grid-column:1/-1}.farmer-after-map{display:block}.farmer-after-map b,.farmer-after-map span{display:block;margin-bottom:7px}.farmer-after-map button{width:100%}body.show-advanced .farmer-main>aside.advanced-drawer{grid-template-columns:1fr}.two{grid-template-columns:1fr}.workspace-head{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+
+
+<style id="thai-readable-v052">
+:root{--ink:#102117;--muted:#344b3b;--line:#b9cabb;--green:#125b31;--green2:#e3f2e7;--amber:#704500;--amberbg:#fff1cc;--blue:#174989;--bluebg:#e6efff;--red:#8a1717;--redbg:#ffe9e9}
+html{font-size:20px}body{font-family:"Leelawadee UI","Noto Sans Thai",Tahoma,system-ui,sans-serif;font-size:20px;line-height:1.72;color:#102117;background:#f1f5ef}
+header.farmer-header{padding:20px clamp(18px,4vw,56px);min-height:96px}.brand-name{font-size:27px}.brand-tagline{font-size:19px}
+.farmer-welcome{gap:18px}.welcome-copy,.farmer-steps{padding:24px 26px}.welcome-copy h1{font-size:34px}.welcome-copy p{font-size:21px}.farmer-step b{font-size:21px}.farmer-step small{font-size:18px}
+.farmer-main .tab{font-size:19px;min-height:58px;padding:13px 20px}.farmer-section-heading{font-size:32px}.farmer-map-intro p{font-size:21px}.step-label{font-size:18px}.farmer-field-name label,label{font-size:19px}
+input,select,textarea{font-size:19px;min-height:54px;padding:12px 14px;border:2px solid #9eafa2;border-radius:12px}button{font-size:19px;min-height:54px;padding:12px 18px;border-radius:12px}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:4px solid #efb83c;outline-offset:3px}
+#leafletMap{height:min(72vh,760px);min-height:560px;border:2px solid #a9bbaa;border-radius:16px}.leaflet-control-zoom a{width:48px!important;height:48px!important;line-height:48px!important;font-size:28px!important}.leaflet-control-attribution{font-size:11px!important}.map-controls{gap:12px}.map-controls .field{min-width:220px}.map-legend,.farmer-map-help{font-size:17px;line-height:1.6}.notice,.gps-import-note{font-size:17px;line-height:1.65;padding:14px 16px}.small,.farmer-map-message{font-size:16px!important;line-height:1.6}
+.metrics .metric b{font-size:25px}.metrics .metric span{font-size:16px}.result-box span{font-size:18px}.result-box strong{font-size:22px}.farmer-after-map{padding:20px}.farmer-after-map b{font-size:22px}.farmer-after-map span{font-size:18px}.farmer-primary,.farmer-secondary,.farmer-light{font-size:20px;min-height:60px;padding:14px 22px}
+.imagery-options{margin:16px 0;padding:16px 18px;background:#f0f5f1;border:2px solid #c6d5c8;border-radius:14px}.imagery-options summary{font-size:20px;font-weight:800;color:#174c2b;cursor:pointer;padding:5px}.imagery-options-body{padding:12px 4px 4px}.imagery-options-body h3,.highres-card h3{font-size:22px;margin:8px 0}.imagery-options-body p,.highres-card p{font-size:18px;line-height:1.65}.imagery-options-body small{display:block;color:#344b3b;font-size:16px;margin-top:5px}.highres-card{background:#fff;border:2px solid #bbcfbf;border-radius:14px;padding:16px;margin:16px 0}.highres-card a{display:inline-flex;align-items:center;min-height:54px;background:#145c32;color:#fff;text-decoration:none;border-radius:12px;padding:12px 18px;font-size:19px;font-weight:800}.highres-card a:focus-visible{outline:4px solid #efb83c;outline-offset:3px}
+#mapboxToken{font-size:18px;min-height:56px}.imagery-options .notice{margin-top:12px}
+@media(max-width:900px){.farmer-welcome{grid-template-columns:1fr}.farmer-steps{grid-template-columns:1fr}.farmer-main{padding-left:14px;padding-right:14px}}
+@media(max-width:650px){html{font-size:19px}.farmer-welcome{padding:0 14px}.welcome-copy h1{font-size:29px}.welcome-copy p{font-size:19px}.farmer-section-heading{font-size:27px}#leafletMap{height:62vh;min-height:470px}.farmer-action-row{display:grid;grid-template-columns:1fr}.farmer-primary,.farmer-secondary,.farmer-light{width:100%;min-height:62px}.map-controls{display:grid;grid-template-columns:1fr}.map-controls .field{min-width:0}.farmer-map-title-row{align-items:flex-start}.big-step-icon{font-size:36px}.result-box strong{font-size:20px}}
+</style>
+
+
+<style id="thai-clear-reading">
+body,button,input,select,textarea{font-family:"Leelawadee UI","Noto Sans Thai",Tahoma,system-ui,sans-serif} .section-title{font-size:22px}.small{font-size:17px!important}.events{font-size:16px;line-height:1.5}.statrow{font-size:17px;line-height:1.55}.status{font-size:15px;letter-spacing:0}.notice{font-size:18px!important}.leaflet-control-attribution{font-size:11px!important}.farmer-map-help{font-size:18px!important}.farmer-caution{font-size:18px!important}
+</style>
+<style id="senior-friendly-final">
+html{font-size:21px}body{font-size:21px;line-height:1.75;color:#102117}button,input,select,textarea{font-size:20px}label{font-size:20px!important}.small{font-size:18px!important}.notice,.farmer-map-help,.map-legend{font-size:19px!important;line-height:1.7}.farmer-map-title-row h2,.farmer-section-heading{font-size:34px}.farmer-primary,.farmer-secondary,.farmer-light{min-height:66px;font-size:21px}.farmer-tabs .tab{font-size:20px;min-height:62px}#leafletMap{height:min(74vh,800px);min-height:580px}.leaflet-control-zoom a{width:54px!important;height:54px!important;line-height:54px!important;font-size:31px!important}.leaflet-control-attribution{font-size:12px!important}.highres-card p,.imagery-options-body p{font-size:19px!important;line-height:1.75}.highres-card a{font-size:20px;min-height:58px}.map-controls select{min-height:60px;font-size:20px}.result-box strong{font-size:25px}.result-box span{font-size:18px}
+@media(max-width:650px){html{font-size:20px}.welcome-copy h1{font-size:30px}.farmer-section-heading{font-size:29px}#leafletMap{height:64vh;min-height:500px}.farmer-primary,.farmer-secondary,.farmer-light{min-height:68px;width:100%;font-size:20px}.farmer-tabs .tab{min-height:58px;font-size:18px}}
+</style>
+
+<style id="public-self-service-geotiff">
+.self-service-geotiff{background:#f8fbf6;border:2px solid #b8ceb9;padding:16px;border-radius:14px}
+.self-service-geotiff h3{font-size:24px!important;line-height:1.35}
+.self-service-geotiff .field{margin:12px 0}
+.self-service-geotiff input,.self-service-geotiff select{min-height:56px;font-size:18px;padding:10px 12px}
+.self-service-geotiff .checkline{font-size:17px;line-height:1.55}
+.self-service-geotiff .checkline input{width:24px;height:24px;min-width:24px;min-height:24px;flex:0 0 24px}
+.self-service-geotiff details summary{font-size:17px;font-weight:800;cursor:pointer;padding:8px 0;color:#174d2b}
+@media(max-width:650px){.self-service-geotiff{padding:12px}.self-service-geotiff h3{font-size:22px!important}.self-service-geotiff .two{grid-template-columns:1fr}.self-service-geotiff .btnrow{display:grid;grid-template-columns:1fr}.self-service-geotiff .btnrow button{width:100%;min-height:60px}}
+</style>
+</head>
+<body>
+<header class="farmer-header">
+  <div class="brand-mark" aria-hidden="true">🌱</div>
+  <div class="brand-copy">
+    <div class="brand-name">โปรเว่ สเปเชียล <span>รุ่นทดลอง 0.5.2</span></div>
+    <div class="brand-tagline">ผู้ช่วยสำรวจและวางแผนแปลงเกษตร</div>
+  </div>
+  <button type="button" id="farmerAdvancedToggle" class="header-help">ตั้งค่าเพิ่มเติม</button>
+</header>
+<div id="localAppStatus" role="status" aria-live="polite" style="max-width:1440px;margin:10px auto 0;padding:10px 22px;font-size:15px;color:#174d2b"><span id="networkStatus">กำลังตรวจสอบการเชื่อมต่อ…</span> · <span id="localSaveStatus">เตรียมระบบบันทึกข้อมูลในเครื่อง…</span> · <span id="mapPackStatus">ยังไม่มีชุดภาพแผนที่ในเครื่อง</span></div>
+<section class="farmer-welcome" aria-labelledby="welcomeTitle">
+  <div class="welcome-copy">
+    <div class="welcome-kicker">เริ่มต้นใช้งานได้ง่าย ๆ</div>
+    <h1 id="welcomeTitle">วาดแปลงของคุณ แล้วดูขนาดพื้นที่ได้ทันที</h1>
+    <p>ไม่ต้องคำนวณเอง ทำตามทีละขั้น ระบบช่วยวาดขอบเขตและคำนวณพื้นที่ให้</p>
+  </div>
+  <div class="farmer-steps" aria-label="ขั้นตอนการใช้งานสามขั้นตอน">
+    <div class="farmer-step"><span>1</span><div><b>เปิดแผนที่</b><small>ไปยังบริเวณแปลงของคุณ</small></div></div>
+    <div class="farmer-step"><span>2</span><div><b>แตะตามแนวแปลง</b><small>แตะตรงมุมแปลงทีละจุด</small></div></div>
+    <div class="farmer-step"><span>3</span><div><b>ตรวจดูและเก็บข้อมูล</b><small>ดูพื้นที่ แล้วดาวน์โหลดเก็บไว้</small></div></div>
+  </div>
+</section>
+<main class="farmer-main">
+<aside class="stack advanced-drawer" id="advancedDrawer" aria-label="เครื่องมือเพิ่มเติม">
+  <section class="panel">
+    <h2 class="section-title">1. ข้อมูลแปลง</h2>
+    <div class="field"><label for="fieldName">ชื่อแปลง</label><input id="fieldName" value="แปลงทดสอบ PS-FU01"></div>
+    <div class="field"><label for="fieldId">รหัสแปลง</label><input id="fieldId" value="PS-FU01-V05"></div>
+    <div class="field"><label for="sourceNote">ที่มาของข้อมูล / หมายเหตุ</label><input id="sourceNote" value="ข้อมูลตัวอย่างสำหรับทดลองใช้เท่านั้น ไม่ใช่ตำแหน่งจริง"></div>
+    <div class="field"><label for="inputCrs">รูปแบบตำแหน่งที่นำเข้า</label><select id="inputCrs"><option value="LOCAL:METRE">พิกัดสมมติ หน่วยเป็นเมตร</option><option value="EPSG:4326">พิกัดละติจูดและลองจิจูด</option><option value="EPSG:32647">พิกัดระนาบ เขต 47</option><option value="EPSG:32648">พิกัดระนาบ เขต 48</option></select></div>
+    <div class="field hidden" id="workingCrsBox"><label for="workingCrs">รูปแบบตำแหน่งสำหรับคำนวณ</label><select id="workingCrs"><option value="EPSG:32647">รหัส 32647 — เขตพิกัด 47</option><option value="EPSG:32648">รหัส 32648 — เขตพิกัด 48</option></select></div>
+    <div class="notice warn" id="crsNotice">พิกัดสมมติใช้ทดสอบการคำนวณเท่านั้น ยังไม่ใช่ตำแหน่งจริงบนแผนที่</div>
+  </section>
+  <section class="panel">
+    <h2 class="section-title">2. แก้ไขจุดรอบแปลง</h2>
+    <div class="field"><label for="coordText">ตำแหน่งแต่ละมุม (ใช้เมื่อนำเข้าตัวเลข)</label><textarea id="coordText" spellcheck="false" placeholder="0,0&#10;24,0&#10;22,16&#10;8,18&#10;0,12"></textarea><div class="small" id="coordHelp">พิกัดสมมติ: ตัวเลขทั้งสองเป็นเมตร</div></div>
+    <div class="btnrow"><button class="primary" id="applyCoords">ใช้ตำแหน่งเหล่านี้</button><button id="loadDemo">เปิดแปลงตัวอย่าง</button><button class="danger" id="clearBoundary">ลบแนวแปลง</button></div>
+    <div class="field"><label>หรือเพิ่มมุมแปลงทีละจุด</label><div class="two"><input id="newX" type="number" step="any" placeholder="ลองจิจูด หรือพิกัดแนวตะวันออก"><input id="newY" type="number" step="any" placeholder="ละติจูด หรือพิกัดแนวเหนือ"></div></div>
+    <div class="btnrow"><button id="addมุมแปลง">เพิ่มจุด</button><button id="closeRing">เชื่อมกลับจุดแรก</button></div>
+    <div class="small" style="margin-top:8px">แตะบนแผนภาพเพื่อเพิ่มมุม ลากจุดสีเขียวเพื่อย้าย หรือกดลบในตารางเพื่อลบมุม</div>
+  </section>
+  <section class="panel">
+    <h2 class="section-title">3. สถานะการตรวจแนวแปลง</h2>
+    <div style="margin-bottom:9px"><span id="statusBadge" class="status DRAFT">ร่างแนวเขต</span></div>
+    <div class="btnrow"><button id="markNeeds" class="warning">ทำเครื่องหมายว่ารอตรวจพื้นที่จริง</button></div>
+    <div class="field"><label for="confirmedBy">ชื่อผู้ตรวจและยืนยัน</label><input id="confirmedBy" placeholder="ชื่อผู้ตรวจ"></div>
+    <label class="checkline"><input id="confirmCheck" type="checkbox"><span>ฉันได้ตรวจแนวเขตกับพื้นที่จริงแล้ว และยืนยันว่าข้อมูลนี้ตรงกับแปลงของฉัน</span></label>
+    <div class="btnrow"><button id="markConfirmed" class="primary">ยืนยันว่าได้ตรวจแล้ว</button></div>
+    <div class="notice warn" style="margin-top:10px">การยืนยันจากผลสำรวจจะทำได้เมื่อมีข้อมูลสำรวจแยกต่างหาก ระบุวันและวิธีสำรวจ และผลเปรียบเทียบผ่านเกณฑ์</div>
+    <div class="events" id="eventLog"></div>
+  </section>
+</aside>
+<section class="stack">
+  <div class="panel advanced-canvas-panel">
+    <div class="workspace-head"><div><h2>พื้นที่แปลงของฉัน</h2><div class="small">ภาพนี้เป็นแผนภาพตำแหน่งจากพิกัด ไม่ใช่ภาพถ่ายจากดาวเทียม</div></div><div class="btnrow"><button id="exportJson" class="primary">ดาวน์โหลดข้อมูลแปลง</button><button id="exportGeojson">ดาวน์โหลดแผนที่ขอบเขต</button></div></div>
+    <div class="metrics"><div class="metric"><b id="vertexCount">0</b><span>จำนวนมุมแปลง</span></div><div class="metric"><b id="areaValue">—</b><span>พื้นที่ (ตารางเมตร)</span></div><div class="metric"><b id="validValue">ยังไม่ตรวจ</b><span>ผลตรวจรูปแปลง</span></div></div>
+    <div class="canvas-wrap"><div class="canvas-toolbar"><div class="hint" id="canvasHint">แตะเพื่อเพิ่มมุม · ลากจุดเพื่อย้าย</div><div class="btnrow"><button id="undoBtn">ย้อนกลับหนึ่งครั้ง</button><button id="finishDrawing" class="primary">เสร็จแล้ว</button></div></div>
+      <svg id="mapCanvas" viewBox="0 0 760 480" role="img" aria-label="พื้นที่สำหรับวาดแนวเขตแปลง"><defs><pattern id="smallGrid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25 0H0V25" fill="none" class="gridline"/></pattern></defs><rect width="760" height="480" fill="#f8fbf8"/><rect width="760" height="480" fill="url(#smallGrid)"/><g id="plotLayer"></g><text x="18" y="22" class="axistext">แผนภาพพิกัด หน่วยเป็นเมตร</text></svg>
+      <div class="legend"><span><i class="dot" style="background:#29834b"></i>ขอบเขตแปลง</span><span><i class="dot" style="background:#2f64bb"></i>แนวเขตจากข้อมูลสำรวจ</span><span>ระบบคำนวณพื้นที่จากพิกัดที่แปลงเป็นเมตร</span></div>
+    </div>
+    <div class="notice" id="validationMessage" style="margin-top:12px">ยังไม่มีแนวเขตแปลง กรุณาแตะมุมแปลงอย่างน้อย 3 จุด</div>
+    <div class="tablewrap" style="margin-top:12px"><table><thead><tr><th>#</th><th>พิกัดแนวนอน (ตะวันออก / ลองจิจูด)</th><th>พิกัดแนวตั้ง (เหนือ / ละติจูด)</th><th>การจัดการ</th></tr></thead><tbody id="vertexRows"><tr><td colspan="4" class="small">ยังไม่มีจุดยอด</td></tr></tbody></table></div>
+  </div>
+  <div class="panel">
+    <div class="tabs farmer-tabs"><button class="tab active" data-tab="mapTab">แปลงของฉัน</button><button class="tab" data-tab="surveyTab">ตรวจแนวเขต</button><button class="tab" data-tab="metadataTab">ข้อมูลแปลง</button><button class="tab" data-tab="guideTab">วิธีใช้</button></div>
+    <div id="surveyTab" class="tabpage">
+      <h2 class="section-title">เปรียบเทียบกับผลสำรวจจริง</h2>
+      <div class="notice warn">ยังไม่มีข้อมูลสำรวจอ้างอิง หากมีไฟล์หรือค่าพิกัดจากผู้สำรวจ สามารถนำมาเปรียบเทียบได้ในส่วนนี้</div>
+      <div class="field"><label for="surveyText">ตำแหน่งมุมแปลงจากการสำรวจ (เมตร)</label><textarea id="surveyText" spellcheck="false" placeholder="0.02,0.01&#10;24.02,0.01&#10;22.02,16.01&#10;8.02,18.01&#10;0.02,12.01"></textarea></div>
+      <div class="two"><div class="field"><label for="surveyRecordId">เลขที่เอกสารสำรวจ</label><input id="surveyRecordId" placeholder="เช่น เลขที่เอกสาร 001"></div><div class="field"><label for="surveyorName">ชื่อผู้สำรวจหรือหน่วยงาน</label><input id="surveyorName" placeholder="ชื่อผู้สำรวจหรือหน่วยงาน"></div></div>
+      <div class="two"><div class="field"><label for="surveyMethod">วิธีสำรวจ</label><select id="surveyMethod"><option value="เครื่องรับพิกัดจากดาวเทียม">เครื่องรับพิกัดจากดาวเทียม</option><option value="กล้องสำรวจ">กล้องสำรวจ</option><option value="สายวัดและวัดในพื้นที่">สายวัดและวัดในพื้นที่</option><option value="วิธีอื่นที่มีเอกสารยืนยัน">วิธีอื่นที่มีเอกสารยืนยัน</option></select></div><div class="field"><label for="surveyDate">วันที่สำรวจ</label><input id="surveyDate" type="date"></div></div>
+      <div class="two"><div class="field"><label for="surveyAccuracy">ค่าคลาดเคลื่อนแนวราบที่เอกสารรายงาน (เมตร)</label><input id="surveyAccuracy" type="number" min="0" step="any" value="0.05"></div><div class="field"><label for="surveyTolerance">ระยะคลาดเคลื่อนที่ยอมรับได้ (เมตร)</label><input id="surveyTolerance" type="number" min="0" step="any" value="0.30"></div></div><div class="field"><label class="survey-bound-check" for="surveyAccuracyBoundConfirmed"><input id="surveyAccuracyBoundConfirmed" type="checkbox"> <span>ตรวจแล้วว่าเอกสารระบุค่านี้เป็นขอบเขตความคลาดเคลื่อนแนวราบสูงสุด</span></label><div class="small">หากเอกสารไม่ได้ระบุชัดว่าค่านี้เป็นค่าคลาดเคลื่อนสูงสุด ระบบจะยังสรุปผลรับรองไม่ได้</div></div>
+      <div class="btnrow"><button id="compareSurvey" class="primary">เปรียบเทียบแนวเขต</button><button id="clearSurvey" class="danger">ลบข้อมูลสำรวจอ้างอิง</button></div>
+      <div id="surveyResult" class="mutedbox small" style="margin-top:12px">ยังไม่มีผลเปรียบเทียบ</div>
+      <div class="btnrow" style="margin-top:10px"><button id="markSurveyVerified" class="primary" disabled>ยืนยันจากผลสำรวจ</button></div>
+    </div>
+    <div id="metadataTab" class="tabpage">
+      <h2 class="section-title">ที่มาของข้อมูลแปลง</h2>
+      <div id="metadataSummary" class="mutedbox small">ข้อมูลแหล่งที่มาจะแสดงเมื่อมีขอบเขตแปลง</div>
+      <div class="btnrow" style="margin-top:10px"><button id="copyJson">คัดลอกข้อมูล</button><button id="downloadCsv">ดาวน์โหลดตารางจุด</button><button id="chooseImport">เปิดไฟล์ข้อมูลแปลง</button><input id="importFile" type="file" accept=".json,application/json" class="hidden"></div>
+      <p class="small">ไฟล์นี้เก็บแนวแปลง พิกัด ที่มาของข้อมูล สถานะ และประวัติการแก้ไข</p>
+    </div>
+    <div id="mapTab" class="tabpage active">
+      <div class="farmer-map-intro">
+        <div class="farmer-map-title-row"><div><div class="step-label">ขั้นตอนที่ 1 จาก 3</div><h2 class="farmer-section-heading">วาดขอบเขตแปลงของคุณ</h2><p>ขยายภาพไปยังแปลงของคุณ แล้วแตะตรงมุมแปลงให้ครบ</p></div><div class="big-step-icon" aria-hidden="true">📍</div></div>
+        <div class="farmer-field-name"><label for="farmerFieldName">ตั้งชื่อแปลง เช่น แปลงหลังบ้าน</label><input id="farmerFieldName" type="text" value="แปลงของฉัน" autocomplete="off"></div>
+        <div class="farmer-action-row">
+          <button type="button" id="farmerStartDrawing" class="farmer-primary">เริ่มแตะมุมแปลง</button>
+          <button type="button" id="farmerFinishDrawing" class="farmer-secondary">วาดครบแล้ว</button>
+          <button type="button" id="farmerUndoDrawing" class="farmer-light">พักการวาด</button>
+        </div>
+        <div class="farmer-tip"><span aria-hidden="true">💡</span><span><b>วิธีวาด:</b> แตะตามมุมแปลงทีละจุด ไล่ไปตามขอบแปลงให้ครบ ระบบจะคำนวณระยะให้เอง</span></div>
+      </div>
+      <div class="notice warn farmer-caution"><b>โปรดทราบ:</b> ภาพแผนที่ใช้ช่วยร่างแนวเขตเท่านั้น ควรตรวจสอบกับพื้นที่จริงก่อนนำไปใช้</div>
+      <div class="map-controls">
+        <div class="field basemap-field"><label for="basemapChoice">เลือกภาพแผนที่</label><select id="basemapChoice"><option value="imagery">ภาพถ่ายดาวเทียมและภาพถ่ายทางอากาศ</option><option value="osm">แผนที่ถนนและหมู่บ้าน</option><option value="gistda">ภาพถ่ายดาวเทียมของจิสด้า (2 เมตร)</option><option value="mapbox">ภาพถ่ายจากแหล่งเพิ่มเติม (ต้องมีรหัส)</option></select></div>
+        <button id="startMapDrawing" class="primary compact-hidden">เริ่มวาดบนแผนที่</button>
+        <button id="finishMapDrawing" class="compact-hidden">วาดเสร็จแล้ว</button>
+        <button id="cancelMapDrawing" class="danger compact-hidden">ยกเลิกการวาด</button>
+        <button id="fitMapBoundary" class="farmer-light">แสดงตำแหน่งแปลง</button>
+        <button id="locateMe" class="farmer-light">ค้นหาตำแหน่งของฉัน</button>
+      </div>
+      <details class="imagery-options">
+        <summary>ภาพแปลงยังไม่ชัด? ดูทางเลือกภาพที่มีรายละเอียดมากขึ้น</summary>
+        <div class="imagery-options-body">
+          <h3>เลือกดูภาพจากแหล่งอื่น</h3>
+          <p>ภาพแต่ละแหล่งมีความละเอียดและวันถ่ายต่างกัน ให้ลองเปิดดูบริเวณเดียวกันก่อนเลือกใช้</p>
+          <div class="field"><label for="gistdaToken">รหัสเปิดภาพถ่ายดาวเทียมของจิสด้า</label><input id="gistdaToken" type="password" autocomplete="off" placeholder="วางรหัสที่ได้รับจากจิสด้า"><small>สมัครขอรหัสได้จากเว็บไซต์จิสด้า ระบบจะไม่บันทึกรหัสนี้ลงในไฟล์แปลง</small></div>
+          <button type="button" id="applyGistda" class="farmer-secondary">เปิดภาพดาวเทียมของจิสด้า</button>
+          <div id="gistdaMessage" class="notice" role="status" aria-live="polite">ภาพชุดนี้มีรายละเอียด 2 เมตรต่อพิกเซล เหมาะสำหรับดูภาพรวมและร่างแนวเขตเบื้องต้น</div>
+          <div class="field"><label for="mapboxToken">รหัสเปิดภาพจากแหล่งเพิ่มเติม (สำหรับผู้ที่มีรหัสแล้ว)</label><input id="mapboxToken" type="password" autocomplete="off" placeholder="วางรหัสที่ได้รับจากผู้ให้บริการ"><small>รหัสนี้ใช้เปิดภาพในหน้านี้เท่านั้น ระบบจะไม่เก็บรหัสไว้ในไฟล์แปลง ภาพแต่ละพื้นที่อาจมีรายละเอียดไม่เท่ากัน</small></div>
+          <button type="button" id="applyMapbox" class="farmer-secondary">เปิดภาพจากแหล่งเพิ่มเติม</button>
+          <div id="mapboxMessage" class="notice" role="status" aria-live="polite">หากไม่มีรหัส ไม่ต้องทำขั้นตอนนี้ สามารถใช้ภาพแผนที่เดิมได้</div>
+          <div class="highres-card">
+            <h3>ทางเลือกภาพที่มีรายละเอียดมากขึ้นในประเทศไทย</h3>
+            <p><b>ภาพฐานจากจิสด้า:</b> มีภาพครอบคลุมประเทศไทยโดยระบุรายละเอียด 2 เมตรต่อพิกเซล สร้างจากภาพดาวเทียมหลายแหล่งและปรับตำแหน่งให้สอดคล้องกับแผนที่ ต้องสมัครขอรหัสก่อนจึงเปิดภาพในหน้านี้ได้ หน้าแหล่งข้อมูลระบุวันปรับปรุงชุดข้อมูล 31 มีนาคม 2568 ซึ่งไม่ใช่วันถ่ายภาพของทุกพื้นที่</p>
+            <a href="https://opendata.gistda.or.th/th/dataset/2-gistda/resource/c9e80417-3f98-4df1-a95f-5d47defe0dc1" target="_blank" rel="noopener">ดูข้อมูลภาพฐานจากจิสด้า</a>
+            <p><b>ภาพจากดาวเทียมไทย (ไทยโชต-2):</b> ดาวเทียมไทยรายละเอียดสูงมีภาพขาวดำที่แยกรายละเอียดได้ 50 เซนติเมตรต่อพิกเซล และภาพสี 2 เมตรต่อพิกเซล หน่วยงานระบุความถูกต้องตำแหน่งในระดับประมาณ 1 เมตร ภาพขาวดำอาจเห็นรายละเอียดได้มากกว่าแต่ไม่ใช่ภาพสี และความละเอียดของจุดภาพไม่ได้หมายความว่าตำแหน่งขอบเขตจะคลาดเคลื่อนเพียง 50 เซนติเมตร ต้องตรวจสอบว่ามีภาพของพื้นที่ที่ต้องการหรือไม่ รวมทั้งสอบถามราคาและรูปแบบไฟล์ก่อนสั่งซื้อ</p>
+            <a href="https://awagad.gistda.or.th/" target="_blank" rel="noopener">ค้นหาภาพและสอบถามการขอใช้</a>
+            <a href="https://gistda.or.th/th/service/theos-2/" target="_blank" rel="noopener" style="margin-left:8px;background:#355b85">อ่านรายละเอียดภาพจากดาวเทียมไทย</a>
+          </div>
+          <div class="notice">ภาพที่ละเอียดมากขึ้น: ภาพฐานจิสด้าที่เปิดในหน้านี้มีรายละเอียด 2 เมตรต่อพิกเซล ส่วนภาพจากดาวเทียมไทยโชต-2 มีภาพขาวดำ 50 เซนติเมตรต่อพิกเซลและภาพสี 2 เมตรต่อพิกเซล แต่ต้องตรวจสอบว่ามีภาพพื้นที่ของคุณหรือไม่ และอาจมีค่าใช้จ่าย ภาพ 50 เซนติเมตรยังไม่ได้เปิดแสดงตรงในรุ่นนี้</div>
+          <div class="notice warn">ข้อควรรู้: การขยายภาพให้ใหญ่ขึ้นไม่ได้ทำให้เห็นรายละเอียดเพิ่มขึ้น หากภาพยังไม่เห็นแนวรั้ว คูน้ำ หรือขอบแปลงชัดเจน อย่าคาดเดาแนวเขต ควรเดินสำรวจหรือใช้ภาพถ่ายทางอากาศที่มีการปรับตำแหน่งแล้ว ภาพดาวเทียมใช้ช่วยร่างแนวเขตเท่านั้น ไม่ใช่หลักฐานยืนยันเขตที่ดิน</div>
+        </div>
+      </details>
+      <div id="leafletMap" aria-label="แผนที่สำหรับดูและวาดแนวเขตแปลงเกษตร"></div>
+      <div class="notice farmer-map-help" style="margin-top:10px"><b>ภาพยังไม่คมชัด:</b> ภาพแผนที่ออนไลน์แต่ละพื้นที่มีรายละเอียดไม่เท่ากัน เมื่อซูมจนภาพแตกหรือเบลอ แปลว่าภาพต้นฉบับอาจไม่มีรายละเอียดมากกว่านี้ ไม่ควรใช้ขอบภาพที่มองไม่ชัดเป็นแนวเขตยืนยัน</div>
+      <div class="map-legend"><span><i class="map-dot" style="background:#17823d"></i>แนวแปลงที่กำลังแก้ไข</span><span><i class="map-dot" style="background:#2868c7"></i>แนวเขตจากข้อมูลสำรวจ</span><span><i class="map-dot" style="background:#e28b24"></i>เส้นทางจากเครื่องรับพิกัด</span></div>
+      <div class="farmer-map-help"><b>วิธีดูแผนที่:</b> ใช้นิ้วสองนิ้วถ่างเพื่อขยายภาพ กดปุ่ม + หรือ − แล้วลากแผนที่ไปยังแปลงของคุณ <span style="display:inline-block;margin-left:12px">ระดับการขยายภาพ: <b id="zoomLevel">ยังไม่เปิดแผนที่</b></span></div>
+      <div id="mapMessage" class="notice farmer-map-message" style="margin-top:10px" role="status" aria-live="polite">กำลังเตรียมแผนที่... เมื่อพร้อมแล้วให้กด “เริ่มวาดขอบเขต”</div>
+      <div class="farmer-results" aria-live="polite">
+        <div class="result-box"><span>ขนาดพื้นที่แปลง</span><strong id="farmerAreaValue">ยังไม่มีข้อมูล</strong></div>
+        <div class="result-box"><span>สถานะขอบเขต</span><strong id="farmerสถานะValue">ยังไม่ได้วาดแปลง</strong></div>
+      </div>
+      <div class="farmer-after-map"><b>เมื่อวาดเสร็จแล้ว</b><span>ตรวจดูแนวแปลงให้ถูกต้อง แล้วดาวน์โหลดไฟล์เก็บไว้ในเครื่อง</span><button type="button" id="farmerSaveButton" class="farmer-primary">ดาวน์โหลดข้อมูลแปลง</button></div>
+      <details class="farmer-import-details"><summary>มีไฟล์พิกัดอยู่แล้ว? แตะเพื่อนำเข้า</summary><div class="section-title" style="margin-top:14px">นำเข้าข้อมูลแนวแปลงจากไฟล์</div>
+      <div class="map-controls">
+        <div class="field hidden"><label for="gpsImportTarget">นำเข้าเป็น</label><select id="gpsImportTarget"><option value="boundary">แนวแปลงของฉัน</option><option value="survey">แนวแปลงจากการสำรวจ</option></select></div>
+        <div class="field"><label for="gpsFileInput">เลือกไฟล์จากโทรศัพท์หรือคอมพิวเตอร์</label><input id="gpsFileInput" type="file" accept=".gpx,.geojson,.json,.csv,application/gpx+xml,application/geo+json,application/json,text/csv"></div>
+        <button id="importGpsFile" class="farmer-primary">นำเข้าข้อมูลจากไฟล์</button>
+      </div>
+      <div class="gps-import-note">ไฟล์ตารางต้องมีหัวคอลัมน์ “ลองจิจูด” และ “ละติจูด” (หากเป็นไฟล์จากระบบอื่น ให้ตรวจว่ามีช่องระบุค่าลองจิจูดและละติจูดครบถ้วน) · ไฟล์ขอบเขตแผนที่ต้องเรียงค่าลองจิจูดก่อนละติจูด · ไฟล์เส้นทางจะเรียงจุดตามลำดับที่บันทึก · รุ่นนี้ยังไม่รองรับแปลงหลายผืนหรือแปลงที่มีรูภายใน</div>
+      <div id="gpsImportResult" class="mutedbox small" style="margin-top:10px" aria-live="polite">ยังไม่มีการนำเข้าไฟล์</div>
+      <div class="notice warn" style="margin-top:10px"><b>ข้อมูลการใช้แผนที่:</b> ภาพแผนที่มาจากผู้ให้บริการภายนอก ต้องใช้อินเทอร์เน็ตและแสดงชื่อแหล่งข้อมูลตามเงื่อนไข ห้ามดาวน์โหลดแผนที่จำนวนมากหรือเก็บไว้ใช้ออฟไลน์โดยไม่ได้รับอนุญาต</div>
+      </details>
+      <details class="public-image-prepare"><summary>เตรียมภาพพื้นที่ไว้ใช้ในสวนที่ไม่มีสัญญาณ</summary>
+      <div class="mutedbox self-service-geotiff" style="margin-top:14px" id="geoTiffSelfService">
+        <h3 style="margin:0 0 8px">เตรียมภาพพื้นที่ด้วยตัวเอง</h3>
+        <p class="small">เลือกไฟล์ภาพแผนที่ที่มีข้อมูลพิกัดจากโทรศัพท์หรือคอมพิวเตอร์ ระบบจะตรวจตำแหน่ง แปลงภาพ และเก็บไว้ในอุปกรณ์นี้ โดยไม่ต้องติดตั้งโปรแกรมเฉพาะทาง</p>
+        <div class="notice" style="margin:10px 0">ไฟล์ภาพจะถูกประมวลผลในอุปกรณ์ของคุณ ไม่ส่งไฟล์ภาพไปยังเซิร์ฟเวอร์ PROUVÉ การโหลดเครื่องมือครั้งแรกต้องใช้อินเทอร์เน็ต และระบบจะพยายามเก็บเครื่องมือไว้ใช้ครั้งต่อไปเมื่อออฟไลน์</div>
+        <div class="field"><label for="geoTiffFile">1. เลือกภาพพื้นที่ของคุณ</label><div class="self-service-file-picker"><label class="farmer-secondary self-service-file-button" for="geoTiffFile">เลือกภาพจากอุปกรณ์</label><span id="geoTiffFileName" aria-live="polite">ยังไม่ได้เลือกภาพ</span><input id="geoTiffFile" class="self-service-file-input" type="file" accept=".tif,.tiff,image/tiff,application/geotiff" aria-label="เลือกภาพพื้นที่จากอุปกรณ์"></div></div>
+        <div class="two">
+          <div class="field"><label for="geoTiffTitle">2. ตั้งชื่อภาพชุดนี้</label><input id="geoTiffTitle" type="text" maxlength="100" placeholder="เช่น ภาพสวนยาง แปลงเหนือ"></div>
+          <div class="field"><label for="geoTiffSource">3. ภาพมาจากที่ใด</label><input id="geoTiffSource" type="text" maxlength="180" placeholder="เช่น ถ่ายเอง / หน่วยงานที่ให้ข้อมูล"></div>
+        </div>
+        <div class="field"><label for="geoTiffRights">4. คุณมีสิทธิ์ใช้ภาพนี้แบบใด</label><select id="geoTiffRights"><option value="">โปรดเลือกสิทธิ์การใช้ภาพ</option><option value="own">เป็นภาพที่ฉันถ่ายหรือจัดทำเอง และมีสิทธิ์ใช้</option><option value="open">เป็นข้อมูลเปิดที่อนุญาตให้นำมาใช้</option><option value="permission">ได้รับอนุญาตจากเจ้าของภาพแล้ว</option><option value="unknown">ยังไม่แน่ใจเรื่องสิทธิ์การใช้ภาพ</option></select></div>
+        <div class="field"><label for="geoTiffLicenseNote">รายละเอียดสิทธิ์หรือใบอนุญาต (ถ้ามี)</label><input id="geoTiffLicenseNote" type="text" maxlength="240" placeholder="เช่น ชื่อใบอนุญาตหรือเงื่อนไขจากผู้ให้ข้อมูล"></div>
+        <div class="field"><label for="geoTiffAcquisitionDate">วันที่ถ่ายภาพ (เว้นว่างได้ หากไม่ทราบ)</label><input id="geoTiffAcquisitionDate" type="date"></div>
+        <label class="checkline"><input id="geoTiffRightsAgree" type="checkbox"><span>ฉันตรวจสอบแล้วว่ามีสิทธิ์นำภาพนี้มาใช้ และเข้าใจว่าภาพช่วยดูพื้นที่เท่านั้น ไม่ใช่หลักฐานรับรองแนวเขตที่ดิน</span></label>
+        <div class="btnrow">
+          <button id="inspectGeoTiff" type="button" class="farmer-secondary">ตรวจสอบไฟล์ภาพ</button>
+          <button id="buildGeoTiffFieldPack" type="button" class="farmer-primary" disabled>แปลงภาพและเก็บไว้ในเครื่อง</button>
+          <button id="downloadGeoTiffFieldPack" type="button" class="farmer-light" disabled>ดาวน์โหลดไฟล์สำรอง</button>
+        </div>
+        <div id="geoTiffStatus" class="notice" role="status" aria-live="polite" style="margin-top:10px">ยังไม่ได้เลือกไฟล์ภาพ</div>
+        <div id="geoTiffMetadataSummary" class="small" style="margin-top:8px" aria-live="polite"></div>
+        <div class="notice warn" style="margin-top:10px">รุ่นทดลองนี้รองรับภาพที่มีข้อมูลตำแหน่งในรูปแบบที่ระบบรู้จักเท่านั้น หากไฟล์ไม่มีข้อมูลตำแหน่งหรือใช้รูปแบบที่ยังไม่รองรับ ระบบจะปฏิเสธและไม่เดาตำแหน่ง ไฟล์มีขนาดได้ไม่เกิน 50 เมกะไบต์ ภาพมีได้ไม่เกิน 25 ล้านพิกเซล และภาพหลังเตรียมจะมีขนาดไม่เกิน 1,536 พิกเซลต่อด้าน</div>
+        <details style="margin-top:14px"><summary>ฉันมีชุดภาพที่เตรียมไว้แล้ว</summary>
+          <div class="field"><label for="offlineFieldPackFile">เลือกไฟล์ชุดภาพแผนที่</label><input id="offlineFieldPackFile" type="file" accept=".prouvefield,application/json"></div>
+          <div class="btnrow"><button id="importOfflineFieldPack" type="button" class="farmer-secondary">เก็บชุดภาพไว้ในเครื่อง</button><button id="removeOfflineFieldPack" type="button" class="farmer-light">ลบชุดภาพจากเครื่อง</button></div>
+          <div id="offlineFieldPackMessage" class="notice" role="status" aria-live="polite" style="margin-top:8px">ยังไม่มีชุดภาพแปลงในเครื่อง</div>
+        </details>
+      </div>
+      </details>
+    </div>
+    <div id="guideTab" class="tabpage">
+      <h2 class="section-title">วิธีใช้และข้อควรทราบ</h2>
+      <ul class="small">
+        <li>พิกัดสมมติใช้ทดสอบการคำนวณเท่านั้น ไม่ใช่ตำแหน่งจริงบนแผนที่</li>
+        <li>หากนำเข้าพิกัดละติจูดและลองจิจูด ระบบจะแปลงเป็นพิกัดหน่วยเมตรก่อนคำนวณ</li>
+        <li>ไฟล์ขอบเขตแผนที่ ต้องเรียงลองจิจูดก่อนละติจูด</li>
+        <li>การนำเข้าไฟล์พิกัดไม่ได้แปลว่าผ่านการตรวจสำรวจโดยอัตโนมัติ</li>
+        <li>เส้นทางจากเครื่องรับพิกัดเป็นข้อมูลต้นฉบับ ต้องตรวจว่าจุดเรียงรอบแปลงและแนวเส้นไม่ตัดกันก่อนใช้เป็นขอบเขตแปลง</li>
+        <li>การยืนยันจากผลสำรวจต้องมีแนวเขตอ้างอิงแยกต่างหาก พร้อมชื่อผู้สำรวจ วันที่ วิธีสำรวจ และผลเปรียบเทียบที่ผ่านเกณฑ์ที่กำหนดไว้ก่อน</li>
+        <li>ค่าความคลาดเคลื่อนของแนวขอบเป็นค่าประมาณจากจุดที่สุ่มตรวจ ไม่ใช่การตรวจทุกตำแหน่งตลอดแนว</li>
+        <li>ภาพแผนที่ไม่ได้รับรองความถูกต้องของแนวเขต และวันถ่ายภาพหรือความละเอียดอาจไม่มีข้อมูลให้ตรวจสอบ</li>
+        <li>รุ่นนี้รองรับแปลงหนึ่งผืนที่เป็นรูปปิดหนึ่งวง ยังไม่รองรับแปลงหลายส่วน มีรูตรงกลาง หรือคร่อมเขตพิกัด</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+<div class="footer">โปรเว่ สเปเชียล รุ่นทดลอง ช่วยวาดและตรวจแนวเขตแปลง · ภาพแผนที่ออนไลน์ต้องใช้อินเทอร์เน็ต ส่วนภาพที่เตรียมเก็บไว้ในเครื่องใช้ได้เมื่อออฟไลน์ · กรุณาตรวจแนวเขตกับพื้นที่จริงก่อนนำไปวางแผนปลูก</div>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const SAMPLE = [[0,0],[24,0],[22,16],[8,18],[0,12]];
+let project = {boundaryId:'PS-FU01-V05',fieldName:'แปลงทดสอบ PS-FU01',inputCrs:'LOCAL:METRE',workingCrs:'LOCAL:METRE',sourceNote:'',sourceVertices:[],vertices:[],surveyVertices:[],status:'DRAFT',metadata:{sourceType:'manual_coordinate',units:'m',acquisitionDate:null,sourceResolutionM:null,editHistory:[]},survey:{},events:[],validation:null,surveyComparison:null};
+let undoStack=[]; let dragIndex=-1; let dragBounds=null; let selectedIndex=-1; let drawing=true; let viewBounds=null;
+const statusNames={DRAFT:'ร่างแนวเขต',NEEDS_FIELD_CHECK:'รอตรวจพื้นที่จริง',USER_CONFIRMED:'ผู้ใช้ยืนยันแล้ว',SURVEY_VERIFIED:'ตรวจเทียบข้อมูลสำรวจแล้ว'};
+function deep(obj){return JSON.parse(JSON.stringify(obj));}
+function logEvent(action,detail=''){project.events.unshift({timestamp:new Date().toISOString(),action,detail}); if(project.events.length>100)project.events.length=100; renderEvents();}
+function ensureSourceLineage(){
+  if(!project.metadata||typeof project.metadata!=='object')project.metadata={};
+  if(!project.metadata.sourceType){project.metadata.sourceType='imported_project_unknown';project.metadata.sourceOriginStatus='unknown';}
+  if(!Array.isArray(project.metadata.sourceLineage))project.metadata.sourceLineage=[];
+  if(project.metadata.sourceLineage.length===0&&project.metadata.sourceType!=='not_started'){
+    const unknown=project.metadata.sourceType==='imported_project_unknown';
+    project.metadata.sourceOriginStatus=unknown?'unknown':'legacy_unverified';
+    project.metadata.sourceLineage.push({timestamp:null,sourceType:project.metadata.sourceType,operation:'LEGACY_SOURCE_METADATA',provenanceStatus:unknown?'source_origin_unknown':'legacy_source_type_unverified_no_history',sourceFile:project.metadata.sourceFile||null,sourceFormat:project.metadata.sourceFormat||null,inputCrs:project.inputCrs||null,workingCrs:project.workingCrs||null,note:unknown?'ข้อมูลเดิมไม่มีรหัสแหล่งที่มาและไม่มีประวัติเหตุการณ์ จึงระบุแหล่งกำเนิดไม่ได้':'ข้อมูลเดิมมีรหัสแหล่งที่มาแต่ไม่มีประวัติเหตุการณ์ ระบบเดิมอาจเปลี่ยนรหัสตามระบบพิกัด จึงยังยืนยันแหล่งกำเนิดจริงไม่ได้'});
+  }
+  return project.metadata.sourceLineage;
+}
+function recordSourceLineage(sourceType,operation,details={}){
+  if(!project.metadata||typeof project.metadata!=='object')project.metadata={};
+  if(!Array.isArray(project.metadata.sourceLineage))project.metadata.sourceLineage=[];
+  const history=project.metadata.sourceLineage;
+  const now=new Date().toISOString();
+  const item={timestamp:now,sourceType,operation,provenanceStatus:'recorded_in_app',sourceFile:details.sourceFile??project.metadata.sourceFile??null,sourceFormat:details.sourceFormat??project.metadata.sourceFormat??null,inputCrs:details.inputCrs??project.inputCrs??crs(),workingCrs:details.workingCrs??project.workingCrs??working(),provider:details.provider??project.metadata.basemapProvider??null,note:details.note||''};
+  project.metadata.sourceType=sourceType;
+  history.push(item);
+  if(history.length>100)history.splice(0,history.length-100);
+  project.metadata.sourceOriginStatus='recorded_in_app';
+  return item;
+}
+function snapshot(){undoStack.push({sourceVertices:deep(project.sourceVertices),vertices:deep(project.vertices)}); if(undoStack.length>50)undoStack.shift();}
+function invalidateOnEdit(){project.status='DRAFT';project.confirmation=null;$('confirmCheck').checked=false;$('confirmedBy').value='';project.surveyVertices=[];project.survey={};project.surveyComparison=null;project.surveyVerifiedAt=null;$('surveyAccuracyBoundConfirmed').checked=false;$('surveyText').value='';$('surveyResult').textContent='แก้ไขแนวแปลงแล้ว ระบบล้างผลเปรียบเทียบเดิม';$('markSurveyVerified').disabled=true;logEvent('BOUNDARY_EDITED','สถานะ reset to DRAFT; prior confirmation/verification invalidated.');}
+function crs(){return $('inputCrs').value;}
+function working(){return crs()==='EPSG:4326' ? $('workingCrs').value : crs();}
+function setระบบพิกัดUI(){const c=crs();$('workingCrsBox').classList.toggle('hidden',c!=='EPSG:4326');$('coordHelp').textContent=c==='EPSG:4326'?'กรอกลองจิจูดและละติจูดเป็นองศาทศนิยม แล้วเลือกเขตพิกัดสำหรับคำนวณ':c==='LOCAL:METRE'?'พิกัดสมมติ: แกนนอนและแกนตั้งมีหน่วยเป็นเมตร ยังไม่มีตำแหน่งบนแผนที่จริง':'กรอกพิกัดแนวตะวันออกและแนวเหนือ หน่วยเมตร';$('newX').placeholder=c==='EPSG:4326'?'ลองจิจูด':'พิกัดแนวตะวันออก';$('newY').placeholder=c==='EPSG:4326'?'ละติจูด':'พิกัดแนวเหนือ';$('crsNotice').textContent=c==='LOCAL:METRE'?'พิกัดสมมติใช้ทดสอบการคำนวณเท่านั้น ไม่สามารถแสดงตำแหน่งจริงบนแผนที่ได้':c==='EPSG:4326'?'ระบบจะแปลงละติจูดและลองจิจูดเป็นพิกัดหน่วยเมตรก่อนคำนวณพื้นที่และระยะ':'ระบบพิกัดที่เลือกใช้หน่วยเมตรสำหรับคำนวณโดยตรง';$('crsNotice').className='notice '+(c==='LOCAL:METRE'?'warn':'');$('exportGeojson').disabled=working()==='LOCAL:METRE';}
+const deg=x=>x*Math.PI/180, rad=x=>x*180/Math.PI;
+function wgs84ToUtm(lon,lat,zone){
+ const a=6378137,f=1/298.257223563,k0=0.9996,e2=f*(2-f),ep2=e2/(1-e2),phi=deg(lat),lam=deg(lon),lam0=deg(zone*6-183);
+ const lonMin=zone===47?96:102,lonMax=zone===47?102:108;if(lat< -80||lat>84)throw Error('ค่าละติจูดอยู่นอกช่วงที่ระบบรองรับ');if(lon<lonMin||lon>=lonMax)throw Error(`ค่าลองจิจูด ${lon} อยู่นอกเขตพิกัดที่เลือก ${zone}`);
+ const s=Math.sin(phi),c=Math.cos(phi),t=Math.tan(phi),N=a/Math.sqrt(1-e2*s*s),T=t*t,C=ep2*c*c,A=c*(lam-lam0);
+ const e4=e2*e2,e6=e4*e2;
+ const M=a*((1-e2/4-3*e4/64-5*e6/256)*phi-(3*e2/8+3*e4/32+45*e6/1024)*Math.sin(2*phi)+(15*e4/256+45*e6/1024)*Math.sin(4*phi)-(35*e6/3072)*Math.sin(6*phi));
+ const E=500000+k0*N*(A+(1-T+C)*A**3/6+(5-18*T+T*T+72*C-58*ep2)*A**5/120);
+ const NN=k0*(M+N*t*(A*A/2+(5-T+9*C+4*C*C)*A**4/24+(61-58*T+T*T+600*C-330*ep2)*A**6/720));return [E,NN];
+}
+function utmToWgs84(E,Nn,zone){
+ const a=6378137,f=1/298.257223563,k0=.9996,e2=f*(2-f),ep2=e2/(1-e2),e1=(1-Math.sqrt(1-e2))/(1+Math.sqrt(1-e2));
+ const x=E-500000,y=Nn,M=y/k0,mu=M/(a*(1-e2/4-3*e2*e2/64-5*e2**3/256));
+ const J1=3*e1/2-27*e1**3/32,J2=21*e1**2/16-55*e1**4/32,J3=151*e1**3/96,J4=1097*e1**4/512;
+ const fp=mu+J1*Math.sin(2*mu)+J2*Math.sin(4*mu)+J3*Math.sin(6*mu)+J4*Math.sin(8*mu),s=Math.sin(fp),c=Math.cos(fp),t=Math.tan(fp);
+ const C1=ep2*c*c,T1=t*t,N1=a/Math.sqrt(1-e2*s*s),R1=a*(1-e2)/Math.pow(1-e2*s*s,1.5),D=x/(N1*k0),lon0=deg(zone*6-183);
+ const lat=fp-(N1*t/R1)*(D*D/2-(5+3*T1+10*C1-4*C1*C1-9*ep2)*D**4/24+(61+90*T1+298*C1+45*T1*T1-252*ep2-3*C1*C1)*D**6/720);
+ const lon=lon0+(D-(1+2*T1+C1)*D**3/6+(5-2*C1+28*T1-3*C1*C1+8*ep2+24*T1*T1)*D**5/120)/c;return [rad(lon),rad(lat)];
+}
+function forward(pair){const c=crs();if(c==='EPSG:4326')return wgs84ToUtm(+pair[0],+pair[1],working()==='EPSG:32647'?47:48);const x=+pair[0],y=+pair[1];if(c==='EPSG:32647'||c==='EPSG:32648'){if(!(x>=100000&&x<=900000&&y>=0&&y<=10000000))throw Error('พิกัดอยู่นอกช่วงค่าที่ระบบรองรับ');}return [x,y];}
+function inverse(pair){const w=working();if(w==='EPSG:32647')return utmToWgs84(pair[0],pair[1],47);if(w==='EPSG:32648')return utmToWgs84(pair[0],pair[1],48);return pair;}
+function transformImportedPair(pair,src,dst){if(src==='LOCAL:METRE'||dst==='LOCAL:METRE'){if(src!==dst)throw Error('พิกัดสมมติไม่สามารถแปลงเป็นตำแหน่งจริงได้ หากไม่มีข้อมูลอ้างอิงตำแหน่ง');return [+pair[0],+pair[1]];}if(src==='EPSG:4326'){const zone=dst==='EPSG:32647'?47:dst==='EPSG:32648'?48:null;if(!zone)throw Error('ยังไม่รองรับการแปลงไปยังระบบพิกัดปลายทางนี้');return wgs84ToUtm(+pair[0],+pair[1],zone);}if(src===dst){const x=+pair[0],y=+pair[1];if(!(x>=100000&&x<=900000&&y>=0&&y<=10000000))throw Error('พิกัดระนาบอยู่นอกช่วงที่ระบบรองรับ');return [x,y];}throw Error('ยังไม่รองรับการแปลงระบบพิกัดของไฟล์นี้');}
+function fmt(n,d=3){return Number.isFinite(n)?n.toFixed(d):'—';}
+function parseCoordinateLine(line,i,label){const raw=line.split(/[;,\t ]+/);if(raw.length!==2||raw.some(v=>v.trim()===''))throw Error(`บรรทัด ${i+1}: ${label}`);const p=raw.map(Number);if(!p.every(Number.isFinite))throw Error(`บรรทัด ${i+1}: ${label}`);return p;}
+function parseText(text){const lines=text.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);return lines.map((line,i)=>parseCoordinateLine(line,i,'ต้องมีตัวเลข 2 ค่า x,y และห้ามเว้นพิกัดช่องใดช่องหนึ่ง'));}
+function parseWorkingText(text){const lines=text.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);return lines.map((line,i)=>parseCoordinateLine(line,i,'ต้องมีพิกัด x,y เป็นเมตรครบทั้งสองค่า'));}
+function signedArea(p){if(p.length<3)return 0;let a=0;for(let i=0;i<p.length;i++){const q=p[(i+1)%p.length];a+=p[i][0]*q[1]-q[0]*p[i][1];}return a/2;}
+function area(p){return Math.abs(signedArea(p));}
+function orient(a,b,c){const v=(b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]);return Math.abs(v)<1e-9?0:Math.sign(v);}
+function onSeg(a,b,p){return Math.min(a[0],b[0])-1e-9<=p[0]&&p[0]<=Math.max(a[0],b[0])+1e-9&&Math.min(a[1],b[1])-1e-9<=p[1]&&p[1]<=Math.max(a[1],b[1])+1e-9&&orient(a,b,p)===0;}
+function segInt(a,b,c,d){const o1=orient(a,b,c),o2=orient(a,b,d),o3=orient(c,d,a),o4=orient(c,d,b);if(o1*o2<0&&o3*o4<0)return true;return (o1===0&&onSeg(a,b,c))||(o2===0&&onSeg(a,b,d))||(o3===0&&onSeg(c,d,a))||(o4===0&&onSeg(c,d,b));}
+function validatePoly(p){const errors=[];if(p.length<3)errors.push('ต้องมีจุดยอดอย่างน้อย 3 จุด');if(p.some(q=>q.length!==2||!q.every(Number.isFinite)))errors.push('พิกัดต้องเป็นตัวเลขที่ใช้คำนวณได้');const key=p.map(q=>q.join(','));if(new Set(key).size!==key.length)errors.push('พบจุดที่มีพิกัดซ้ำกัน');if(p.length>=3){for(let i=0;i<p.length;i++){const a=p[i],b=p[(i+1)%p.length];if(Math.hypot(a[0]-b[0],a[1]-b[1])<1e-9)errors.push(`ด้านที่ ${i+1} มีความยาวเป็นศูนย์`);for(let j=i+1;j<p.length;j++){if(j===i||j===(i+1)%p.length||(j+1)%p.length===i)continue;if(segInt(a,b,p[j],p[(j+1)%p.length]))errors.push(`ขอบ ${i+1} ตัดกับขอบ ${j+1}`);}}if(area(p)<1e-8)errors.push('พื้นที่เป็นศูนย์หรือเล็กเกินไป');}return {valid:errors.length===0,errors,area:area(p),signedArea:signedArea(p)};}
+function nearestSegment(p,a,b){const dx=b[0]-a[0],dy=b[1]-a[1],den=dx*dx+dy*dy;if(!den)return Math.hypot(p[0]-a[0],p[1]-a[1]);const t=Math.max(0,Math.min(1,((p[0]-a[0])*dx+(p[1]-a[1])*dy)/den));return Math.hypot(p[0]-(a[0]+t*dx),p[1]-(a[1]+t*dy));}
+function samples(poly,step=.5){const out=[];poly.forEach((a,i)=>{const b=poly[(i+1)%poly.length],len=Math.hypot(b[0]-a[0],b[1]-a[1]),n=Math.max(1,Math.floor(len/step)+1);for(let k=0;k<n;k++){const t=k/n;out.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]);}});return out;}
+function comparePolys(a,b,step=.5){const sa=samples(a,step),sb=samples(b,step),da=sa.map(p=>Math.min(...b.map((q,i)=>nearestSegment(p,q,b[(i+1)%b.length])))),db=sb.map(p=>Math.min(...a.map((q,i)=>nearestSegment(p,q,a[(i+1)%a.length])))),all=da.concat(db),aa=area(a),ab=area(b);return {areaDraft:aa,areaSurvey:ab,areaDifference:Math.abs(aa-ab),relativeAreaDifferencePct:Math.abs(aa-ab)/Math.max(ab,1e-12)*100,meanBoundaryDistance:all.reduce((s,x)=>s+x,0)/all.length,maxSampledBoundaryDistance:Math.max(...all),sampleSpacing:step,nSamples:all.length};}
+function assessSurveyComparison(metrics,survey){const tolerance=Number(survey.toleranceM),u=Number(survey.reportedAccuracyM),observed=metrics.maxSampledBoundaryDistance,spacingMargin=metrics.sampleSpacing/2;const base={...metrics,passed:false,outcome:'INCONCLUSIVE',referenceErrorBoundM:u,samplingResolutionMarginM:spacingMargin,observedDistanceLowerBoundM:null,conservativeDistanceUpperBoundM:null,decisionRule:'interval_bound_v1'};if(survey.accuracyBoundConfirmed!==true){base.reason='เอกสารยังไม่ได้ยืนยันว่าค่าที่รายงานเป็นขอบเขตความคลาดเคลื่อนแนวราบสูงสุด';return base;}if(!Number.isFinite(tolerance)||tolerance<0||!Number.isFinite(u)||u<0){base.reason='ค่าความคลาดเคลื่อนหรือระยะที่ยอมรับได้ไม่ถูกต้อง';return base;}const lower=Math.max(0,observed-u),upper=observed+spacingMargin+u;base.observedDistanceLowerBoundM=lower;base.conservativeDistanceUpperBoundM=upper;if(lower>tolerance){base.outcome='FAIL';base.reason='แม้หักขอบเขตความคลาดเคลื่อนของข้อมูลอ้างอิงแล้ว ระยะต่างที่ตรวจพบยังเกินเกณฑ์';}else if(upper<=tolerance){base.outcome='PASS';base.passed=true;base.reason='ขอบเขตบนแบบอนุรักษ์นิยมของระยะต่างไม่เกินเกณฑ์';}else{base.outcome='INCONCLUSIVE';base.reason='ช่วงความไม่แน่นอนคร่อมเกณฑ์ จึงยังสรุปว่าผ่านหรือไม่ผ่านไม่ได้';}return base;}
+function recordEdit(reason){project.updatedAt=new Date().toISOString();project.metadata.editHistory.push({timestamp:project.updatedAt,action:'EDIT',detail:reason});invalidateOnEdit();}
+function resetSample(){ drawing=true;viewBounds=null;$('canvasHint').textContent='แตะเพื่อเพิ่มมุม · ลากจุดเพื่อแก้ไข'; $('fieldName').value='แปลงทดสอบ PS-FU01';$('fieldId').value='PS-FU01-V05';$('inputCrs').value='LOCAL:METRE';setระบบพิกัดUI();snapshot();project.sourceVertices=deep(SAMPLE);project.vertices=deep(SAMPLE);project.inputCrs='LOCAL:METRE';project.workingCrs='LOCAL:METRE';project.metadata.sourceType='manual_local_drawing';project.metadata.sourceLineage=[];recordSourceLineage('manual_local_drawing','LOAD_SYNTHETIC_SAMPLE',{inputCrs:'LOCAL:METRE',workingCrs:'LOCAL:METRE',note:'ชุดพิกัดตัวอย่างสังเคราะห์ ไม่ใช่ตำแหน่งจริง'});project.sourceNote='ข้อมูลตัวอย่างสำหรับทดลองใช้เท่านั้น ไม่ใช่ตำแหน่งจริง';$('sourceNote').value=project.sourceNote;syncText();recordEdit('เปิดแปลงตัวอย่างเพื่อทดสอบ โดยใช้พิกัดสมมติ ไม่ใช่ตำแหน่งจริง');render();}
+function syncText(){const source=project.sourceVertices.map(p=>p.map(v=>Number(v.toFixed(6))).join(',')).join('\n');$('coordText').value=source;}
+function applyแหล่งข้อมูลPoints(pts,reason){const nextInputCrs=crs(),nextWorkingCrs=working(),isFirstGeometry=project.sourceVertices.length===0;const converted=pts.map(forward);snapshot();project.inputCrs=nextInputCrs;project.workingCrs=nextWorkingCrs;project.sourceVertices=deep(pts);project.vertices=converted;project.surveyVertices=[];project.survey={};project.surveyComparison=null;if(isFirstGeometry&&['not_started','imported_project_unknown'].includes(project.metadata.sourceType)){const origin=nextInputCrs==='LOCAL:METRE'?'manual_local_drawing':'manual_coordinate';recordSourceLineage(origin,'MANUAL_COORDINATE_ENTRY',{note:'เริ่มสร้างขอบเขตจากพิกัดที่ผู้ใช้ป้อน'});}if(reason!=='เพิ่มมุมแปลง')viewBounds=null;recordEdit(reason);syncText();render();}
+function workingToแหล่งข้อมูล(p){if(crs()==='EPSG:4326')return inverse(p);return p;}
+function renderTable(){const body=$('vertexRows');body.innerHTML='';if(!project.sourceVertices.length){body.innerHTML='<tr><td colspan="4" class="small">ยังไม่มีจุดยอด</td></tr>';return;}project.sourceVertices.forEach((p,i)=>{const tr=document.createElement('tr');tr.innerHTML=`<td>${i+1}</td><td><input aria-label="x ${i+1}" type="number" step="any" value="${p[0]}" data-index="${i}" data-axis="0"></td><td><input aria-label="y ${i+1}" type="number" step="any" value="${p[1]}" data-index="${i}" data-axis="1"></td><td><button class="danger" data-remove="${i}">ลบ</button></td>`;body.appendChild(tr);});body.querySelectorAll('input').forEach(inp=>inp.addEventListener('change',()=>{const i=+inp.dataset.index,a=+inp.dataset.axis,v=Number(inp.value);if(!Number.isFinite(v))return;const src=deep(project.sourceVertices);src[i][a]=v;try{applyแหล่งข้อมูลPoints(src,'แก้ไขมุมที่ ' +(i+1));}catch(e){alert(e.message);renderTable();}}));body.querySelectorAll('[data-remove]').forEach(btn=>btn.addEventListener('click',()=>{const pts=deep(project.sourceVertices);pts.splice(+btn.dataset.remove,1);try{applyแหล่งข้อมูลPoints(pts,'ลบมุมแปลง');}catch(e){alert(e.message);}}));}
+function computeViewBounds(){const pts=project.vertices.length?project.vertices:[[0,0],[30,0],[30,25],[0,25]],xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);let minX=Math.min(...xs),maxX=Math.max(...xs),minY=Math.min(...ys),maxY=Math.max(...ys);let dx=maxX-minX||30,dy=maxY-minY||25,pad=Math.max(dx,dy)*.12+1;return {minX:minX-pad,maxX:maxX+pad,minY:minY-pad,maxY:maxY+pad};}
+function bounds(){return viewBounds||computeViewBounds();}
+function projectToSvg(p,b){const x=40+(p[0]-b.minX)/(b.maxX-b.minX)*680,y=440-(p[1]-b.minY)/(b.maxY-b.minY)*400;return [x,y];}
+function svgToProject(x,y,b){return [b.minX+(x-40)/680*(b.maxX-b.minX),b.minY+(440-y)/400*(b.maxY-b.minY)];}
+function renderCanvas(){const layer=$('plotLayer'),b=bounds();layer.innerHTML='';for(let i=0;i<=8;i++){const x=40+i*85;layer.insertAdjacentHTML('beforeend',`<text x="${x}" y="461" class="axistext" text-anchor="middle">${fmt(b.minX+(b.maxX-b.minX)*i/8,1)}</text>`);}for(let i=0;i<=6;i++){const y=40+i*66;layer.insertAdjacentHTML('beforeend',`<text x="13" y="${y+3}" class="axistext">${fmt(b.maxY-(b.maxY-b.minY)*i/6,1)}</text>`);}if(project.surveyVertices.length>=3){const s=project.surveyVertices.map(p=>projectToSvg(p,b));layer.insertAdjacentHTML('beforeend',`<polygon class="survey" points="${s.map(p=>p.join(',')).join(' ')}"/>`);s.forEach(([x,y])=>layer.insertAdjacentHTML('beforeend',`<circle class="svvertex" cx="${x}" cy="${y}" r="4"/>`));}if(project.vertices.length>=3){const q=project.vertices.map(p=>projectToSvg(p,b));layer.insertAdjacentHTML('beforeend',`<polygon class="boundary" points="${q.map(p=>p.join(',')).join(' ')}"/>`);}project.vertices.forEach((p,i)=>{const [x,y]=projectToSvg(p,b);layer.insertAdjacentHTML('beforeend',`<circle class="vertex ${selectedIndex===i?'selected':''}" data-vertex="${i}" cx="${x}" cy="${y}" r="6.5"><title>มุมแปลง ${i+1}: ${p[0]}, ${p[1]}</title></circle>`);});}
+function renderสถานะ(){const el=$('statusBadge');el.className='status '+project.status;el.textContent=statusNames[project.status];$('markNeeds').disabled=project.status!=='DRAFT'||!project.validation?.valid;$('markConfirmed').disabled=project.status!=='NEEDS_FIELD_CHECK'||!$('confirmCheck').checked;$('markSurveyVerified').disabled=project.status!=='USER_CONFIRMED'||!project.surveyComparison?.passed||project.workingCrs==='LOCAL:METRE'||!project.survey?.date;}
+function renderEvents(){const labels={BOUNDARY_EDITED:'แก้ไขแนวเขตแปลง',BASEMAP_SELECTED:'เปลี่ยนภาพแผนที่',STATUS_CHANGED:'เปลี่ยนสถานะการตรวจสอบ',MAP_DIGITIZING_STARTED:'เริ่มวาดแนวแปลงบนแผนที่',MAP_DIGITIZING_FINISHED:'วาดแนวแปลงเสร็จแล้ว',GPS_OR_GEO_IMPORT:'นำเข้าพิกัดจากไฟล์',SURVEY_REFERENCE_IMPORTED:'นำเข้าข้อมูลสำรวจอ้างอิง',SURVEY_COMPARE:'เปรียบเทียบแนวเขต',SURVEY_REFERENCE_CLEARED:'ลบข้อมูลสำรวจอ้างอิง',EDIT:'แก้ไขข้อมูลแปลง',UNDO:'ย้อนกลับการแก้ไข',PROJECT_IMPORTED:'เปิดไฟล์ข้อมูลแปลง',IMPORT_STATUS_DOWNGRADED:'ลดระดับสถานะเพื่อรอตรวจสอบใหม่'};$('eventLog').innerHTML=project.events.slice(0,8).map(e=>`<div><b>${new Date(e.timestamp).toLocaleString('th-TH')}</b><br>${labels[e.action]||'ปรับปรุงข้อมูลแปลง'}</div>`).join('');}
+function crsThaiName(value){return ({'LOCAL:METRE':'พิกัดสมมติ หน่วยเมตร','EPSG:4326':'ละติจูดและลองจิจูด (ดับเบิลยูจีเอส 84)','EPSG:32647':'พิกัดระนาบ เขต 47','EPSG:32648':'พิกัดระนาบ เขต 48'})[value]||'ไม่ทราบระบบพิกัด';}
+function sourceThaiName(value){return ({manual_local_drawing:'วาดจากพิกัดสมมติ',manual_coordinate:'กรอกพิกัดด้วยตนเอง',basemap_digitized:'วาดจากแผนที่',not_started:'ยังไม่ได้เริ่ม',gps_gpx_import:'นำเข้าจากไฟล์เส้นทาง',gps_csv_import:'นำเข้าจากตารางพิกัด',geojson_import:'นำเข้าจากไฟล์ขอบเขตแผนที่',imported_project_unknown:'นำเข้าข้อมูลเดิม (ไม่ทราบแหล่งกำเนิด)'})[value]||'ข้อมูลที่นำเข้า';}
+function render(){project.validation=validatePoly(project.vertices);const v=project.validation;$('vertexCount').textContent=project.vertices.length;$('areaValue').textContent=v.valid?fmt(v.area,3):'—';$('validValue').textContent=v.valid?'ถูกต้อง':'ต้องแก้ไข';$('validValue').style.color=v.valid?'#176b3a':'#a52a2a';$('validationMessage').className='notice '+(v.valid?'ok':'err');$('validationMessage').textContent=v.valid?`ตรวจรูปแปลงผ่าน · ${project.vertices.length} มุม · พื้นที่ ${fmt(v.area,4)} ตารางเมตร · ${crsThaiName(project.workingCrs)}`:'แนวแปลงยังมีปัญหา: '+v.errors.join(' · ');$('exportGeojson').disabled=project.workingCrs==='LOCAL:METRE'||!v.valid;$('exportJson').disabled=!v.valid;$('metadataSummary').innerHTML=`<div class="statrow"><span>ชื่อแปลง</span><b>${escapeHtml(project.fieldName||'ยังไม่ได้ตั้งชื่อ')}</b></div><div class="statrow"><span>รหัสแปลง</span><b>${escapeHtml(project.boundaryId)}</b></div><div class="statrow"><span>พิกัดที่รับเข้า</span><b>${crsThaiName(project.inputCrs)}</b></div><div class="statrow"><span>พิกัดที่ใช้คำนวณ</span><b>${crsThaiName(project.workingCrs)}</b></div><div class="statrow"><span>หน่วยคำนวณ</span><b>เมตร</b></div><div class="statrow"><span>แหล่งข้อมูล</span><b>${sourceThaiName(project.metadata.sourceType)}</b></div><div class="statrow"><span>การตรวจสอบแหล่งที่มา</span><b>${project.metadata.sourceOriginStatus==='recorded_in_app'?'มีประวัติในแอป':project.metadata.sourceOriginStatus==='legacy_unverified'?'ข้อมูลเดิมยังยืนยันไม่ได้':project.metadata.sourceOriginStatus==='unknown'?'ไม่ทราบแหล่งกำเนิด':'ยังไม่ได้บันทึก'}</b></div><div class="statrow"><span>สถานะขอบเขต</span><b>${statusNames[project.status]||'ร่างแนวเขต'}</b></div><div class="statrow"><span>แก้ไขล่าสุด</span><b>${project.updatedAt?new Date(project.updatedAt).toLocaleString('th-TH'):'ยังไม่มีข้อมูล'}</b></div>`;renderTable();renderCanvas();renderสถานะ();}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function addแหล่งข้อมูลมุมแปลง(x,y){if(!viewBounds)viewBounds=computeViewBounds();const src=deep(project.sourceVertices);src.push([x,y]);drawing=true;applyแหล่งข้อมูลPoints(src,'เพิ่มมุมแปลง');$('canvasHint').textContent='แตะเพื่อเพิ่มมุม · ลากจุดเพื่อแก้ไข';}
+$('inputCrs').addEventListener('change',()=>{const previous=project.inputCrs,prior=project.sourceVertices.length?deep(project.sourceVertices):null;setระบบพิกัดUI();if(prior){if(confirm('ต้องการอ่านพิกัดเดิมตามรูปแบบที่เลือก แล้วแปลงเป็นระบบพิกัดสำหรับคำนวณหรือไม่?')){try{applyแหล่งข้อมูลPoints(prior,'เปลี่ยนวิธีอ่านพิกัดต้นทาง');}catch(e){alert(e.message);$('inputCrs').value=previous;setระบบพิกัดUI();}}else{$('inputCrs').value=previous;setระบบพิกัดUI();}}});$('workingCrs').addEventListener('change',()=>{const previous=project.workingCrs,prior=project.sourceVertices.length?deep(project.sourceVertices):null;if(prior){if(confirm('ต้องการแปลงพิกัดละติจูดและลองจิจูดไปเป็นพิกัดระนาบเขตที่เลือกใหม่หรือไม่?')){try{applyแหล่งข้อมูลPoints(prior,'เปลี่ยนระบบพิกัดที่ใช้คำนวณ');}catch(e){$('workingCrs').value=previous;setระบบพิกัดUI();render();alert(e.message);}}else{$('workingCrs').value=previous;setระบบพิกัดUI();}}else{project.workingCrs=$('workingCrs').value;setระบบพิกัดUI();}});$('applyCoords').addEventListener('click',()=>{try{const pts=parseText($('coordText').value);if(pts.length<3)throw Error('ต้องมีอย่างน้อย 3 จุด');applyแหล่งข้อมูลPoints(pts,'นำรายการพิกัดมาใช้');}catch(e){alert(e.message);}});
+$('loadDemo').addEventListener('click',resetSample);$('clearBoundary').addEventListener('click',()=>{if(!confirm('ต้องการลบแนวเขตแปลงปัจจุบันหรือไม่?'))return;snapshot();viewBounds=null;project.sourceVertices=[];project.vertices=[];project.surveyVertices=[];project.surveyComparison=null;recordEdit('ลบขอบเขตแปลง');syncText();render();});
+$('addมุมแปลง').addEventListener('click',()=>{if($('newX').value.trim()===''||$('newY').value.trim()===''){alert('กรุณากรอกตัวเลขตำแหน่งให้ครบทั้งสองช่อง');return;}const x=Number($('newX').value),y=Number($('newY').value);if(!Number.isFinite(x)||!Number.isFinite(y)){alert('กรุณากรอกตัวเลขตำแหน่งให้ครบทั้งสองช่อง');return;}try{addแหล่งข้อมูลมุมแปลง(x,y);$('newX').value='';$('newY').value='';}catch(e){alert(e.message);}});
+$('closeRing').addEventListener('click',()=>{if(project.sourceVertices.length<3)return;drawing=false;syncText();$('canvasHint').textContent='จบการวาดแล้ว · ลากจุดยอดเพื่อแก้ไข หรือกดเพิ่มจุดยอดเพื่อวาดต่อ';alert('เชื่อมมุมสุดท้ายกลับไปยังมุมแรกแล้ว');});$('finishDrawing').addEventListener('click',()=>{$('closeRing').click();});
+$('undoBtn').addEventListener('click',()=>{const s=undoStack.pop();if(!s)return;project.sourceVertices=s.sourceVertices;project.vertices=s.vertices;project.surveyVertices=[];project.surveyComparison=null;project.status='DRAFT';logEvent('UNDO','ย้อนกลับไปยังตำแหน่งก่อนหน้าและเปลี่ยนสถานะเป็นร่างใหม่');syncText();render();});
+$('confirmCheck').addEventListener('change',renderสถานะ);$('markNeeds').addEventListener('click',()=>{if(!project.validation?.valid)return;project.status='NEEDS_FIELD_CHECK';logEvent('STATUS_CHANGED','เปลี่ยนจากร่างเป็นรอตรวจพื้นที่จริง');renderสถานะ();});
+$('markConfirmed').addEventListener('click',()=>{if(!$('confirmCheck').checked){alert('กรุณาทำเครื่องหมายยืนยันก่อนดำเนินการ');return;}project.status='USER_CONFIRMED';project.confirmation={confirmedBy:$('confirmedBy').value.trim()||'ไม่ได้ระบุชื่อผู้ยืนยัน',confirmedAt:new Date().toISOString(),explicitConfirmation:true};logEvent('STATUS_CHANGED','ผู้ใช้ยืนยันการตรวจแนวเขต: '+project.confirmation.confirmedBy);renderสถานะ();});
+$('compareSurvey').addEventListener('click',()=>{try{if(!project.validation?.valid)throw Error('กรุณาสร้างแนวเขตแปลงหลักให้ถูกต้องก่อน');const pts=parseWorkingText($('surveyText').value);const v=validatePoly(pts);if(!v.valid)throw Error('ขอบเขตจากการสำรวจยังไม่ถูกต้อง: '+v.errors.join(' · '));if(project.workingCrs==='LOCAL:METRE')$('surveyResult').innerHTML='<b>หมายเหตุ:</b> ขณะนี้เป็นพิกัดสมมติ จึงเปรียบเทียบได้เฉพาะรูปร่างบนระนาบ ไม่ใช่การตรวจสอบตำแหน่งบนพื้นโลก';const tol=Number($('surveyTolerance').value),accuracy=Number($('surveyAccuracy').value);if(!Number.isFinite(tol)||tol<0||!Number.isFinite(accuracy)||accuracy<0)throw Error('ค่าความคลาดเคลื่อนต้องเป็นศูนย์หรือค่าบวก');const recordId=$('surveyRecordId').value.trim(),surveyor=$('surveyorName').value.trim();if(!recordId||!surveyor||!$('surveyDate').value)throw Error('กรุณากรอกเลขที่เอกสาร ชื่อผู้สำรวจ และวันที่สำรวจ');if($('surveyAccuracy').value.trim()===''||$('surveyTolerance').value.trim()==='')throw Error('กรุณากรอกค่าความคลาดเคลื่อนตามเอกสารและระยะที่ยอมรับได้');const m=comparePolys(project.vertices,pts,.1);const survey={recordId,surveyor,method:$('surveyMethod').value,date:$('surveyDate').value,reportedAccuracyM:accuracy,accuracyBoundConfirmed:$('surveyAccuracyBoundConfirmed').checked,accuracyBoundType:$('surveyAccuracyBoundConfirmed').checked?'documented_max_horizontal_error_bound':null,toleranceM:tol,referenceระบบพิกัด:project.workingCrs};const comparison=assessSurveyComparison(m,survey),outcome=comparison.outcome,passed=comparison.passed;project.surveyVertices=pts;project.survey=survey;project.surveyComparison=comparison;const outcomeLabel=outcome==='PASS'?'ผ่านตามเกณฑ์':outcome==='FAIL'?'ไม่ผ่านตามเกณฑ์':'ยังสรุปไม่ได้';const outcomeClass=outcome==='PASS'?'ok':outcome==='FAIL'?'err':'warn';$('surveyResult').innerHTML=`<div class="statrow"><span>พื้นที่จากแนวเขตที่วาด</span><b>${fmt(m.areaDraft,4)} ตารางเมตร</b></div><div class="statrow"><span>พื้นที่จากข้อมูลสำรวจ</span><b>${fmt(m.areaSurvey,4)} ตารางเมตร</b></div><div class="statrow"><span>พื้นที่ที่ต่างกัน</span><b>${fmt(m.areaDifference,4)} ตารางเมตร</b></div><div class="statrow"><span>ระยะต่างเฉลี่ยตามแนวขอบที่สุ่มตรวจ</span><b>${fmt(m.meanBoundaryDistance,4)} เมตร</b></div><div class="statrow"><span>ระยะต่างมากที่สุดจากจุดที่สุ่มตรวจ</span><b>${fmt(m.maxSampledBoundaryDistance,4)} เมตร</b></div><div class="statrow"><span>ขอบเขตความคลาดเคลื่อนจากเอกสาร</span><b>${fmt(accuracy,4)} เมตร</b></div><div class="statrow"><span>ระยะเผื่อจากการสุ่มตรวจ</span><b>${fmt(comparison.samplingResolutionMarginM,4)} เมตร</b></div><div class="statrow"><span>ช่วงระยะต่างที่ประเมินได้</span><b>${fmt(comparison.observedDistanceLowerBoundM,4)} ถึง ${fmt(comparison.conservativeDistanceUpperBoundM,4)} เมตร</b></div><div class="statrow"><span>ระยะต่างที่ยอมรับได้</span><b>${fmt(tol,3)} เมตร</b></div><div class="notice ${outcomeClass}" style="margin-top:8px"><b>${outcomeLabel}</b><br>${escapeHtml(comparison.reason)}<br><b>หมายเหตุ:</b> ใช้จุดตัวอย่างช่วงไม่เกิน 0.1 เมตรและขอบเขตความคลาดเคลื่อนสูงสุดที่เอกสารระบุ ระบบไม่ตีความค่า RMS/CEP/95% เป็นขอบเขตสูงสุด และไม่รับรองความแท้จริงของเอกสารสำรวจ</div>`;logEvent('SURVEY_COMPARE',`ผล ${outcome}; ระยะต่างตัวอย่างสูงสุด ${m.maxSampledBoundaryDistance.toFixed(4)} เมตร; ช่วงประเมิน ${fmt(comparison.observedDistanceLowerBoundM,4)}–${fmt(comparison.conservativeDistanceUpperBoundM,4)} เมตร; เกณฑ์ ${tol.toFixed(4)} เมตร`);$('markSurveyVerified').disabled=!(passed&&project.status==='USER_CONFIRMED'&&project.workingCrs!=='LOCAL:METRE'&&project.survey.date&&project.survey.recordId&&project.survey.surveyor);renderCanvas();renderสถานะ();}catch(e){alert(e.message);}});
+$('markSurveyVerified').addEventListener('click',()=>{if(project.status!=='USER_CONFIRMED'||!project.surveyComparison?.passed||project.workingCrs==='LOCAL:METRE'||!project.survey.date)return;project.status='SURVEY_VERIFIED';project.surveyVerifiedAt=new Date().toISOString();logEvent('STATUS_CHANGED','ตรวจเทียบกับข้อมูลสำรวจแล้ว');renderสถานะ();});
+$('clearSurvey').addEventListener('click',()=>{project.surveyVertices=[];project.surveyComparison=null;project.survey={};$('surveyAccuracyBoundConfirmed').checked=false;if(project.status==='SURVEY_VERIFIED')project.status=project.confirmation?.explicitConfirmation?'USER_CONFIRMED':'NEEDS_FIELD_CHECK';$('surveyText').value='';$('surveyRecordId').value='';$('surveyorName').value='';$('surveyDate').value='';$('surveyResult').textContent='ลบข้อมูลแนวเขตจากข้อมูลสำรวจแล้ว';$('markSurveyVerified').disabled=true;logEvent('SURVEY_REFERENCE_CLEARED','ลบข้อมูลสำรวจอ้างอิงแล้ว และปรับสถานะตามความเหมาะสม');renderCanvas();renderสถานะ();});
+function invalidateSurveyComparison(){project.surveyComparison=null;project.surveyVertices=[];if(project.status==='SURVEY_VERIFIED')project.status=project.confirmation?.explicitConfirmation?'USER_CONFIRMED':'NEEDS_FIELD_CHECK';$('markSurveyVerified').disabled=true;renderCanvas();renderสถานะ();}
+['surveyText','surveyRecordId','surveyorName','surveyMethod','surveyDate','surveyAccuracy'].forEach(id=>$(id).addEventListener('input',()=>{$('surveyAccuracyBoundConfirmed').checked=false;invalidateSurveyComparison();}));
+$('surveyTolerance').addEventListener('input',invalidateSurveyComparison);$('surveyAccuracyBoundConfirmed').addEventListener('change',invalidateSurveyComparison);
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.tabpage').forEach(x=>x.classList.toggle('active',x.id===b.dataset.tab));if(b.dataset.tab==='mapTab'&&leafletMap){setTimeout(()=>leafletMap.invalidateSize(),120);}}));
+const svg=$('mapCanvas');function pointerPos(evt){const r=svg.getBoundingClientRect(),sx=(evt.clientX-r.left)/r.width*760,sy=(evt.clientY-r.top)/r.height*480;return [sx,sy];}
+svg.addEventListener('pointerdown',evt=>{const c=evt.target.closest('[data-vertex]');if(c){snapshot();dragIndex=+c.dataset.vertex;selectedIndex=dragIndex;dragBounds=bounds();svg.setPointerCapture(evt.pointerId);renderCanvas();return;}if((evt.target===svg||evt.target.tagName==='rect')&&drawing){const b=bounds(),[sx,sy]=pointerPos(evt),p=svgToProject(sx,sy,b);if(working()==='LOCAL:METRE'||project.vertices.length>=3){const src=workingToแหล่งข้อมูล(p);try{addแหล่งข้อมูลมุมแปลง(src[0],src[1]);}catch(e){alert(e.message);}}}});
+svg.addEventListener('pointermove',evt=>{if(dragIndex<0||!dragBounds)return;const [sx,sy]=pointerPos(evt),p=svgToProject(sx,sy,dragBounds);project.vertices[dragIndex]=p;project.sourceVertices[dragIndex]=workingToแหล่งข้อมูล(p);syncText();renderCanvas();});
+svg.addEventListener('pointerup',()=>{if(dragIndex>=0){dragIndex=-1;dragBounds=null;recordEdit('ลากย้ายมุมแปลง');render();}});svg.addEventListener('pointercancel',()=>{dragIndex=-1;});
+function projectDoc(){const v=validatePoly(project.vertices);if(!v.valid)throw Error(v.errors.join('; '));project.fieldName=$('fieldName').value;project.boundaryId=$('fieldId').value;project.sourceNote=$('sourceNote').value;project.inputCrs=crs();project.workingCrs=working();ensureSourceLineage();project.metadata={...project.metadata,sourceType:project.metadata.sourceType||'imported_project_unknown',sourceOriginStatus:project.metadata.sourceOriginStatus||'unknown',sourceLineage:ensureSourceLineage(),sourceNote:project.sourceNote,inputระบบพิกัด:project.inputCrs,inputCoordinateหน่วย:project.inputCrs==='EPSG:4326'?'degree':'เมตร',workingระบบพิกัด:project.workingCrs,workingหน่วย:'เมตร',coordinateTransform:project.inputCrs==='EPSG:4326'?`แปลงพิกัดละติจูดและลองจิจูดเป็นพิกัดระนาบ ${project.workingCrs}`:'ไม่ต้องแปลงพิกัด',createdAt:project.createdAt||new Date().toISOString(),updatedAt:new Date().toISOString(),editHistory:project.events};const fieldReady=project.workingCrs!=='LOCAL:METRE'&&['USER_CONFIRMED','SURVEY_VERIFIED'].includes(project.status);return {schema:'prouve-spatial-boundary-v0.5',project:{name:project.fieldName,id:project.boundaryId},boundary:{status:project.status,inputระบบพิกัด:project.inputCrs,workingระบบพิกัด:project.workingCrs,units:'เมตร',sourceVertices:project.sourceVertices,workingVertices:project.vertices,validation:v},optimizerHandoff:{acceptedForGeometryProcessing:v.valid,readyForFieldUse:fieldReady,warnings:fieldReady?[]:(project.workingCrs==='LOCAL:METRE'?['พิกัดสมมติไม่ใช่พิกัดตำแหน่งจริงบนแผนที่']:['แนวเขตยังไม่ได้รับการยืนยันจากผู้ใช้หรือข้อมูลสำรวจ']),note:'ส่งต่อเฉพาะขอบเขตแปลง สิ่งกีดขวาง ระยะกันชน และข้อมูลพืชจะต้องส่งแยกต่างหาก'},surveyReference:project.surveyVertices.length?{vertices:project.surveyVertices,crs:project.workingCrs,metadata:project.survey,comparison:project.surveyComparison}:null,confirmation:project.confirmation||null,metadata:project.metadata,events:project.events,limitations:['ภาพแผนที่ภายนอกต้องใช้อินเทอร์เน็ตและอาจต้องมีรหัสผ่านตามเงื่อนไขผู้ให้บริการ','ยังไม่รองรับการอ่านภาพถ่ายความละเอียดสูงจากไฟล์ภาพที่มีข้อมูลพิกัดกำกับโดยตรง','ค่าระยะต่างของแนวเขตคำนวณจากจุดตัวอย่าง ไม่ได้ตรวจทุกตำแหน่งตลอดแนว','พิกัดสมมติไม่ใช่พิกัดตำแหน่งจริงบนแผนที่','ภาพดาวเทียมใช้ช่วยร่างแนวเขต ไม่ใช่หลักฐานยืนยันแนวเขตที่ดิน']};}
+function download(name,text,type='application/json'){const blob=new Blob([text],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();URL.revokeObjectURL(url);}
+$('exportJson').addEventListener('click',()=>{try{const doc=projectDoc();download((project.boundaryId||'boundary')+'_v05.json',JSON.stringify(doc,null,2));}catch(e){alert(e.message);}});
+$('copyJson').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(JSON.stringify(projectDoc(),null,2));alert('คัดลอกข้อมูลแปลงแล้ว');}catch(e){alert('คัดลอกไม่ได้ กรุณาดาวน์โหลดข้อมูลแปลงแทน');}});
+$('chooseImport').addEventListener('click',()=>$('importFile').click());
+function stageProjectImport(doc,fileName){
+  if(!doc||doc.schema!=='prouve-spatial-boundary-v0.5')throw Error('ไฟล์นี้ไม่ใช่ไฟล์ข้อมูลแปลงของโปรเว่ สเปเชียล รุ่น 0.5');
+  const bd=doc.boundary||{},src=bd.inputระบบพิกัด,dst=bd.workingระบบพิกัด;
+  if(!['LOCAL:METRE','EPSG:4326','EPSG:32647','EPSG:32648'].includes(src)||!['LOCAL:METRE','EPSG:32647','EPSG:32648'].includes(dst))throw Error('ไฟล์นี้ไม่มีข้อมูลระบบพิกัด หรือใช้ระบบที่ยังไม่รองรับ');
+  if(!Array.isArray(bd.sourceVertices)||!Array.isArray(bd.workingVertices))throw Error('ไฟล์นี้ไม่มีข้อมูลมุมแปลง');
+  if(bd.sourceVertices.length<3||bd.sourceVertices.length>MAX_WEB_VERTICES)throw Error('จำนวนจุดพิกัดต้นทางต้องอยู่ระหว่าง 3 ถึง '+MAX_WEB_VERTICES+' จุด');
+  const validPairs=(arr,label)=>{
+    if(!Array.isArray(arr)||arr.some(p=>!Array.isArray(p)||p.length!==2||!p.every(v=>typeof v==='number'&&Number.isFinite(v))))throw Error(label+' ต้องเป็นคู่ตัวเลขที่ถูกต้อง');
+    return arr.map(p=>[p[0],p[1]]);
+  };
+  const sourceVertices=validPairs(bd.sourceVertices,'พิกัดต้นทาง');
+  const storedWorking=validPairs(bd.workingVertices,'พิกัดที่ใช้คำนวณ');
+  const converted=sourceVertices.map(p=>transformImportedPair(p,src,dst));
+  if(converted.length!==storedWorking.length)throw Error('จำนวนจุดพิกัดต้นทางและพิกัดที่แปลงแล้วไม่ตรงกัน');
+  for(let i=0;i<converted.length;i++)if(Math.hypot(converted[i][0]-storedWorking[i][0],converted[i][1]-storedWorking[i][1])>0.02)throw Error('พิกัดในไฟล์ไม่ตรงกับผลการแปลง กรุณาตรวจสอบไฟล์ต้นฉบับ');
+  const report=validatePoly(converted);
+  if(!report.valid)throw Error('ขอบเขตจากไฟล์ไม่ถูกต้อง: '+report.errors.join('; '));
+
+  // Stage every project field before changing live state or visible controls.
+  const nextMetadata=doc.metadata&&typeof doc.metadata==='object'?deep(doc.metadata):{};
+  if(!nextMetadata.sourceType){nextMetadata.sourceType='imported_project_unknown';nextMetadata.sourceOriginStatus='unknown';}
+  if(!Array.isArray(nextMetadata.sourceLineage))nextMetadata.sourceLineage=[];
+  if(nextMetadata.sourceLineage.length===0&&nextMetadata.sourceType!=='not_started'){
+    const unknown=nextMetadata.sourceType==='imported_project_unknown';
+    nextMetadata.sourceOriginStatus=unknown?'unknown':'legacy_unverified';
+    nextMetadata.sourceLineage.push({timestamp:null,sourceType:nextMetadata.sourceType,operation:'LEGACY_SOURCE_METADATA',provenanceStatus:unknown?'source_origin_unknown':'legacy_source_type_unverified_no_history',sourceFile:nextMetadata.sourceFile||null,sourceFormat:nextMetadata.sourceFormat||null,inputCrs:src,workingCrs:dst,note:unknown?'ข้อมูลเดิมไม่มีรหัสแหล่งที่มาและไม่มีประวัติเหตุการณ์ จึงระบุแหล่งกำเนิดไม่ได้':'ข้อมูลเดิมมีรหัสแหล่งที่มาแต่ไม่มีประวัติเหตุการณ์ จึงยังยืนยันแหล่งกำเนิดจริงไม่ได้'});
+  }
+  const surveyRef=doc.surveyReference||null;
+  let nextSurveyVertices=[],nextSurvey={},nextSurveyComparison=null;
+  if(surveyRef){
+    if(!Array.isArray(surveyRef.vertices))throw Error('ข้อมูลสำรวจอ้างอิงในไฟล์ไม่ถูกต้อง');
+    nextSurveyVertices=validPairs(surveyRef.vertices,'จุดข้อมูลสำรวจ');
+    if(nextSurveyVertices.length&&(!validatePoly(nextSurveyVertices).valid||nextSurveyVertices.length<3))throw Error('รูปแปลงข้อมูลสำรวจอ้างอิงไม่ถูกต้อง');
+    if(surveyRef.crs&&surveyRef.crs!==dst)throw Error('ระบบพิกัดของข้อมูลสำรวจอ้างอิงไม่ตรงกับระบบพิกัดของแปลง');
+    nextSurvey=surveyRef.metadata&&typeof surveyRef.metadata==='object'?deep(surveyRef.metadata):{};
+  }
+  const nextConfirmation=doc.confirmation&&typeof doc.confirmation==='object'?deep(doc.confirmation):null;
+  const nextEvents=Array.isArray(doc.events)?deep(doc.events):[];
+  let surveyRevalidated=false;
+  if(nextSurveyVertices.length>=3&&dst!=='LOCAL:METRE'&&nextSurvey.recordId&&nextSurvey.surveyor&&nextSurvey.date&&nextSurvey.reportedAccuracyM!==null&&nextSurvey.reportedAccuracyM!==undefined&&Number.isFinite(Number(nextSurvey.toleranceM))){
+    const sv=validatePoly(nextSurveyVertices);
+    if(sv.valid){const fresh=comparePolys(converted,nextSurveyVertices,.1);nextSurveyComparison=assessSurveyComparison(fresh,nextSurvey);surveyRevalidated=nextSurveyComparison.passed;}
+  }
+  let nextStatus='DRAFT';
+  if(bd.status==='NEEDS_FIELD_CHECK')nextStatus='NEEDS_FIELD_CHECK';
+  if(bd.status==='USER_CONFIRMED'&&nextConfirmation?.explicitConfirmation)nextStatus='USER_CONFIRMED';
+  if(bd.status==='SURVEY_VERIFIED'&&nextConfirmation?.explicitConfirmation)nextStatus=surveyRevalidated?'SURVEY_VERIFIED':'USER_CONFIRMED';
+  const downgraded=bd.status==='SURVEY_VERIFIED'&&nextStatus!=='SURVEY_VERIFIED';
+  const nextProject={
+    ...deep(project),boundaryId:doc.project?.id||'IMPORTED-BOUNDARY',fieldName:doc.project?.name||'แปลงที่นำเข้า',
+    inputCrs:src,workingCrs:dst,sourceVertices,vertices:converted,surveyVertices:nextSurveyVertices,
+    sourceNote:nextMetadata.sourceNote||'',metadata:nextMetadata,survey:nextSurvey,surveyComparison:nextSurveyComparison,
+    confirmation:nextConfirmation,events:nextEvents,status:nextStatus,validation:report,
+    updatedAt:new Date().toISOString()
+  };
+  nextProject.events.push({timestamp:new Date().toISOString(),action:'PROJECT_IMPORTED',detail:fileName||'ไฟล์โครงการ'});
+  if(downgraded)nextProject.events.unshift({timestamp:new Date().toISOString(),action:'IMPORT_STATUS_DOWNGRADED',detail:'สถานะการตรวจสำรวจเดิมไม่ผ่านการตรวจซ้ำในเครื่อง จึงลดระดับกลับเป็นผู้ใช้ยืนยันแล้วเพื่อรอตรวจสอบข้อมูลสำรวจใหม่'});
+  return {project:nextProject,ui:{src,dst,fieldName:nextProject.fieldName,boundaryId:nextProject.boundaryId,sourceNote:nextProject.sourceNote,surveyText:nextSurveyVertices.map(p=>p.join(',')).join('\n'),survey:nextSurvey,confirmation:nextConfirmation}};
+}
+function captureProjectImportUi(){
+  return {inputCrs:$('inputCrs').value,workingCrs:$('workingCrs').value,fieldName:$('fieldName').value,fieldId:$('fieldId').value,sourceNote:$('sourceNote').value,surveyText:$('surveyText').value,surveyRecordId:$('surveyRecordId').value,surveyorName:$('surveyorName').value,surveyMethod:$('surveyMethod').value,surveyDate:$('surveyDate').value,surveyAccuracy:$('surveyAccuracy').value,surveyTolerance:$('surveyTolerance').value,surveyAccuracyBoundConfirmed:$('surveyAccuracyBoundConfirmed').checked,confirmCheck:$('confirmCheck').checked,confirmedBy:$('confirmedBy').value,coordText:$('coordText').value};
+}
+function restoreProjectImportUi(u){
+  $('inputCrs').value=u.inputCrs;$('workingCrs').value=u.workingCrs;$('fieldName').value=u.fieldName;$('fieldId').value=u.fieldId;$('sourceNote').value=u.sourceNote;$('surveyText').value=u.surveyText;$('surveyRecordId').value=u.surveyRecordId;$('surveyorName').value=u.surveyorName;$('surveyMethod').value=u.surveyMethod;$('surveyDate').value=u.surveyDate;$('surveyAccuracy').value=u.surveyAccuracy;$('surveyTolerance').value=u.surveyTolerance;$('surveyAccuracyBoundConfirmed').checked=u.surveyAccuracyBoundConfirmed;$('confirmCheck').checked=u.confirmCheck;$('confirmedBy').value=u.confirmedBy;$('coordText').value=u.coordText;setระบบพิกัดUI();
+}
+function commitProjectImport(staged,fileName){
+  const priorProject=project,priorUi=captureProjectImportUi(),priorUndoLength=undoStack.length;
+  try{
+    snapshot();project=staged.project;
+    $('inputCrs').value=staged.ui.src;$('workingCrs').value=staged.ui.dst==='EPSG:32648'?'EPSG:32648':'EPSG:32647';setระบบพิกัดUI();
+    $('fieldName').value=staged.ui.fieldName;$('fieldId').value=staged.ui.boundaryId;$('sourceNote').value=staged.ui.sourceNote;
+    $('surveyText').value=staged.ui.surveyText;$('surveyRecordId').value=staged.ui.survey.recordId||'';$('surveyorName').value=staged.ui.survey.surveyor||'';$('surveyMethod').value=staged.ui.survey.method||'GNSS survey';$('surveyDate').value=staged.ui.survey.date||'';$('surveyAccuracy').value=staged.ui.survey.reportedAccuracyM??0.05;$('surveyTolerance').value=staged.ui.survey.toleranceM??0.30;$('surveyAccuracyBoundConfirmed').checked=staged.ui.survey.accuracyBoundConfirmed===true;$('confirmCheck').checked=!!staged.ui.confirmation?.explicitConfirmation;$('confirmedBy').value=staged.ui.confirmation?.confirmedBy||'';
+    viewBounds=null;syncText();render();scheduleLocalDraftSave?.();
+  }catch(e){
+    project=priorProject;undoStack.length=priorUndoLength;restoreProjectImportUi(priorUi);render();throw e;
+  }
+}
+$('importFile').addEventListener('change',async()=>{
+  const file=$('importFile').files?.[0];if(!file)return;
+  try{const doc=JSON.parse(await file.text());const staged=stageProjectImport(doc,file.name);commitProjectImport(staged,file.name);alert('เปิดไฟล์ข้อมูลแปลงสำเร็จ');}
+  catch(e){alert('เปิดไฟล์ข้อมูลแปลงไม่สำเร็จ: '+e.message);}
+  finally{$('importFile').value='';}
+});
+$('downloadCsv').addEventListener('click',()=>{try{if(!project.sourceVertices.length)throw Error('ยังไม่มีจุดพิกัดให้ดาวน์โหลด');download((project.boundaryId||'boundary')+'_vertices.csv',buildProjectVerticesCsv(),'text/csv;charset=utf-8');}catch(e){alert(e.message);}});
+$('exportGeojson').addEventListener('click',()=>{try{const doc=projectDoc();if(project.workingCrs==='LOCAL:METRE')throw Error('พิกัดสมมติไม่มีตำแหน่งจริง จึงส่งออกเป็นไฟล์แผนที่ไม่ได้');const ring=project.vertices.map(p=>inverse(p));ring.push(ring[0]);const geo={type:'FeatureCollection',name:project.fieldName,features:[{type:'Feature',properties:{boundary_id:project.boundaryId,status:project.status,working_crs:project.workingCrs,source_crs:project.inputCrs,geometry_coordinate_crs:'OGC:ระบบพิกัด84',geometry_coordinate_units:'degrees',working_coordinate_units:'metres'},geometry:{type:'Polygon',coordinates:[ring]}}]};download((project.boundaryId||'boundary')+'_boundary.geojson',JSON.stringify(geo,null,2),'application/geo+json');}catch(e){alert(e.message);}});
+
+// --- V0.5 Increment B/C: Basemap, map digitizing and เครื่องรับพิกัดจากดาวเทียม/ไฟล์แผนที่/ตารางพิกัด import ---
+let leafletMap=null, osmLayer=null, imageryLayer=null, gistdaLayer=null, mapboxLayer=null, activeBaseLayer=null, activeMapรูปแปลง=null, surveyMapรูปแปลง=null, gpsTrackLayer=null;
+let mapมุมแปลงMarkers=[], mapDrawingActive=false, lastMapFit=false;
+const MAX_WEB_VERTICES=1000;
+function showMapMessage(text,kind='notice'){$('mapMessage').className=kind;$('mapMessage').textContent=text;}
+function showGpsResult(html,kind='mutedbox small'){$('gpsImportResult').className=kind;$('gpsImportResult').innerHTML=html;}
+function zoneForLongitude(lon){return Math.floor((lon+180)/6)+1;}
+function ensureMapCoordinates(lon){const z=zoneForLongitude(lon);if(![47,48].includes(z))throw Error('ระบบนี้รองรับพื้นที่ในเขตพิกัด 47 และ 48 เท่านั้น จุดนี้อยู่เขต '+z);return z;}
+function initLeafletMap(){
+  if(leafletMap)return;
+  if(!window.L){showMapMessage('ยังเปิดแผนที่ออนไลน์ไม่ได้ กรุณาตรวจอินเทอร์เน็ต แต่คุณยังสามารถนำเข้าพิกัดหรือแก้ไขข้อมูลแปลงได้','notice warn');['startMapDrawing','finishMapDrawing','cancelMapDrawing','fitMapBoundary','importGpsFile'].forEach(id=>$(id).disabled=id!=='importGpsFile');return;}
+  leafletMap=L.map('leafletMap',{preferCanvas:true,worldCopyJump:false,maxZoom:22}).setView([15.2,101.0],6);
+  osmLayer=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+  imageryLayer=L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:22,attribution:'ภาพถ่าย: เอสรี แมกซาร์ เอิร์ธสตาร์ จีโอกราฟิกส์ และผู้ร่วมให้ข้อมูล'});
+  activeBaseLayer=imageryLayer;
+  if(!localFieldPack){imageryLayer.addTo(leafletMap);project.metadata.basemapProvider='esri_world_imagery';project.metadata.basemapServiceUrl='https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';project.metadata.basemapViewedAt=new Date().toISOString();project.metadata.imageryAcquisitionDate=null;project.metadata.sourceResolutionM=null;project.metadata.mapScaleDenominator=null;$('basemapChoice').value='imagery';}
+  else{addLocalFieldPackOverlay();$('basemapChoice').disabled=true;showMapMessage('กำลังใช้ภาพแปลงที่เก็บไว้ในเครื่อง ไม่ต้องเชื่อมต่ออินเทอร์เน็ต','notice ok');}
+  leafletMap.on('zoomend',()=>{const zl=$('zoomLevel');if(zl)zl.textContent=leafletMap.getZoom()+' เท่า';});
+  leafletMap.on('click',e=>{if(!mapDrawingActive)return;try{const lon=e.latlng.lng,lat=e.latlng.lat,z=ensureMapCoordinates(lon);if(project.sourceVertices.length===0){$('inputCrs').value='EPSG:4326';$('workingCrs').value=z===47?'EPSG:32647':'EPSG:32648';setระบบพิกัดUI();project.inputCrs='EPSG:4326';project.workingCrs=$('workingCrs').value;}
+    const selectedZone=project.workingCrs==='EPSG:32647'?47:48;if(z!==selectedZone)throw Error('จุดนี้อยู่คนละเขตพิกัดกับแนวแปลงเดิม รุ่นนี้ยังไม่รองรับแปลงที่คร่อมเขตพิกัดสองเขต');
+    if(project.sourceVertices.length>=MAX_WEB_VERTICES)throw Error('มีจำนวนจุดเกินกำหนด '+MAX_WEB_VERTICES+' จุดของรุ่นทดลองนี้');
+    addแหล่งข้อมูลมุมแปลง(lon,lat);project.metadata.sourceType='basemap_digitized';project.metadata.basemapProvider=localFieldPack?'local_geotiff_field_pack':(({imagery:'esri_world_imagery',osm:'openstreetmap',gistda:'gistda_basemap_2m',mapbox:'mapbox_satellite'})[$('basemapChoice').value]||'esri_world_imagery');project.metadata.basemapServiceUrl=localFieldPack?null:project.metadata.basemapProvider==='esri_world_imagery'?'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}':project.metadata.basemapProvider==='mapbox_satellite'?'https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.jpg90':project.metadata.basemapProvider==='gistda_basemap_2m'?'https://api-gateway.gistda.or.th/api/2.0/resources/tiles/basemap_latest/{z}/{x}/{y}.png?api_key=[ไม่บันทึกรหัส]':'https://tile.openstreetmap.org/{z}/{x}/{y}.png';project.metadata.sourceResolutionM=localFieldPack?(localFieldPack.manifest.sourcePixelUnit==='metre'?Math.max(...(localFieldPack.manifest.sourcePixelSize||[])):null):project.metadata.basemapProvider==='gistda_basemap_2m'?2:null;project.metadata.imageryDateNote=localFieldPack?'ภาพจากชุด GeoTIFF ที่ผู้ใช้นำเข้าไว้ในอุปกรณ์; ตรวจวันถ่ายและรายละเอียดตาม metadata ของชุดภาพ':project.metadata.basemapProvider==='gistda_basemap_2m'?'ชุดข้อมูลที่จิสด้าระบุวันปรับปรุง 31 มีนาคม 2568 ซึ่งไม่ใช่วันที่ถ่ายภาพของทุกพื้นที่':'ไม่มีข้อมูลความละเอียดและวันถ่ายภาพที่ตรวจสอบได้จากบริการภาพทั่วไป';project.metadata.basemapViewedAt=new Date().toISOString();project.metadata.imageryAcquisitionDate=null;project.metadata.digitizingZoom=leafletMap.getZoom();project.metadata.digitizingMapCenter=[leafletMap.getCenter().lng,leafletMap.getCenter().lat];project.metadata.mapScaleDenominator=null;showMapMessage('เพิ่มจุดยอดแล้ว '+project.sourceVertices.length+' จุด · คลิกต่อเพื่อเพิ่มจุด · เมื่อครบให้กด “เสร็จสิ้นการวาด”','notice ok');
+  }catch(err){showMapMessage(err.message,'notice err');}});
+  showMapMessage('แผนที่พร้อมแล้ว กด “ค้นหาตำแหน่งของฉัน” เพื่อไปยังบริเวณแปลง หรือใช้นิ้วเลื่อนแผนที่ไปยังพื้นที่ของคุณ','notice ok');const zl=$('zoomLevel');if(zl)zl.textContent='ระดับ '+leafletMap.getZoom();leafletMap.on('zoomend',()=>{if(zl)zl.textContent='ระดับ '+leafletMap.getZoom();});renderLeaflet();
+}
+
+function recordBasemap(choice,serviceUrl){project.metadata.basemapProvider=choice;project.metadata.basemapServiceUrl=serviceUrl;project.metadata.basemapViewedAt=new Date().toISOString();project.metadata.imageryAcquisitionDate=null;project.metadata.sourceResolutionM=choice==='gistda_basemap_2m'?2:null;project.metadata.mapScaleDenominator=null;project.metadata.imageryDateNote=choice==='gistda_basemap_2m'?'หน้าข้อมูลจิสด้าระบุวันปรับปรุงชุดข้อมูล 31 มีนาคม 2568 ไม่ใช่วันที่ถ่ายภาพของทุกพื้นที่':'ยังไม่มีข้อมูลวันที่ถ่ายและความละเอียดต้นฉบับที่ตรวจสอบได้ ณ จุดนี้';logEvent('BASEMAP_SELECTED',choice);}
+function addBaseLayer(layer,provider,url){if(!leafletMap||!layer)return;if(activeBaseLayer&&leafletMap.hasLayer(activeBaseLayer))leafletMap.removeLayer(activeBaseLayer);activeBaseLayer=layer;layer.addTo(leafletMap);recordBasemap(provider,url);}
+function enableGistdaImagery(){const key=$('gistdaToken').value.trim();if(!key){$('gistdaMessage').textContent='ยังไม่ได้ใส่รหัสเปิดภาพ สมัครขอรหัสจากจิสด้าก่อน แล้วจึงกลับมาใส่ที่นี่';$('gistdaMessage').className='notice warn';return;}const url='https://api-gateway.gistda.or.th/api/2.0/resources/tiles/basemap_latest/{z}/{x}/{y}.png?api_key='+encodeURIComponent(key);if(gistdaLayer&&leafletMap&&leafletMap.hasLayer(gistdaLayer))leafletMap.removeLayer(gistdaLayer);gistdaLayer=L.tileLayer(url,{tms:true,maxZoom:22,maxNativeZoom:16,attribution:'ภาพฐานดาวเทียม: จิสด้า'});gistdaLayer.on('tileerror',()=>{$('gistdaMessage').textContent='เปิดภาพจากจิสด้าไม่สำเร็จ กรุณาตรวจรหัส การเชื่อมต่อ และสิทธิ์การใช้งาน หรือกลับไปใช้ภาพเดิม';$('gistdaMessage').className='notice err';});if(leafletMap)addBaseLayer(gistdaLayer,'gistda_basemap_2m','https://api-gateway.gistda.or.th/api/2.0/resources/tiles/basemap_latest/{z}/{x}/{y}.png?api_key=[ไม่บันทึกรหัส]');$('basemapChoice').value='gistda';$('gistdaMessage').textContent='กำลังเปิดภาพฐานจากจิสด้า ความละเอียดข้อมูลระบุ 2 เมตรต่อพิกเซล หากขยายเกินระดับต้นฉบับ ภาพจะถูกขยายแต่ไม่ได้เพิ่มรายละเอียด';$('gistdaMessage').className='notice ok';}
+function switchBaseLayer(choice){if(!leafletMap)return;if(choice==='osm'){addBaseLayer(osmLayer,'openstreetmap','https://tile.openstreetmap.org/{z}/{x}/{y}.png');}else if(choice==='imagery'){addBaseLayer(imageryLayer,'esri_world_imagery','https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}');}else if(choice==='mapbox'&&mapboxLayer){addBaseLayer(mapboxLayer,'mapbox_satellite','https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.jpg90');}else if(choice==='gistda'&&gistdaLayer){addBaseLayer(gistdaLayer,'gistda_basemap_2m','https://api-gateway.gistda.or.th/api/2.0/resources/tiles/basemap_latest/{z}/{x}/{y}.png?api_key=[ไม่บันทึกรหัส]');}else{return;}}
+function enableMapboxImagery(){const token=$('mapboxToken').value.trim();if(!token){$('mapboxMessage').textContent='ยังไม่ได้ใส่รหัส หากไม่มีรหัสให้ข้ามขั้นตอนนี้และใช้ภาพแผนที่เดิมได้';$('mapboxMessage').className='notice warn';return;}if(!/^pk\./.test(token)){$('mapboxMessage').textContent='รหัสที่กรอกไม่ถูกต้อง กรุณาตรวจสอบกับผู้ให้บริการ';$('mapboxMessage').className='notice err';return;}const url='https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.jpg90?access_token='+encodeURIComponent(token);if(mapboxLayer&&leafletMap&&leafletMap.hasLayer(mapboxLayer))leafletMap.removeLayer(mapboxLayer);mapboxLayer=L.tileLayer(url,{maxZoom:22,maxNativeZoom:20,attribution:'ภาพถ่าย: แมปบ็อกซ์และผู้ให้ข้อมูลภาพถ่าย'});mapboxLayer.on('tileerror',()=>{$('mapboxMessage').textContent='เปิดภาพจากแหล่งนี้ไม่สำเร็จ กรุณาตรวจสอบรหัสหรือกลับไปใช้ภาพแผนที่เดิม';$('mapboxMessage').className='notice err';});if(leafletMap)addBaseLayer(mapboxLayer,'mapbox_satellite','https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.jpg90');$('basemapChoice').value='mapbox';$('mapboxMessage').textContent='เปิดภาพจากแหล่งเพิ่มเติมแล้ว ลองดูพื้นที่เดียวกันและเปรียบเทียบความชัดได้ ภาพแต่ละพื้นที่อาจมีรายละเอียดต่างกัน';$('mapboxMessage').className='notice ok';}
+function mapLatLngsFromWorking(points){if(project.workingCrs==='LOCAL:METRE')return null;return points.map(p=>{const ll=inverse(p);return [ll[1],ll[0]];});}
+function clearMapLayers(){if(!leafletMap)return;[activeMapรูปแปลง,surveyMapรูปแปลง,gpsTrackLayer,...mapมุมแปลงMarkers].forEach(layer=>{if(layer)leafletMap.removeLayer(layer);});activeMapรูปแปลง=null;surveyMapรูปแปลง=null;gpsTrackLayer=null;mapมุมแปลงMarkers=[];}
+function renderLeaflet(){if(!leafletMap||!window.L)return;clearMapLayers();if(project.workingCrs==='LOCAL:METRE'){showMapMessage('ข้อมูลนี้เป็นพิกัดตัวอย่าง ไม่ใช่ตำแหน่งจริง จึงยังแสดงบนแผนที่ไม่ได้ กรุณาวาดบนแผนที่หรือนำเข้าพิกัดจากอุปกรณ์สำรวจ','notice warn');return;}
+  try{
+    const mainLL=mapLatLngsFromWorking(project.vertices);if(mainLL&&mainLL.length>=3){activeMapรูปแปลง=L.polygon(mainLL,{color:'#17823d',weight:3,fillColor:'#36a65f',fillOpacity:.16}).addTo(leafletMap);if(mainLL.length<=MAX_WEB_VERTICES){mapมุมแปลงMarkers=mainLL.map((ll,i)=>{const marker=L.marker(ll,{draggable:true,icon:L.divIcon({className:'map-vertex-marker',html:'',iconSize:[14,14],iconAnchor:[7,7]})}).addTo(leafletMap).bindTooltip('ลากเพื่อย้ายมุมแปลงที่ '+(i+1));marker.on('dragend',()=>{const q=marker.getLatLng();try{const z=project.workingCrs==='EPSG:32647'?47:48;if(zoneForLongitude(q.lng)!==z)throw Error('จุดใหม่นี้อยู่นอกเขตพิกัดที่กำหนดไว้');const wp=wgs84ToUtm(q.lng,q.lat,z),src=workingToแหล่งข้อมูล(wp),pts=deep(project.sourceVertices);pts[i]=src;applyแหล่งข้อมูลPoints(pts,'ลากย้ายมุมแปลงบนแผนที่ ' +(i+1));project.metadata.sourceType=project.metadata.sourceType||'basemap_digitized';project.metadata.vertexEditedOnMapAt=new Date().toISOString();}catch(err){alert(err.message);renderLeaflet();}});marker.on('contextmenu',()=>{if(!confirm('ลบมุมแปลง '+(i+1)+' หรือไม่?'))return;const pts=deep(project.sourceVertices);pts.splice(i,1);try{applyแหล่งข้อมูลPoints(pts,'ลบมุมแปลงจากแผนที่ ' +(i+1));}catch(e){alert(e.message);}});return marker;});}
+    }
+    const rawTrack=project.metadata.rawGpsTrackWgs84;if(Array.isArray(rawTrack)&&rawTrack.length>=2){gpsTrackLayer=L.polyline(rawTrack.map(p=>[p[1],p[0]]),{color:'#e28b24',weight:3,dashArray:'5 6',opacity:.9}).addTo(leafletMap);}
+    if(project.surveyVertices.length>=3){const surveyLL=mapLatLngsFromWorking(project.surveyVertices);surveyMapรูปแปลง=L.polygon(surveyLL,{color:'#2868c7',weight:2,dashArray:'7 5',fillColor:'#6ba2f5',fillOpacity:.08}).addTo(leafletMap);}
+    if(!lastMapFit&&mainLL&&mainLL.length>=3){leafletMap.fitBounds(L.latLngBounds(mainLL).pad(.18));lastMapFit=true;}
+  }catch(e){showMapMessage('ไม่สามารถแสดงแนวแปลงบนแผนที่ได้: '+e.message,'notice err');}
+}
+function getBasemapProvenance(choice){const options={imagery:{provider:'esri_world_imagery',url:'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',resolution:null,note:'ผู้ให้บริการไม่ได้แสดงวันถ่ายภาพและความละเอียดต้นฉบับที่ยืนยันได้สำหรับตำแหน่งนี้'},osm:{provider:'openstreetmap',url:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',resolution:null,note:'แผนที่ถนนไม่ใช่ภาพถ่ายดาวเทียม'},gistda:{provider:'gistda_basemap_2m',url:'https://api-gateway.gistda.or.th/api/2.0/resources/tiles/basemap_latest/{z}/{x}/{y}.png?api_key=[ไม่บันทึกรหัส]',resolution:2,note:'ชุดข้อมูลภาพฐานจากจิสด้าระบุรายละเอียด 2 เมตรต่อพิกเซลและวันปรับปรุงชุดข้อมูล 31 มีนาคม 2568 ซึ่งไม่ใช่วันถ่ายภาพของทุกพื้นที่'},mapbox:{provider:'mapbox_satellite',url:'https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.jpg90',resolution:null,note:'รายละเอียดภาพจากผู้ให้บริการอาจแตกต่างกันตามตำแหน่งและระดับการขยาย'}};return options[choice]||options.imagery;}
+function startMapDrawing(){if(!leafletMap){showMapMessage('แผนที่ยังไม่พร้อม กรุณาตรวจการเชื่อมต่ออินเทอร์เน็ต','notice warn');return;}if(project.sourceVertices.length&&!confirm('การเริ่มวาดใหม่จะลบแนวเขตเดิมและเริ่มต้นใหม่ ต้องการดำเนินการหรือไม่?'))return;
+  const c=crs();if(c==='LOCAL:METRE'&&project.sourceVertices.length)logEvent('LOCAL_SAMPLE_REPLACED','แทนที่พิกัดตัวอย่างด้วยแนวเขตที่วาดจากแผนที่');
+  snapshot();project.sourceVertices=[];project.vertices=[];project.surveyVertices=[];project.surveyComparison=null;project.survey={};project.confirmation=null;project.status='DRAFT';project.metadata={...project.metadata,rawGpsTrackWgs84:null,sourceFile:null,sourceFormat:null,importedAt:null,trackFirstLastGapM:null,trackStartTime:null,trackEndTime:null,importWarnings:[]};$('surveyText').value='';$('surveyRecordId').value='';$('surveyorName').value='';$('surveyDate').value='';$('surveyResult').textContent='ยังไม่มีผลเปรียบเทียบ';project.inputCrs='EPSG:4326';project.workingCrs='EPSG:32647';$('inputCrs').value='EPSG:4326';$('workingCrs').value='EPSG:32647';$('fieldName').value=$('fieldName').value||'แปลงใหม่';$('sourceNote').value='วาดขอบเขตด้วยมือบนภาพแผนที่ และรอตรวจสอบกับพื้นที่จริง';const basemap=getBasemapProvenance($('basemapChoice').value);project.metadata={...project.metadata,sourceType:'basemap_digitized',sourceNote:'วาดขอบเขตด้วยมือบนภาพแผนที่',inputระบบพิกัด:'EPSG:4326',workingระบบพิกัด:'EPSG:32647',basemapProvider:basemap.provider,basemapServiceUrl:basemap.url,basemapViewedAt:new Date().toISOString(),imageryAcquisitionDate:null,sourceResolutionM:basemap.resolution,mapScaleDenominator:null,imageryDateNote:basemap.note,rawGpsTrackWgs84:null,sourceFile:null,sourceFormat:null,importedAt:null,trackFirstLastGapM:null,trackStartTime:null,trackEndTime:null,importWarnings:[]};recordSourceLineage('basemap_digitized','START_MAP_DIGITIZING',{provider:basemap.provider,inputCrs:'EPSG:4326',workingCrs:'EPSG:32647',note:'เริ่มสร้างขอบเขตจากชั้นแผนที่'});setระบบพิกัดUI();syncText();mapDrawingActive=true;drawing=true;lastMapFit=false;logEvent('MAP_DIGITIZING_STARTED','เริ่มวาดแนวเขตใหม่จากแผนที่');render();showMapMessage('เริ่มวาดแล้ว แตะตามมุมแปลงทีละจุด หากแตะผิดให้ลากจุดสีเขียวไปยังตำแหน่งที่ถูกต้อง','notice ok');}
+function finishMapDrawing(){mapDrawingActive=false;drawing=false;if(project.sourceVertices.length<3){showMapMessage('ขณะนี้มี '+project.sourceVertices.length+' มุม ต้องมีอย่างน้อย 3 มุมจึงจะสร้างขอบเขตแปลงได้','notice warn');return;}render();if(!project.validation.valid){showMapMessage('หยุดวาดแล้ว แต่แนวเขตยังไม่ถูกต้อง: '+project.validation.errors.join(' · '),'notice err');return;}project.status='DRAFT';project.metadata.sourceType='basemap_digitized';project.metadata.digitizingFinishedAt=new Date().toISOString();logEvent('MAP_DIGITIZING_FINISHED',project.sourceVertices.length+' มุม; สถานะยังเป็นร่างและต้องตรวจพื้นที่จริง');renderสถานะ();lastMapFit=false;renderLeaflet();showMapMessage('วาดแนวแปลงสำเร็จ · '+project.sourceVertices.length+' มุม · พื้นที่ '+fmt(project.validation.area,2)+' ตารางเมตร · ควรตรวจแนวเขตกับพื้นที่จริงก่อนใช้วางแผนปลูก','notice ok');}
+function cancelMapDrawing(){mapDrawingActive=false;drawing=false;showMapMessage('พักการวาดแล้ว มุมที่เพิ่มไว้ยังคงอยู่ในแผนที่','notice');}
+function parseCsvMatrix(text){
+  const source=String(text||'').replace(/^\uFEFF/,'');
+  let delimiter=',';let firstQuoted=false,counts={',':0,';':0,'\t':0};for(let i=0;i<source.length;i++){const ch=source[i];if(ch==='"'){if(firstQuoted&&source[i+1]==='"'){i++;continue;}firstQuoted=!firstQuoted;continue;}if(!firstQuoted&&(ch==='\n'||ch==='\r'))break;if(!firstQuoted&&Object.prototype.hasOwnProperty.call(counts,ch))counts[ch]++;}delimiter=Object.entries(counts).sort((a,b)=>b[1]-a[1])[0][1]>0?Object.entries(counts).sort((a,b)=>b[1]-a[1])[0][0]:',';
+  const rows=[];let row=[],cell='',quoted=false;
+  for(let i=0;i<source.length;i++){
+    const ch=source[i];
+    if(quoted){if(ch==='"'&&source[i+1]==='"'){cell+='"';i++;}else if(ch==='"'){quoted=false;}else cell+=ch;continue;}
+    if(ch==='"'&&cell===''){quoted=true;continue;}
+    if(ch===delimiter){row.push(cell);cell='';continue;}
+    if(ch==='\n'||ch==='\r'){if(ch==='\r'&&source[i+1]==='\n')i++;row.push(cell);if(row.some(v=>String(v).trim()!==''))rows.push(row);row=[];cell='';continue;}
+    cell+=ch;
+  }
+  if(quoted)throw Error('ไฟล์ CSV มีเครื่องหมายอัญประกาศเปิดแต่ไม่ปิด');
+  row.push(cell);if(row.some(v=>String(v).trim()!==''))rows.push(row);
+  if(rows.length<4)throw Error('ไฟล์ตารางต้องมีชื่อคอลัมน์และข้อมูลพิกัดอย่างน้อย 3 แถว');
+  const width=rows[0].length;if(rows.some((r,i)=>r.length!==width))throw Error('ไฟล์ CSV มีจำนวนช่องข้อมูลไม่เท่ากันในแต่ละแถว (ตรวจเครื่องหมายจุลภาคหรืออัญประกาศ)');
+  return rows;
+}
+function validateCsvCoordinateRows(points,crsValue){
+  if(!Array.isArray(points)||points.length<3)throw Error('ต้องมีพิกัดอย่างน้อย 3 จุด');
+  if(points.length>MAX_WEB_VERTICES)throw Error('ไฟล์มี '+points.length+' จุด เกินขีดจำกัด '+MAX_WEB_VERTICES+' จุดของรุ่นทดลองนี้');
+  const clean=[];for(let i=0;i<points.length;i++){const p=points[i];if(!Array.isArray(p)||p.length!==2||p.some(v=>!Number.isFinite(v)))throw Error('แถวที่ '+(i+2)+' มีพิกัดว่างหรือไม่ใช่ตัวเลข');if(crsValue==='EPSG:4326'){const [x,y]=p;if(x< -180||x>180||y< -90||y>90)throw Error('พิกัดละติจูด/ลองจิจูดแถวที่ '+(i+2)+' อยู่นอกช่วง');}else if(crsValue==='EPSG:32647'||crsValue==='EPSG:32648'){const [x,y]=p;if(!(x>=100000&&x<=900000&&y>=0&&y<=10000000))throw Error('พิกัดระนาบแถวที่ '+(i+2)+' อยู่นอกช่วงที่รองรับ');}if(!clean.length||p[0]!==clean[clean.length-1][0]||p[1]!==clean[clean.length-1][1])clean.push([p[0],p[1]]);}
+  if(clean.length>1&&clean[0][0]===clean[clean.length-1][0]&&clean[0][1]===clean[clean.length-1][1])clean.pop();
+  if(clean.length<3)throw Error('ต้องมีจุดที่ไม่ซ้ำกันอย่างน้อย 3 จุด');
+  return clean;
+}
+function parseCsvCoordinateFile(text){
+  const rows=parseCsvMatrix(text),headers=rows[0].map(x=>String(x).trim().toLowerCase()),index=name=>headers.indexOf(name);
+  const schemaIdx=index('schema'),vertexIdx=index('vertex_id'),xIdx=index('x'),yIdx=index('y'),crsIdx=index('input_crs'),unitsIdx=index('input_units'),axisIdx=index('axis_order'),workingIdx=index('working_crs'),workingUnitsIdx=index('working_units');
+  if(schemaIdx>=0||crsIdx>=0||axisIdx>=0){
+    const required=[['schema',schemaIdx],['vertex_id',vertexIdx],['x',xIdx],['y',yIdx],['input_crs',crsIdx],['input_units',unitsIdx],['axis_order',axisIdx],['working_crs',workingIdx],['working_units',workingUnitsIdx]];
+    const missing=required.filter(x=>x[1]<0).map(x=>x[0]);if(missing.length)throw Error('CSV มีหัวคอลัมน์ไม่ครบ: '+missing.join(', '));
+    const values=rows.slice(1),read=(r,i)=>String(r[i]??'').trim();
+    const schema=read(values[0],schemaIdx),inputCrs=read(values[0],crsIdx),inputUnits=read(values[0],unitsIdx),axisOrder=read(values[0],axisIdx),workingCrs=read(values[0],workingIdx),workingUnits=read(values[0],workingUnitsIdx);
+    if(schema!=='prouve-spatial-vertices-v1')throw Error('รุ่นรูปแบบ CSV ไม่รองรับ');
+    if(!['EPSG:4326','EPSG:32647','EPSG:32648','LOCAL:METRE'].includes(inputCrs))throw Error('CSV ระบุระบบพิกัดที่ไม่รองรับหรือไม่ชัดเจน');
+    const expected={ 'EPSG:4326':['degree','longitude_latitude'], 'EPSG:32647':['metre','easting_northing'], 'EPSG:32648':['metre','easting_northing'], 'LOCAL:METRE':['metre','local_x_y']}[inputCrs];
+    if(inputUnits!==expected[0]||axisOrder!==expected[1])throw Error('หน่วยหรือเรียงแกนพิกัดไม่ตรงกับระบบพิกัดที่ระบุ');
+    if(workingUnits!=='metre')throw Error('ระบบนี้ต้องระบุหน่วยพิกัดคำนวณเป็น metre');
+    if(inputCrs==='EPSG:4326'&&!['EPSG:32647','EPSG:32648'].includes(workingCrs))throw Error('พิกัด EPSG:4326 ต้องระบุระบบคำนวณ UTM เขต 47 หรือ 48');
+    if(inputCrs!=='EPSG:4326'&&workingCrs!==inputCrs)throw Error('รุ่นนี้ไม่รองรับ CSV ที่ระบุระบบพิกัดต้นทางและปลายทางต่างกัน');
+    const seenIds=new Set();const points=values.map((r,i)=>{for(const [name,idx,expectedValue] of [['schema',schemaIdx,schema],['input_crs',crsIdx,inputCrs],['input_units',unitsIdx,inputUnits],['axis_order',axisIdx,axisOrder],['working_crs',workingIdx,workingCrs],['working_units',workingUnitsIdx,workingUnits]])if(read(r,idx)!==expectedValue)throw Error('ข้อมูล metadata ใน CSV แถวที่ '+(i+2)+' ไม่สอดคล้องกัน');const vertexId=read(r,vertexIdx);if(vertexId==='')throw Error('CSV แถวที่ '+(i+2)+' ไม่มี vertex_id');if(seenIds.has(vertexId))throw Error('CSV มี vertex_id ซ้ำกัน: '+vertexId);seenIds.add(vertexId);const sx=read(r,xIdx),sy=read(r,yIdx);if(sx===''||sy==='')throw Error('CSV แถวที่ '+(i+2)+' มีพิกัดว่าง');const x=Number(sx),y=Number(sy);if(!Number.isFinite(x)||!Number.isFinite(y))throw Error('CSV แถวที่ '+(i+2)+' มีพิกัดไม่ใช่ตัวเลข');return [x,y];});
+    const clean=validateCsvCoordinateRows(points,inputCrs);
+    if(inputCrs==='EPSG:4326'){const zone=selectZoneForPoints(clean),expectedWorking=zone===47?'EPSG:32647':'EPSG:32648';if(workingCrs!==expectedWorking)throw Error('working_crs ใน CSV ไม่ตรงกับเขต UTM ของพิกัดจริง');}
+    if(inputCrs!=='EPSG:4326'&&!validatePoly(clean).valid)throw Error('ขอบเขตพิกัดใน CSV ไม่ถูกต้อง: '+validatePoly(clean).errors.join('; '));
+    return {points:clean,coordinateCrs:inputCrs,workingCrs,warnings:[],schema};
+  }
+  const lonIdx=headers.findIndex(x=>['longitude','lon','long','ลองจิจูด','ค่าลองจิจูด'].includes(x)),latIdx=headers.findIndex(x=>['latitude','lat','ละติจูด','ค่าละติจูด'].includes(x));
+  if(lonIdx<0||latIdx<0)throw Error('ไฟล์ตารางต้องมีคอลัมน์ลองจิจูดและละติจูด หรือใช้รูปแบบ CSV ของ PROUVÉ Spatial ที่ระบุระบบพิกัดชัดเจน');
+  const points=rows.slice(1).map((r,i)=>{if(r[lonIdx]===undefined||r[latIdx]===undefined||String(r[lonIdx]).trim()===''||String(r[latIdx]).trim()==='')throw Error('แถวที่ '+(i+2)+' ในไฟล์ตารางมีพิกัดไม่ครบ');const x=Number(r[lonIdx]),y=Number(r[latIdx]);if(!Number.isFinite(x)||!Number.isFinite(y))throw Error('แถวที่ '+(i+2)+' ในไฟล์ตารางมีตัวเลขพิกัดไม่ถูกต้อง');return [x,y];});
+  return {points:validateCsvCoordinateRows(points,'EPSG:4326'),coordinateCrs:'EPSG:4326',workingCrs:null,warnings:['CSV รุ่นเก่าใช้ชื่อคอลัมน์ longitude/latitude จึงตีความเป็น EPSG:4326 ตามความหมายของคอลัมน์; ไม่ได้อ่าน datum จากไฟล์'],schema:'legacy-longitude-latitude'};
+}
+function csvToPoints(text){return parseCsvCoordinateFile(text).points;}
+function csvCell(value){const s=String(value??'');return /[",\r\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s;}
+function buildProjectVerticesCsv(){const inputCrs=project.inputCrs||crs(),workingCrs=project.workingCrs||working();const units=inputCrs==='EPSG:4326'?'degree':'metre',axis=inputCrs==='EPSG:4326'?'longitude_latitude':inputCrs==='LOCAL:METRE'?'local_x_y':'easting_northing';const header=['schema','vertex_id','x','y','input_crs','input_units','axis_order','working_crs','working_units'];const rows=[header];project.sourceVertices.forEach((p,i)=>rows.push(['prouve-spatial-vertices-v1',i+1,p[0],p[1],inputCrs,units,axis,workingCrs,'metre']));return '\uFEFF'+rows.map(r=>r.map(csvCell).join(',')).join('\r\n')+'\r\n';}
+function parseไฟล์แผนที่ForBoundary(text){const doc=JSON.parse(text);if(doc.crs)throw Error('ไฟล์แผนที่ใช้ระบบพิกัดที่รุ่นนี้ยังไม่รองรับ กรุณาส่งออกเป็นพิกัดละติจูดและลองจิจูดมาตรฐาน');let geom=doc;if(doc.type==='Feature')geom=doc.geometry;else if(doc.type==='FeatureCollection'){const candidates=(doc.features||[]).filter(f=>['Polygon','LineString'].includes(f?.geometry?.type));if(candidates.length!==1)throw Error('ไฟล์นี้ต้องมีรูปแปลงหรือเส้นแนวเขตเพียงหนึ่งชุด');geom=candidates[0].geometry;}if(!geom)throw Error('ไฟล์แผนที่ไม่มีข้อมูลรูปร่างพื้นที่');if(geom.crs)throw Error('ข้อมูลรูปร่างในไฟล์ใช้ระบบพิกัดที่รุ่นนี้ยังไม่รองรับ');if(geom.type==='Polygon'){if(!Array.isArray(geom.coordinates)||!geom.coordinates.length)throw Error('ไฟล์รูปแปลงไม่มีแนวขอบเขตด้านนอก');if(geom.coordinates.length>1)throw Error('รุ่นนี้ยังไม่รองรับแปลงที่มีช่องว่างหรือรูอยู่ภายใน');const ring=geom.coordinates[0];if(!Array.isArray(ring)||ring.length<4)throw Error('วงแหวน Polygon ต้องมีอย่างน้อย 4 ตำแหน่งและต้องปิดวง');const first=ring[0],last=ring[ring.length-1];if(!Array.isArray(first)||!Array.isArray(last)||first.length<2||last.length<2||Number(first[0])!==Number(last[0])||Number(first[1])!==Number(last[1]))throw Error('ไฟล์ Polygon ยังปิดวงไม่ถูกต้อง: พิกัดจุดแรกต้องซ้ำกับจุดสุดท้าย');return {points:ring,geometryType:'ขอบเขตรูปแปลง',closed:true};}if(geom.type==='LineString')return {points:geom.coordinates,geometryType:'เส้นแนวเขต',closed:false};throw Error('ไฟล์นี้ไม่ใช่ขอบเขตรูปแปลงหรือเส้นแนวเขตที่รองรับ');}
+function parseไฟล์เส้นทางForBoundary(text){const xml=new DOMParser().parseFromString(text,'application/xml');if(xml.querySelector('parsererror'))throw Error('ไฟล์เส้นทางมีรูปแบบไม่ถูกต้อง');const tracks=Array.from(xml.getElementsByTagNameNS('*','trk'));const segments=Array.from(xml.getElementsByTagNameNS('*','trkseg'));const routes=Array.from(xml.getElementsByTagNameNS('*','rte'));if(tracks.length>1||segments.length>1||routes.length>1)throw Error('ไฟล์เส้นทางมีหลายช่วง ระบบยังแยกช่วงเหล่านี้อย่างปลอดภัยไม่ได้ กรุณาเลือกไฟล์ที่มีเส้นทางเดียว');let els=Array.from(xml.getElementsByTagNameNS('*','trkpt'));let geometryType='เส้นทางที่บันทึกจากเครื่องรับพิกัด';if(!els.length){els=Array.from(xml.getElementsByTagNameNS('*','rtept'));geometryType='เส้นทางที่วางแผนไว้';}if(!els.length){els=Array.from(xml.getElementsByTagNameNS('*','wpt'));geometryType='จุดพิกัดที่บันทึกไว้';}if(els.length<3)throw Error('ไฟล์เส้นทางต้องมีอย่างน้อย 3 จุด');const points=els.map((el,i)=>{const lon=Number(el.getAttribute('lon')),lat=Number(el.getAttribute('lat'));if(!Number.isFinite(lon)||!Number.isFinite(lat))throw Error('จุดที่ '+(i+1)+' ในไฟล์เส้นทางมีค่าพิกัดไม่ถูกต้อง');return [lon,lat];});const times=els.map(el=>el.getElementsByTagNameNS('*','time')[0]?.textContent||'').filter(Boolean);const warnings=geometryType==='จุดพิกัดที่บันทึกไว้'?['จุดพิกัดอาจไม่ได้เรียงตามลำดับการเดินรอบแปลง กรุณาตรวจลำดับจุดกับพื้นที่จริง']:[];return {points,geometryType,closed:false,firstTime:times[0]||null,lastTime:times[times.length-1]||null,warnings};}
+function validateWgsPoints(points){if(!Array.isArray(points)||points.length<3)throw Error('ต้องมีพิกัดอย่างน้อย 3 จุด');if(points.length>MAX_WEB_VERTICES)throw Error('ไฟล์มี '+points.length+' จุด เกินขีดจำกัด '+MAX_WEB_VERTICES+' จุดของรุ่นทดลองนี้');const clean=[];for(let i=0;i<points.length;i++){const p=points[i];if(!Array.isArray(p)||p.length<2)throw Error('พิกัดจุดที่ '+(i+1)+' ไม่ถูกต้อง');const lon=Number(p[0]),lat=Number(p[1]);if(!Number.isFinite(lon)||!Number.isFinite(lat)||lon< -180||lon>180||lat< -90||lat>90)throw Error('พิกัดจุดที่ '+(i+1)+' อยู่นอกช่วงหรือไม่เป็นตัวเลข');if(!clean.length||lon!==clean[clean.length-1][0]||lat!==clean[clean.length-1][1])clean.push([lon,lat]);}if(clean.length>1&&clean[0][0]===clean[clean.length-1][0]&&clean[0][1]===clean[clean.length-1][1])clean.pop();if(clean.length<3)throw Error('ต้องมีจุดที่ไม่ซ้ำกันอย่างน้อย 3 จุด');return clean;}
+function selectZoneForPoints(points){const lons=points.map(p=>p[0]);const mean=lons.reduce((a,b)=>a+b,0)/lons.length;const zone=zoneForLongitude(mean);if(![47,48].includes(zone))throw Error('ต้นแบบนี้รองรับเฉพาะพื้นที่ในเขตพิกัด 47 และ 48; ค่าลองจิจูดเฉลี่ยของไฟล์อยู่ในเขต '+zone);for(const p of points)if(zoneForLongitude(p[0])!==zone)throw Error('ข้อมูลคร่อมเขตพิกัดสองเขต ต้องให้ผู้เชี่ยวชาญแปลงพิกัดก่อนนำไปใช้');return zone;}
+function haversineBrowser(a,b){const R=6371008.8,toRad=x=>x*Math.PI/180,lat1=toRad(a[1]),lat2=toRad(b[1]),dlat=lat2-lat1,dlon=toRad(b[0]-a[0]),h=Math.sin(dlat/2)**2+Math.cos(lat1)*Math.cos(lat2)*Math.sin(dlon/2)**2;return 2*R*Math.asin(Math.min(1,Math.sqrt(h)));}
+async function importCsvCoordinateFile(file,text){
+  const parsed=parseCsvCoordinateFile(text),sourceCrs=parsed.coordinateCrs,points=parsed.points,target=$('gpsImportTarget').value;
+  let targetWorking=parsed.workingCrs,projected=[],zone=null,firstLastGap=null;
+  if(sourceCrs==='EPSG:4326'){
+    zone=selectZoneForPoints(points);const derived=zone===47?'EPSG:32647':'EPSG:32648';if(targetWorking&&targetWorking!==derived)throw Error('ระบบพิกัดคำนวณใน CSV ไม่ตรงกับเขต UTM ของข้อมูล');targetWorking=derived;projected=points.map(p=>wgs84ToUtm(p[0],p[1],zone));firstLastGap=haversineBrowser(points[0],points[points.length-1]);
+  }else{
+    projected=deep(points);const v=validatePoly(projected);if(!v.valid)throw Error('ขอบเขตใน CSV ไม่ถูกต้อง: '+v.errors.join('; '));
+    if(sourceCrs==='EPSG:32647')zone=47;else if(sourceCrs==='EPSG:32648')zone=48;
+  }
+  if(target==='boundary'){
+    if(project.sourceVertices.length&&!confirm('การนำเข้าแนวเขตใหม่จะแทนที่แนวเขตปัจจุบัน ต้องการดำเนินการหรือไม่?'))return;
+    snapshot();project.inputCrs=sourceCrs;project.workingCrs=targetWorking;project.sourceVertices=deep(points);project.vertices=deep(projected);project.surveyVertices=[];project.surveyComparison=null;project.survey={};project.confirmation=null;project.status=sourceCrs==='LOCAL:METRE'?'DRAFT':'NEEDS_FIELD_CHECK';
+    $('inputCrs').value=sourceCrs;$('workingCrs').value=targetWorking==='EPSG:32648'?'EPSG:32648':'EPSG:32647';setระบบพิกัดUI();
+    project.metadata={...project.metadata,sourceType:'gps_csv_import',sourceFile:file.name,sourceFormat:'CSV',importedAt:new Date().toISOString(),sourceระบบพิกัด:sourceCrs,workingระบบพิกัด:targetWorking,workingหน่วย:'เมตร',rawGpsTrackWgs84:sourceCrs==='EPSG:4326'?deep(points):null,sourceResolutionM:null,mapScaleDenominator:null,importWarnings:[...(parsed.warnings||[])]};
+    recordSourceLineage('gps_csv_import','IMPORT_BOUNDARY_CSV',{sourceFile:file.name,sourceFormat:'CSV',inputCrs:sourceCrs,workingCrs:targetWorking,note:'นำเข้า CSV ที่ระบุระบบพิกัดและหน่วย'});
+    project.sourceNote='นำเข้าข้อมูลจากไฟล์ '+file.name+' แล้ว';$('sourceNote').value=project.sourceNote;syncText();viewBounds=null;lastMapFit=false;logEvent('GPS_OR_GEO_IMPORT',file.name+'; CSV schema '+parsed.schema+'; CRS '+sourceCrs);render();renderLeaflet();
+    showGpsResult(`<b>นำเข้าไฟล์ ${escapeHtml(file.name)} สำเร็จ</b><div>ระบบพิกัดต้นทาง: ${escapeHtml(sourceCrs)} · ระบบคำนวณ: ${escapeHtml(targetWorking)} · ${points.length} จุด</div><div class="small">${escapeHtml((parsed.warnings||[]).join(' · ')||'อ่าน metadata ระบบพิกัดและหน่วยจาก CSV แล้ว')}</div>`,'notice ok');
+    return;
+  }
+  if(sourceCrs==='LOCAL:METRE')throw Error('ข้อมูลพิกัดสมมติไม่สามารถใช้เป็นข้อมูลสำรวจอ้างอิงตำแหน่งจริงได้');
+  if(project.workingCrs==='LOCAL:METRE')throw Error('ก่อนนำเข้าขอบเขตสำรวจ ต้องมีขอบเขตแปลงหลักที่ระบุตำแหน่งจริงแล้ว');
+  if(targetWorking!==project.workingCrs)throw Error('CSV ใช้ระบบพิกัด '+targetWorking+' แต่แนวแปลงหลักใช้ '+project.workingCrs+' กรุณาแปลงระบบพิกัดก่อนเปรียบเทียบ');
+  const surveyPoints=sourceCrs==='EPSG:4326'?points.map(p=>wgs84ToUtm(p[0],p[1],project.workingCrs==='EPSG:32647'?47:48)):projected;
+  const vv=validatePoly(surveyPoints);if(!vv.valid)throw Error('ขอบเขตสำรวจอ้างอิงไม่ถูกต้อง: '+vv.errors.join('; '));
+  project.surveyVertices=surveyPoints;project.surveyComparison=null;project.survey={recordId:file.name,surveyor:'',method:'พิกัดอ้างอิงจากตาราง CSV (รอยืนยันแหล่งข้อมูล)',date:'',reportedAccuracyM:null,toleranceM:null,referenceระบบพิกัด:project.workingCrs,sourceFormat:'CSV',sourceFile:file.name,importedAt:new Date().toISOString(),sourceCoordinateCrs:sourceCrs,sourceCoordinateUnits:sourceCrs==='EPSG:4326'?'degree':'metre',sourceLineage:[{timestamp:new Date().toISOString(),operation:'IMPORT_SURVEY_CSV',sourceFile:file.name,sourceCrs,workingCrs:project.workingCrs,provenanceStatus:'recorded_in_app'}]};
+  $('surveyText').value=surveyPoints.map(p=>p.map(v=>v.toFixed(4)).join(',')).join('\n');$('surveyRecordId').value=file.name;$('surveyorName').value='';$('surveyDate').value='';project.status=project.confirmation?.explicitConfirmation?'USER_CONFIRMED':'NEEDS_FIELD_CHECK';logEvent('SURVEY_REFERENCE_IMPORTED',file.name+'; CSV; '+points.length+' จุด');renderCanvas();renderสถานะ();renderLeaflet();showGpsResult(`<b>นำเข้าข้อมูลสำรวจ ${escapeHtml(file.name)} สำเร็จ</b><div>CRS: ${escapeHtml(sourceCrs)} · ${points.length} จุด</div><div class="small">ข้อมูลต้องระบุผู้สำรวจ วันที่ วิธีการ และความแม่นยำก่อนใช้ยืนยันผล</div>`,'notice ok');
+}
+async function importGpsFile(){const file=$('gpsFileInput').files?.[0];if(!file)throw Error('กรุณาเลือกไฟล์เส้นทางหรือไฟล์ตารางพิกัดก่อน');if(file.size>10*1024*1024)throw Error('ไฟล์มีขนาดใหญ่เกิน 10 เมกะไบต์ ซึ่งเกินขีดจำกัดของรุ่นทดลองนี้');const ext=file.name.toLowerCase().split('.').pop();const text=await file.text();if(ext==='csv'){await importCsvCoordinateFile(file,text);return;}let parsed;
+  if(ext==='gpx')parsed=parseไฟล์เส้นทางForBoundary(text);else if(ext==='geojson'||ext==='json')parsed=parseไฟล์แผนที่ForBoundary(text);else throw Error('รองรับไฟล์เส้นทาง .gpx ไฟล์ขอบเขตแผนที่ .geojson และตารางพิกัด .csv เท่านั้น');
+  const points=validateWgsPoints(parsed.points);const zone=selectZoneForPoints(points);const firstLastGap=haversineBrowser(points[0],points[points.length-1]);const target=$('gpsImportTarget').value;
+  if(target==='boundary'){
+    if(project.sourceVertices.length&&!confirm('การนำเข้าแนวเขตใหม่จะแทนที่แนวเขตปัจจุบัน ต้องการดำเนินการหรือไม่?'))return;
+    snapshot();$('inputCrs').value='EPSG:4326';$('workingCrs').value=zone===47?'EPSG:32647':'EPSG:32648';setระบบพิกัดUI();project.inputCrs='EPSG:4326';project.workingCrs=$('workingCrs').value;project.sourceVertices=deep(points);project.vertices=points.map(forward);project.surveyVertices=[];project.surveyComparison=null;project.survey={};project.confirmation=null;project.status='NEEDS_FIELD_CHECK';project.metadata={...project.metadata,sourceType:ext==='gpx'?'gps_gpx_import':ext==='csv'?'gps_csv_import':'geojson_import',sourceFile:file.name,sourceFormat:ext.toUpperCase(),importedAt:new Date().toISOString(),sourceระบบพิกัด:'EPSG:4326',workingระบบพิกัด:project.workingCrs,workingหน่วย:'เมตร',trackFirstLastGapM:firstLastGap,trackStartTime:parsed.firstTime||null,trackEndTime:parsed.lastTime||null,rawGpsTrackWgs84:deep(points),sourceResolutionM:null,mapScaleDenominator:null,importWarnings:[...(parsed.warnings||[]),...(parsed.closed?[]:['ระบบเชื่อมจุดสุดท้ายกลับไปจุดแรก ต้องตรวจแนวเขตกับพื้นที่จริง'])]};recordSourceLineage(project.metadata.sourceType,'IMPORT_BOUNDARY_FILE',{sourceFile:file.name,sourceFormat:ext.toUpperCase(),inputCrs:'EPSG:4326',workingCrs:project.workingCrs,note:'นำเข้าแนวเขตจากไฟล์'});$('sourceNote').value='นำเข้าข้อมูลจากไฟล์ '+file.name+' แล้ว รอตรวจแนวเขตกับพื้นที่จริง';project.sourceNote=$('sourceNote').value;syncText();viewBounds=null;lastMapFit=false;logEvent('GPS_OR_GEO_IMPORT',file.name+'; จำนวน '+points.length+' จุด; ระยะห่างหัว-ท้าย '+firstLastGap.toFixed(2)+' เมตร');render();renderLeaflet();if(leafletMap){const ll=points.map(p=>[p[1],p[0]]);leafletMap.fitBounds(L.latLngBounds(ll).pad(.18));lastMapFit=true;}
+  }else{
+    if(project.workingCrs==='LOCAL:METRE')throw Error('ก่อนนำเข้าขอบเขตสำรวจ ต้องมีขอบเขตแปลงหลักที่ระบุตำแหน่งจริงแล้ว');const mainZone=project.workingCrs==='EPSG:32647'?47:48;if(zone!==mainZone)throw Error('ข้อมูลสำรวจอยู่คนละเขตพิกัดกับแนวแปลงหลัก กรุณาให้ผู้เชี่ยวชาญแปลงพิกัดก่อนเปรียบเทียบ');const projected=points.map(p=>wgs84ToUtm(p[0],p[1],mainZone));const vv=validatePoly(projected);if(!vv.valid)throw Error('ขอบเขตสำรวจอ้างอิงไม่ถูกต้อง: '+vv.errors.join('; '));project.surveyVertices=projected;project.surveyComparison=null;project.survey={recordId:file.name,surveyor:'',method:ext==='gpx'?'เส้นทางจากเครื่องรับพิกัด (รอยืนยันแหล่งข้อมูล)':'พิกัดอ้างอิงที่นำเข้า (รอยืนยันแหล่งข้อมูล)',date:parsed.firstTime?parsed.firstTime.slice(0,10):'',reportedAccuracyM:null,toleranceM:null,referenceระบบพิกัด:project.workingCrs,sourceFormat:ext.toUpperCase(),sourceFile:file.name,importedAt:new Date().toISOString(),rawWgs84Coordinates:points,trackFirstLastGapM:firstLastGap};$('surveyText').value=projected.map(p=>p.map(v=>v.toFixed(4)).join(',')).join('\n');$('surveyRecordId').value=file.name;$('surveyorName').value='';if(parsed.firstTime)$('surveyDate').value=parsed.firstTime.slice(0,10);project.status=project.confirmation?.explicitConfirmation?'USER_CONFIRMED':'NEEDS_FIELD_CHECK';logEvent('SURVEY_REFERENCE_IMPORTED',file.name+'; จำนวน '+points.length+' จุด; ต้องเปรียบเทียบก่อนยืนยัน');renderCanvas();renderสถานะ();renderLeaflet();
+  }
+  const closureNote=firstLastGap>5?`ระยะระหว่างจุดแรกและจุดสุดท้าย ${firstLastGap.toFixed(2)} เมตร ระบบจะเชื่อมกลับจุดแรก ต้องตรวจแนวเขตอีกครั้ง`: `ระยะระหว่างจุดแรกกับจุดสุดท้าย ${firstLastGap.toFixed(2)} เมตร`;
+  showGpsResult(`<b>นำเข้าไฟล์ ${escapeHtml(file.name)} สำเร็จ</b><div>ชนิดข้อมูล: ${escapeHtml(parsed.geometryType)} · ${points.length} จุด · เขตพิกัด ${zone}</div><div>${escapeHtml(closureNote)}</div><div class="small">การนำเข้าไฟล์ยังไม่ถือว่าได้รับการรับรองจากการสำรวจ ${(parsed.warnings||[]).map(w=>escapeHtml(w)).join(' · ')}</div>`,'notice ok');
+}
+$('startMapDrawing').addEventListener('click',startMapDrawing);$('finishMapDrawing').addEventListener('click',finishMapDrawing);$('cancelMapDrawing').addEventListener('click',cancelMapDrawing);
+$('fitMapBoundary').addEventListener('click',()=>{if(!leafletMap)return;if(project.workingCrs==='LOCAL:METRE'||project.vertices.length<3){showMapMessage('ยังไม่มีแนวแปลงที่มีตำแหน่งจริงให้แสดง','notice warn');return;}const ll=mapLatLngsFromWorking(project.vertices);leafletMap.fitBounds(L.latLngBounds(ll).pad(.18));lastMapFit=true;});
+$('locateMe').addEventListener('click',()=>{if(!leafletMap){showMapMessage('แผนที่ยังไม่พร้อม กรุณาตรวจการเชื่อมต่ออินเทอร์เน็ต','notice warn');return;}if(!navigator.geolocation){showMapMessage('อุปกรณ์นี้ไม่รองรับการค้นหาตำแหน่ง กรุณาเลื่อนแผนที่ไปยังแปลงของคุณด้วยตนเอง','notice warn');return;}showMapMessage('กำลังค้นหาตำแหน่งของคุณ กรุณาอนุญาตให้ใช้งานตำแหน่งเมื่อมีข้อความถาม','notice');navigator.geolocation.getCurrentPosition(pos=>{const lat=pos.coords.latitude,lon=pos.coords.longitude;leafletMap.setView([lat,lon],18);showMapMessage('พบตำแหน่งปัจจุบันแล้ว จุดนี้ใช้ช่วยเลื่อนแผนที่เท่านั้น ยังไม่ได้บันทึกเป็นมุมแปลง','notice ok');},()=>showMapMessage('ค้นหาตำแหน่งไม่สำเร็จ คุณยังสามารถลากแผนที่ไปยังแปลงของคุณได้','notice warn'),{enableHighAccuracy:true,timeout:15000,maximumAge:30000});});
+$('basemapChoice').addEventListener('change',()=>{const choice=$('basemapChoice').value;if(choice==='mapbox'&&!mapboxLayer){$('basemapChoice').value='imagery';document.querySelector('.imagery-options').open=true;$('mapboxMessage').textContent='กรุณาใส่รหัสจากผู้ให้บริการก่อนเปิดภาพนี้';$('mapboxMessage').className='notice warn';return;}if(choice==='gistda'&&!gistdaLayer){$('basemapChoice').value='imagery';document.querySelector('.imagery-options').open=true;$('gistdaMessage').textContent='กรุณาสมัครและใส่รหัสจากจิสด้าก่อนเปิดภาพนี้';$('gistdaMessage').className='notice warn';return;}switchBaseLayer(choice);});$('applyMapbox').addEventListener('click',enableMapboxImagery);$('applyGistda').addEventListener('click',enableGistdaImagery);
+$('importGpsFile').addEventListener('click',async()=>{try{await importGpsFile();}catch(e){showGpsResult(escapeHtml(e.message),'notice err');}});
+// Keep the map view synchronized with edits and imports; map layers never mutate the optimizer.
+const originalRender=render;
+render=function(){originalRender();renderLeaflet();};
+// Extend Project JSON provenance for the new input modes.
+const originalProjectDoc=projectDoc;
+projectDoc=function(){const doc=originalProjectDoc();doc.metadata={...doc.metadata,basemapProvider:project.metadata.basemapProvider||null,basemapServiceUrl:project.metadata.basemapServiceUrl||null,basemapViewedAt:project.metadata.basemapViewedAt||null,imageryAcquisitionDate:project.metadata.imageryAcquisitionDate??null,sourceResolutionM:project.metadata.sourceResolutionM??null,mapScaleDenominator:project.metadata.mapScaleDenominator??null,imageryDateNote:project.metadata.imageryDateNote||null,digitizingZoom:project.metadata.digitizingZoom??null,digitizingMapCenter:project.metadata.digitizingMapCenter||null,sourceFile:project.metadata.sourceFile||null,sourceFormat:project.metadata.sourceFormat||null,importedAt:project.metadata.importedAt||null,trackFirstLastGapM:project.metadata.trackFirstLastGapM??null,importWarnings:project.metadata.importWarnings||[]};doc.limitations=(doc.limitations||[]).filter(x=>!x.includes('No satellite imagery')&&!x.includes('No เครื่องรับพิกัดจากดาวเทียม-track')&&!x.includes('Survey boundary metrics')&&!x.includes('รุ่นนี้ยังไม่รองรับการแสดงภาพดาวเทียม')&&!x.includes('รุ่นนี้ยังไม่มีการนำเข้าเส้นทางจากอุปกรณ์สำรวจ'));doc.limitations.push('ภาพแผนที่ภายนอกต้องใช้อินเทอร์เน็ตและเป็นไปตามเงื่อนไขผู้ให้บริการและการระบุแหล่งที่มา','วันถ่ายภาพอาจไม่มีข้อมูลจากชั้นภาพแผนที่ทั่วไป','ไฟล์เส้นทาง ไฟล์ขอบเขต และตารางพิกัดที่นำเข้า ไม่ใช่หลักฐานการสำรวจที่ผ่านการรับรองโดยอัตโนมัติ','ความละเอียดภาพและวันถ่ายภาพจะไม่ถูกระบุหากไม่มีข้อมูลที่ตรวจสอบได้จากผู้ให้บริการ','การนำเข้าในหน้าเว็บรองรับไม่เกิน 1,000 จุด','รุ่นนี้รองรับแปลงหนึ่งผืนที่เป็นขอบเขตปิดหนึ่งวง ยังไม่รองรับแปลงหลายผืน รูภายในแปลง หรือแปลงที่คร่อมเขตพิกัดระนาบ','ค่าความคลาดเคลื่อนของแนวขอบคำนวณจากจุดตัวอย่าง ไม่ได้ตรวจทุกตำแหน่งตลอดแนว','เครื่องมือในเบราว์เซอร์รุ่นต้นแบบรองรับ GeoTIFF แบบ affine north-up เฉพาะ EPSG:4326, EPSG:32647, EPSG:32648 และ EPSG:3857; GCP/RPC และภาพหมุนยังไม่รองรับ');return doc;};
+// Re-render map when the map tab becomes visible.
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.tab==='mapTab'&&leafletMap)setTimeout(()=>{leafletMap.invalidateSize();renderLeaflet();},150);}));
+async function loadLeafletAsync(){
+  // Give the service worker a chance to control this page before requesting Leaflet,
+  // so the library can be stored for a later offline launch after one successful online visit.
+  if('serviceWorker' in navigator&&(location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname))){
+    try{await navigator.serviceWorker.ready;if(!navigator.serviceWorker.controller){await Promise.race([new Promise(resolve=>navigator.serviceWorker.addEventListener('controllerchange',resolve,{once:true})),new Promise(resolve=>setTimeout(resolve,1500))]);}}catch(e){}
+  }
+  const css=document.createElement('link');css.rel='stylesheet';css.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';css.crossOrigin='';document.head.appendChild(css);
+  const js=document.createElement('script');js.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';js.async=true;js.crossOrigin='';js.onload=()=>initLeafletMap();js.onerror=()=>{showMapMessage('เปิดส่วนแผนที่ไม่สำเร็จ หากต้องการใช้แบบไม่มีสัญญาณ ต้องเปิดแอปออนไลน์ให้เก็บส่วนแผนที่ไว้ก่อน และนำเข้าชุดภาพแปลงในเครื่อง','notice warn');};document.head.appendChild(js);
+}
+
+// --- Farmer-friendly interaction layer (presentation only; keeps the V0.5 geometry logic) ---
+function farmerThaiสถานะ(status){return ({DRAFT:'ร่างขอบเขต ยังไม่ได้ตรวจพื้นที่จริง',NEEDS_FIELD_CHECK:'ควรตรวจแนวเขตกับพื้นที่จริง',USER_CONFIRMED:'ผู้ใช้ตรวจและยืนยันแล้ว',SURVEY_VERIFIED:'เปรียบเทียบกับข้อมูลสำรวจแล้ว'})[status]||'ยังไม่ได้วาดแปลง';}
+function updateFarmerSummary(){
+  const a=$('farmerAreaValue'),st=$('farmerสถานะValue');
+  if(!a||!st)return;
+  const valid=project.validation?.valid;
+  a.textContent=valid?`${fmt(project.validation.area,2)} ตารางเมตร`:'รอวาดขอบเขต';
+  st.textContent=project.vertices.length>=3?farmerThaiสถานะ(project.status):'ยังไม่ได้วาดแปลง';
+  const name=$('farmerFieldName');if(name&&document.activeElement!==name&&$('fieldName'))name.value=$('fieldName').value;
+  if($('farmerSaveButton'))$('farmerSaveButton').disabled=!valid;
+  if($('farmerFinishDrawing'))$('farmerFinishDrawing').disabled=!mapDrawingActive;
+  if($('farmerStartDrawing'))$('farmerStartDrawing').disabled=!!mapDrawingActive;
+}
+const renderBeforeFarmerUX=render;
+render=function(){renderBeforeFarmerUX();updateFarmerSummary();};
+$('farmerFieldName').addEventListener('input',()=>{$('fieldName').value=$('farmerFieldName').value;project.fieldName=$('farmerFieldName').value;});
+$('farmerStartDrawing').addEventListener('click',()=>{document.querySelector('[data-tab="mapTab"]').click();startMapDrawing();if(leafletMap)setTimeout(()=>leafletMap.invalidateSize(),180);});
+$('farmerFinishDrawing').addEventListener('click',()=>{finishMapDrawing();updateFarmerSummary();});
+$('farmerUndoDrawing').addEventListener('click',()=>{cancelMapDrawing();updateFarmerSummary();});
+$('farmerSaveButton').addEventListener('click',()=>{if(!project.validation?.valid){alert('กรุณาวาดขอบเขตให้ครบอย่างน้อย 3 จุดก่อนบันทึก');return;}project.fieldName=$('farmerFieldName').value.trim()||'แปลงของฉัน';$('fieldName').value=project.fieldName;$('fieldId').value=$('fieldId').value||'MY-FARM-001';$('exportJson').click();});
+$('farmerAdvancedToggle').addEventListener('click',()=>{document.body.classList.toggle('show-advanced');const shown=document.body.classList.contains('show-advanced');$('farmerAdvancedToggle').textContent=shown?'ซ่อนการตั้งค่าเพิ่มเติม':'ตั้งค่าเพิ่มเติม';if(shown)document.getElementById('advancedDrawer')?.scrollIntoView({behavior:'smooth',block:'start'});});
+$('startMapDrawing').textContent='เริ่มวาดขอบเขต';$('finishMapDrawing').textContent='วาดเสร็จแล้ว';$('cancelMapDrawing').textContent='ยกเลิกการวาด';$('fitMapBoundary').textContent='แสดงแปลงของฉัน';
+$('mapMessage').textContent='พร้อมเริ่มวาดแล้ว กด “เริ่มวาดขอบเขต” แล้วแตะตามมุมแปลงบนแผนที่';
+updateFarmerSummary();
+// Hide technical controls until requested; their IDs remain available for validation and power users.
+$('gpsImportTarget').closest('.field').classList.add('hidden');
+$('gpsFileInput').setAttribute('aria-label','เลือกไฟล์ เครื่องรับพิกัดจากดาวเทียม หรือไฟล์ขอบเขตจากอุปกรณ์');
+$('startMapDrawing').setAttribute('aria-label','เริ่มวาดเส้นขอบแปลงบนแผนที่');$('finishMapDrawing').setAttribute('aria-label','เสร็จสิ้นการวาดขอบเขตแปลง');$('farmerStartDrawing').setAttribute('aria-describedby','mapMessage');
+$('fieldName').addEventListener('input',()=>{if($('farmerFieldName'))$('farmerFieldName').value=$('fieldName').value;});
+
+function startFarmerBlank(){
+  drawing=false;viewBounds=null;undoStack=[];selectedIndex=-1;
+  $('fieldName').value='แปลงของฉัน';$('farmerFieldName').value='แปลงของฉัน';$('fieldId').value='MY-FARM-001';$('sourceNote').value='ร่างขอบเขตจากแผนที่';
+  $('inputCrs').value='LOCAL:METRE';$('workingCrs').value='EPSG:32647';setระบบพิกัดUI();
+  project={boundaryId:'MY-FARM-001',fieldName:'แปลงของฉัน',inputCrs:'LOCAL:METRE',workingCrs:'LOCAL:METRE',sourceNote:'ร่างขอบเขตจากแผนที่',sourceVertices:[],vertices:[],surveyVertices:[],status:'DRAFT',metadata:{sourceType:'not_started',sourceOriginStatus:'not_started',sourceLineage:[],units:'m',acquisitionDate:null,sourceResolutionM:null,editHistory:[]},survey:{},events:[],validation:null,surveyComparison:null};
+  $('coordText').value='';$('surveyText').value='';$('surveyResult').textContent='ยังไม่มีผลเปรียบเทียบ';$('confirmCheck').checked=false;$('confirmedBy').value='';$('farmerAreaValue').textContent='รอวาดขอบเขต';$('farmerสถานะValue').textContent='ยังไม่ได้วาดแปลง';
+  render();
+}
+// --- PWA + local project persistence (offline-capable prototype) ---
+const LOCAL_DB_NAME='prouve-spatial-local';
+const LOCAL_DB_VERSION=1;
+let localDb=null,localDraftReady=false,localDraftRestoring=false,localDraftTimer=null,localFieldPack=null,localFieldPackLayer=null,localStoragePersistent=false;
+function setLocalStatus(id,message,kind=''){
+  const el=$(id);if(!el)return;el.textContent=message;el.className=kind?('notice '+kind):'';
+}
+function updateNetworkStatus(){
+  const el=$('networkStatus');if(!el)return;
+  el.textContent=navigator.onLine?'สถานะเครือข่าย: ออนไลน์':'สถานะเครือข่าย: ออฟไลน์';
+  el.style.color=navigator.onLine?'#176b3a':'#9a5b08';
+}
+function openLocalDatabase(){
+  return new Promise((resolve,reject)=>{
+    if(!('indexedDB' in window)){reject(new Error('อุปกรณ์หรือเบราว์เซอร์นี้ไม่รองรับ IndexedDB'));return;}
+    const req=indexedDB.open(LOCAL_DB_NAME,LOCAL_DB_VERSION);
+    req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains('drafts'))db.createObjectStore('drafts',{keyPath:'key'});if(!db.objectStoreNames.contains('fieldpacks'))db.createObjectStore('fieldpacks',{keyPath:'key'});};
+    req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error||new Error('เปิดพื้นที่บันทึกในเครื่องไม่สำเร็จ'));
+  });
+}
+function idbRequest(storeName,mode,action){
+  return new Promise((resolve,reject)=>{
+    if(!localDb){reject(new Error('พื้นที่บันทึกในเครื่องยังไม่พร้อม'));return;}
+    const tx=localDb.transaction(storeName,mode),store=tx.objectStore(storeName);let req,result;
+    try{req=action(store);}catch(e){reject(e);return;}
+    if(req){req.onsuccess=()=>{result=req.result;};req.onerror=()=>reject(req.error||new Error('คำขอข้อมูลไม่สำเร็จ'));}
+    tx.oncomplete=()=>resolve(result);
+    tx.onerror=()=>reject(tx.error||new Error('ธุรกรรมฐานข้อมูลไม่สำเร็จ'));
+    tx.onabort=()=>reject(tx.error||new Error('การบันทึกถูกยกเลิก'));
+  });
+}
+function makeLocalDraftRecord(){
+  const p=deep(project);
+  p.fieldName=$('fieldName').value||p.fieldName;p.boundaryId=$('fieldId').value||p.boundaryId;p.sourceNote=$('sourceNote').value||p.sourceNote;p.inputCrs=crs();p.workingCrs=working();
+  return {key:'active',schema:'prouve-spatial-local-draft-v1',savedAt:new Date().toISOString(),project:p,ui:{fieldName:$('fieldName').value,fieldId:$('fieldId').value,sourceNote:$('sourceNote').value,inputCrs:$('inputCrs').value,workingCrs:$('workingCrs').value,coordText:$('coordText').value,surveyText:$('surveyText').value,surveyRecordId:$('surveyRecordId').value,surveyorName:$('surveyorName').value,surveyMethod:$('surveyMethod').value,surveyDate:$('surveyDate').value,surveyAccuracy:$('surveyAccuracy').value,surveyTolerance:$('surveyTolerance').value,surveyAccuracyBoundConfirmed:$('surveyAccuracyBoundConfirmed').checked,confirmCheck:$('confirmCheck').checked,confirmedBy:$('confirmedBy').value}};
+}
+async function saveLocalDraftNow(){
+  if(!localDb||!localDraftReady||localDraftRestoring)return false;
+  const hasWork=project.vertices.length>0||project.sourceVertices.length>0||$('fieldName').value.trim()!==''&&$('fieldName').value.trim()!=='แปลงของฉัน';
+  if(!hasWork)return false;
+  try{
+    setLocalStatus('localSaveStatus','กำลังบันทึกข้อมูลในเครื่อง…');
+    const record=makeLocalDraftRecord();
+    await idbRequest('drafts','readwrite',store=>store.put(record));
+    setLocalStatus('localSaveStatus','บันทึกข้อมูลในเครื่องแล้ว '+new Date(record.savedAt).toLocaleTimeString('th-TH')+(localStoragePersistent?'':' · ควรดาวน์โหลดไฟล์สำรองเป็นระยะ'));
+    return true;
+  }catch(e){setLocalStatus('localSaveStatus','บันทึกอัตโนมัติไม่สำเร็จ กรุณาดาวน์โหลดไฟล์สำรอง','warn');return false;}
+}
+function scheduleLocalDraftSave(){
+  if(!localDraftReady||localDraftRestoring)return;
+  clearTimeout(localDraftTimer);setLocalStatus('localSaveStatus','มีการแก้ไข รอบันทึกในเครื่อง…');
+  localDraftTimer=setTimeout(()=>saveLocalDraftNow(),450);
+}
+function validateStoredDraft(rec){
+  if(!rec||rec.schema!=='prouve-spatial-local-draft-v1'||!rec.project||!Array.isArray(rec.project.vertices)||!Array.isArray(rec.project.sourceVertices))throw Error('ข้อมูลบันทึกในเครื่องมีรูปแบบไม่ถูกต้อง');
+  const p=rec.project,allowed=['LOCAL:METRE','EPSG:4326','EPSG:32647','EPSG:32648'];
+  if(!allowed.includes(p.inputCrs)||!['LOCAL:METRE','EPSG:32647','EPSG:32648'].includes(p.workingCrs))throw Error('ระบบพิกัดของข้อมูลบันทึกไม่รองรับ');
+  for(const [label,arr] of [['จุดคำนวณ',p.vertices],['จุดต้นทาง',p.sourceVertices]])if(arr.some(q=>!Array.isArray(q)||q.length!==2||!q.every(v=>typeof v==='number'&&Number.isFinite(v))))throw Error(label+' ในข้อมูลบันทึกเสียหาย');
+  if(p.vertices.length>=3&&!validatePoly(p.vertices).valid)throw Error('รูปแปลงในข้อมูลบันทึกไม่ผ่านการตรวจสอบ');
+  if(p.vertices.length!==p.sourceVertices.length)throw Error('จำนวนจุดต้นทางและจุดคำนวณในข้อมูลบันทึกไม่ตรงกัน');
+  return true;
+}
+async function restoreLocalDraft(){
+  if(!localDb)return false;
+  const rec=await idbRequest('drafts','readonly',store=>store.get('active'));
+  if(!rec)return false;
+  validateStoredDraft(rec);localDraftRestoring=true;
+  try{
+    project=deep(rec.project);const ui=rec.ui||{};
+    $('inputCrs').value=ui.inputCrs||project.inputCrs;$('workingCrs').value=ui.workingCrs||project.workingCrs;$('fieldName').value=ui.fieldName||project.fieldName||'แปลงของฉัน';$('farmerFieldName').value=$('fieldName').value;$('fieldId').value=ui.fieldId||project.boundaryId||'MY-FARM-001';$('sourceNote').value=ui.sourceNote||project.sourceNote||'';
+    $('coordText').value=ui.coordText||'';$('surveyText').value=ui.surveyText||project.surveyVertices.map(p=>p.join(',')).join('\n');$('surveyRecordId').value=ui.surveyRecordId||project.survey.recordId||'';$('surveyorName').value=ui.surveyorName||project.survey.surveyor||'';$('surveyMethod').value=ui.surveyMethod||project.survey.method||'GNSS survey';$('surveyDate').value=ui.surveyDate||project.survey.date||'';$('surveyAccuracy').value=ui.surveyAccuracy??project.survey.reportedAccuracyM??0.05;$('surveyTolerance').value=ui.surveyTolerance??project.survey.toleranceM??0.30;$('surveyAccuracyBoundConfirmed').checked=ui.surveyAccuracyBoundConfirmed===true;$('confirmCheck').checked=ui.confirmCheck===true;$('confirmedBy').value=ui.confirmedBy||project.confirmation?.confirmedBy||'';
+    setระบบพิกัดUI();viewBounds=null;render();syncText();
+    setLocalStatus('localSaveStatus','กู้คืนข้อมูลที่บันทึกไว้ '+new Date(rec.savedAt).toLocaleString('th-TH'));
+    return true;
+  }finally{localDraftRestoring=false;}
+}
+function addLocalFieldPackOverlay(){
+  if(!localFieldPack||!leafletMap||!window.L)return false;
+  try{
+    if(activeBaseLayer&&leafletMap.hasLayer(activeBaseLayer))leafletMap.removeLayer(activeBaseLayer);
+    if(localFieldPackLayer)leafletMap.removeLayer(localFieldPackLayer);
+    const b=localFieldPack.manifest.boundsWgs84;
+    const bounds=[[b[1],b[0]],[b[3],b[2]]];
+    localFieldPackLayer=L.imageOverlay(localFieldPack.imageDataUrl,bounds,{opacity:1,alt:'ภาพแปลงที่เก็บไว้ในอุปกรณ์'}).addTo(leafletMap);
+    leafletMap.fitBounds(bounds,{padding:[12,12]});
+    project.metadata.basemapProvider='local_geotiff_field_pack';project.metadata.basemapServiceUrl=null;project.metadata.basemapViewedAt=new Date().toISOString();project.metadata.imageryAcquisitionDate=localFieldPack.manifest.acquisitionDate||null;project.metadata.localFieldPackSourceSha256=localFieldPack.manifest.sourceSha256||null;project.metadata.localFieldPackImageSha256=localFieldPack.manifest.renderedImageSha256||null;project.metadata.localFieldPackSourceCrs=localFieldPack.manifest.sourceCrs||null;project.metadata.localFieldPackAttribution=localFieldPack.manifest.attribution;project.metadata.localFieldPackLicense=localFieldPack.manifest.license;project.metadata.localFieldPackTitle=localFieldPack.manifest.title;
+    $('basemapChoice').disabled=true;
+    setLocalStatus('mapPackStatus','ภาพแผนที่ในเครื่อง: '+localFieldPack.manifest.title);
+    setLocalStatus('offlineFieldPackMessage','พร้อมใช้งานออฟไลน์ · '+localFieldPack.manifest.attribution+' · '+localFieldPack.manifest.license,'ok');
+    return true;
+  }catch(e){setLocalStatus('offlineFieldPackMessage','อ่านภาพชุดนี้ไม่ได้: '+e.message,'err');return false;}
+}
+// --- Public self-service GeoTIFF preparation (browser-side prototype) ---
+const GEOTIFF_BROWSER_URL='https://cdn.jsdelivr.net/npm/geotiff@3.0.5/dist-browser/geotiff.js';
+const PROJ4_BROWSER_URL='https://cdn.jsdelivr.net/npm/proj4@2.23.0/dist/proj4.js';
+const GEO_BROWSER_MAX_FILE_BYTES=50*1024*1024;
+const GEO_BROWSER_MAX_PIXELS=25000000;
+const GEO_BROWSER_MAX_SIDE=1536;
+let pendingBrowserGeoTiff=null;
+let generatedBrowserFieldPack=null;
+function setGeoTiffStatus(message,kind=''){setLocalStatus('geoTiffStatus',message,kind);}
+function loadBrowserScript(url,ready){
+  if(ready())return Promise.resolve();
+  const existing=[...document.scripts].find(x=>x.src===url);
+  if(existing)return new Promise((resolve,reject)=>{if(ready())resolve();else{existing.addEventListener('load',()=>ready()?resolve():reject(new Error('โหลดเครื่องมือไม่สมบูรณ์')), {once:true});existing.addEventListener('error',()=>reject(new Error('ดาวน์โหลดเครื่องมือไม่สำเร็จ')), {once:true});}});
+  return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=url;script.async=true;script.crossOrigin='anonymous';script.onload=()=>ready()?resolve():reject(new Error('ไม่พบเครื่องมือหลังโหลดไฟล์'));script.onerror=()=>reject(new Error('ดาวน์โหลดเครื่องมือไม่สำเร็จ: '+new URL(url).hostname));document.head.appendChild(script);});
+}
+async function waitForServiceWorkerControl(){
+  if(!('serviceWorker' in navigator)||!(location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname)))return;
+  try{await navigator.serviceWorker.ready;if(!navigator.serviceWorker.controller)await Promise.race([new Promise(resolve=>navigator.serviceWorker.addEventListener('controllerchange',resolve,{once:true})),new Promise(resolve=>setTimeout(resolve,1200))]);}catch(e){}
+}
+async function ensureGeoTiffBrowserTools(){
+  await waitForServiceWorkerControl();
+  await loadBrowserScript(GEOTIFF_BROWSER_URL,()=>!!window.GeoTIFF?.fromArrayBuffer);
+  await loadBrowserScript(PROJ4_BROWSER_URL,()=>typeof window.proj4==='function');
+  const proj4=window.proj4;
+  proj4.defs('EPSG:32647','+proj=tmerc +lat_0=0 +lon_0=99 +k=0.9996 +x_0=500000 +y_0=0 +datum=WGS84 +units=m +no_defs +type=crs');
+  proj4.defs('EPSG:32648','+proj=tmerc +lat_0=0 +lon_0=105 +k=0.9996 +x_0=500000 +y_0=0 +datum=WGS84 +units=m +no_defs +type=crs');
+  proj4.defs('EPSG:3857','+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs +type=crs');
+}
+function tiffTag(image,name){const fd=image.fileDirectory;if(!fd)return undefined;if(typeof fd.hasTag==='function'&&!fd.hasTag(name))return undefined;return typeof fd.getValue==='function'?fd.getValue(name):fd[name];}
+function geoTiffEpsg(image){const keys=(typeof image.getGeoKeys==='function'?image.getGeoKeys():image.geoKeys)||{};const projected=Number(keys.ProjectedCSTypeGeoKey||0);const geographic=Number(keys.GeographicTypeGeoKey||0);return projected>0&&projected!==32767?projected:geographic>0&&geographic!==32767?geographic:null;}
+function proj4Transform(from,to,coord){const out=window.proj4(from,to,coord);if(!Array.isArray(out)||!out.every(Number.isFinite))throw Error('แปลงพิกัดภาพไม่สำเร็จ');return out;}
+function boundsToWgs84(sourceBounds,epsg){
+  const [xmin,ymin,xmax,ymax]=sourceBounds,crs='EPSG:'+epsg,pts=[],steps=32;
+  for(let i=0;i<=steps;i++){const t=i/steps;pts.push([xmin+(xmax-xmin)*t,ymin],[xmin+(xmax-xmin)*t,ymax],[xmin,ymin+(ymax-ymin)*t],[xmax,ymin+(ymax-ymin)*t]);}
+  const ll=pts.map(p=>epsg===4326?p:proj4Transform(crs,'EPSG:4326',p));
+  const xs=ll.map(p=>p[0]),ys=ll.map(p=>p[1]);
+  const b=[Math.min(...xs),Math.min(...ys),Math.max(...xs),Math.max(...ys)];
+  if(!b.every(Number.isFinite)||!(b[0]>=-180&&b[2]<=180&&b[0]<b[2]&&b[1]>=-90&&b[3]<=90&&b[1]<b[3]))throw Error('ขอบเขตภาพหลังแปลงพิกัดไม่ถูกต้อง');
+  if(b[2]-b[0]>10||b[3]-b[1]>10)throw Error('ภาพครอบคลุมพื้นที่กว้างเกินกว่าขั้นตอนเตรียมภาพแปลง โปรดใช้ภาพย่อยเฉพาะบริเวณ');
+  return b;
+}
+async function inspectGeoTiffFile(file){
+  if(!file)throw Error('กรุณาเลือกไฟล์ GeoTIFF ก่อน');
+  if(file.size<16)throw Error('ไฟล์มีขนาดเล็กผิดปกติหรือไม่ใช่ GeoTIFF');
+  if(file.size>GEO_BROWSER_MAX_FILE_BYTES)throw Error('ไฟล์มีขนาดเกิน 50 เมกะไบต์สำหรับการเตรียมภาพในโทรศัพท์รุ่นทดลองนี้');
+  await ensureGeoTiffBrowserTools();
+  const buffer=await file.arrayBuffer();
+  const tiff=await window.GeoTIFF.fromArrayBuffer(buffer);
+  const image=await tiff.getImage(0);
+  const width=image.getWidth(),height=image.getHeight();
+  if(!Number.isInteger(width)||!Number.isInteger(height)||width<2||height<2||width*height>GEO_BROWSER_MAX_PIXELS)throw Error('ขนาดภาพไม่รองรับ (ต้องไม่เกิน 25 ล้านพิกเซล)');
+  const epsg=geoTiffEpsg(image);
+  if(![4326,32647,32648,3857].includes(epsg))throw Error(epsg?'ระบบพิกัดของภาพนี้ยังไม่รองรับในรุ่นทดลองนี้':'ไม่พบรหัสระบบพิกัดในไฟล์ จึงไม่สามารถวางภาพบนแผนที่ได้');
+  const scale=tiffTag(image,'ModelPixelScale'),tie=tiffTag(image,'ModelTiepoint'),matrix=tiffTag(image,'ModelTransformation');
+  if(matrix)throw Error('ภาพมีการหมุนหรือรูปแบบการวางตำแหน่งพิเศษที่รุ่นนี้ยังไม่รองรับ โปรดใช้ภาพที่ไม่มีการหมุน ระบบจะไม่เดาตำแหน่ง');
+  if(!scale||scale.length<2||!tie||tie.length!==6)throw Error('ไฟล์ไม่มีข้อมูลตำแหน่งแบบ Pixel Scale และ Tiepoint ที่รองรับ ระบบจะไม่เดาพิกัด');
+  const sx=Number(scale[0]),sy=Number(scale[1]),ri=Number(tie[0]),rj=Number(tie[1]),mx=Number(tie[3]),my=Number(tie[4]);
+  if(![sx,sy,ri,rj,mx,my].every(Number.isFinite)||sx<=0||sy<=0)throw Error('ข้อมูลตำแหน่งของภาพไม่ครบถ้วนหรือมีการหมุนที่รุ่นนี้ยังไม่รองรับ');
+  const originX=mx-ri*sx,originY=my+rj*sy;
+  const sourceBounds=[originX,originY-height*sy,originX+width*sx,originY];
+  const wgsBounds=boundsToWgs84(sourceBounds,epsg);
+  const info={fileName:file.name,width,height,epsg,sourceCrs:'EPSG:'+epsg,pixelSize:[sx,sy],sourcePixelUnit:epsg===4326?'degree':'metre',sourceBounds,boundsWgs84:wgsBounds,originX,originY,scaleX:sx,scaleY:sy,sourceFileSize:file.size};
+  return {file,buffer,tiff,image,info};
+}
+function geoTiffInfoHtml(info){const labels={4326:'พิกัดละติจูดและลองจิจูด',32647:'พิกัดแผนที่ประเทศไทย เขต 47',32648:'พิกัดแผนที่ประเทศไทย เขต 48',3857:'พิกัดแผนที่เว็บ'};return `<div class="notice ok"><b>ตรวจพบข้อมูลภาพแล้ว</b><div>ขนาดภาพ: ${fmt(info.width,0)} × ${fmt(info.height,0)} พิกเซล</div><div>ระบบพิกัด: ${labels[info.epsg]||'ระบบพิกัดที่ตรวจพบ'}</div><div>ขนาดพิกเซลต้นฉบับ: ${fmt(info.pixelSize[0],4)} × ${fmt(info.pixelSize[1],4)} ${info.sourcePixelUnit==='metre'?'เมตร':'องศา'}</div><div>ขอบเขตภาพโดยประมาณ: ${info.boundsWgs84.map(v=>Number(v).toFixed(6)).join(', ')}</div><div>ขนาดไฟล์: ${(info.sourceFileSize/1024/1024).toFixed(2)} เมกะไบต์</div></div>`;}
+function getGeoTiffRights(){
+  const rights=$('geoTiffRights').value,source=$('geoTiffSource').value.trim(),detail=$('geoTiffLicenseNote').value.trim();
+  if(!source)throw Error('กรุณาระบุว่าได้ภาพมาจากที่ใด');
+  if(!rights||rights==='unknown')throw Error('ยังไม่สามารถนำเข้าภาพได้ เพราะยังไม่ทราบสิทธิ์การใช้ภาพ');
+  if(rights!=='own'&&!detail)throw Error('กรุณาระบุชื่อใบอนุญาตหรือเงื่อนไขที่ได้รับอนุญาต');
+  if(!$('geoTiffRightsAgree').checked)throw Error('กรุณายืนยันว่าคุณมีสิทธิ์ใช้ภาพนี้');
+  const license=rights==='own'?'ผู้ใช้งานยืนยันว่าเป็นผู้จัดทำภาพเองหรือมีสิทธิ์ใช้งาน':rights==='open'?'ข้อมูลเปิด: '+detail:'ได้รับอนุญาตจากเจ้าของภาพ: '+detail;
+  return {attribution:source,license};
+}
+function sha256Hex(buffer){return crypto?.subtle?crypto.subtle.digest('SHA-256',buffer).then(d=>[...new Uint8Array(d)].map(x=>x.toString(16).padStart(2,'0')).join('')):Promise.resolve(null);}
+async function renderGeoTiffToPng(pending){
+  const {image,info}=pending,{width,height,epsg,originX,originY,scaleX,scaleY}=info;
+  // Render on a Web Mercator grid because Leaflet displays the overlay in Web Mercator map space.
+  const [west,south,east,north]=info.boundsWgs84;
+  const sw=proj4Transform('EPSG:4326','EPSG:3857',[west,south]);
+  const ne=proj4Transform('EPSG:4326','EPSG:3857',[east,north]);
+  const webBounds=[sw[0],sw[1],ne[0],ne[1]];
+  const ratio=(webBounds[2]-webBounds[0])/(webBounds[3]-webBounds[1]);
+  if(!Number.isFinite(ratio)||ratio<=0)throw Error('สัดส่วนพื้นที่ภาพไม่ถูกต้อง');
+  const outW=Math.max(1,Math.min(GEO_BROWSER_MAX_SIDE,Math.round(GEO_BROWSER_MAX_SIDE*Math.min(1,ratio))));
+  const outH=Math.max(1,Math.min(GEO_BROWSER_MAX_SIDE,Math.round(GEO_BROWSER_MAX_SIDE*Math.min(1,1/ratio))));
+  const readScale=Math.min(1,GEO_BROWSER_MAX_SIDE/Math.max(width,height));
+  const readW=Math.max(2,Math.round(width*readScale)),readH=Math.max(2,Math.round(height*readScale));
+  const read=await image.readRGB({width:readW,height:readH,resampleMethod:'bilinear',interleave:true,enableAlpha:true});
+  const rgb=read?.data||read;
+  if(!rgb||!Number.isFinite(rgb.length)||rgb.length<readW*readH*3)throw Error('อ่านแถบสีของภาพไม่สำเร็จ');
+  const channels=Math.round(rgb.length/(readW*readH));if(![3,4].includes(channels))throw Error('รูปแบบสีของภาพยังไม่รองรับ');
+  const canvas=document.createElement('canvas');canvas.width=outW;canvas.height=outH;
+  const ctx=canvas.getContext('2d',{willReadFrequently:false});if(!ctx)throw Error('อุปกรณ์ไม่สามารถสร้างภาพตัวอย่างได้');
+  const imageData=ctx.createImageData(outW,outH),dst=imageData.data;
+  for(let y=0;y<outH;y++){
+    const my=webBounds[3]-(y+.5)/outH*(webBounds[3]-webBounds[1]);
+    for(let x=0;x<outW;x++){
+      const mx=webBounds[0]+(x+.5)/outW*(webBounds[2]-webBounds[0]);
+      let q;try{q=epsg===3857?[mx,my]:proj4Transform('EPSG:3857','EPSG:'+epsg,[mx,my]);}catch(e){continue;}
+      const col=(q[0]-originX)/scaleX,row=(originY-q[1])/scaleY;
+      const sx=Math.floor(col*readW/width),sy=Math.floor(row*readH/height);
+      if(sx<0||sy<0||sx>=readW||sy>=readH)continue;
+      const si=(sy*readW+sx)*channels,di=(y*outW+x)*4;
+      dst[di]=rgb[si];dst[di+1]=rgb[si+1];dst[di+2]=rgb[si+2];dst[di+3]=channels===4?rgb[si+3]:255;
+    }
+    if(y%32===31)await new Promise(resolve=>requestAnimationFrame(resolve));
+  }
+  ctx.putImageData(imageData,0,0);
+  const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
+  if(!blob)throw Error('สร้างภาพ PNG ไม่สำเร็จ');
+  if(blob.size>20*1024*1024)throw Error('ภาพหลังแปลงมีขนาดเกิน 20 เมกะไบต์ โปรดใช้ภาพต้นฉบับที่เล็กลง');
+  const dataUrl=canvas.toDataURL('image/png');
+  return {blob,dataUrl,width:outW,height:outH,renderCrs:'EPSG:3857'};
+}
+async function createBrowserGeoTiffFieldPack(){
+  if(!pendingBrowserGeoTiff)throw Error('กรุณากดตรวจสอบไฟล์ภาพก่อน');
+  const rights=getGeoTiffRights();
+  const title=$('geoTiffTitle').value.trim()||pendingBrowserGeoTiff.file.name.replace(/\.tiff?$/i,'');
+  setGeoTiffStatus('กำลังแปลงภาพในอุปกรณ์ของคุณ... โปรดอย่าปิดหน้านี้','');
+  $('buildGeoTiffFieldPack').disabled=true;
+  try{
+    const rendered=await renderGeoTiffToPng(pendingBrowserGeoTiff);
+    const sourceHash=await sha256Hex(pendingBrowserGeoTiff.buffer);
+    const pngBuffer=await rendered.blob.arrayBuffer();
+    const renderedHash=await sha256Hex(pngBuffer);
+    const info=pendingBrowserGeoTiff.info;
+    const manifest={title,boundsWgs84:info.boundsWgs84,sourceCrs:info.sourceCrs,sourcePixelSize:info.pixelSize,sourcePixelUnit:info.sourcePixelUnit,sourceWidth:info.width,sourceHeight:info.height,imageWidth:rendered.width,imageHeight:rendered.height,sourceFileName:pendingBrowserGeoTiff.file.name,sourceSha256:sourceHash,renderedImageSha256:renderedHash,acquisitionDate:$('geoTiffAcquisitionDate').value||null,attribution:rights.attribution,license:rights.license,generatedAt:new Date().toISOString(),renderCrs:rendered.renderCrs,renderMethod:'Browser-side GeoTIFF decoder and projection library; reprojected to EPSG:3857 PNG for web-map display',limitations:['ภาพต้นฉบับถูกแปลงเป็น PNG เพื่อใช้เป็นภาพพื้นหลัง ไม่ได้เก็บ GeoTIFF ต้นฉบับไว้ใน Field Pack','รองรับเฉพาะภาพ GeoTIFF แบบไม่มีการหมุนใน EPSG:4326, EPSG:32647, EPSG:32648 และ EPSG:3857; ภาพที่สร้างแปลงเป็น EPSG:3857 เพื่อแสดงบนแผนที่เว็บ','ยังไม่รองรับ ModelTransformation, GCP/RPC, nodata masking แบบครบถ้วน หรือภาพหลายหน้า/หลายชั้นที่ต้องเลือกเอง','ภาพถูกลดขนาดเหลือไม่เกิน 1536 พิกเซลต่อด้านเพื่อให้เหมาะกับหน่วยความจำโทรศัพท์','ความละเอียดภาพไม่ใช่ความแม่นยำตำแหน่ง และภาพนี้ไม่ใช่หลักฐานรับรองแนวเขตที่ดิน']};
+    const pack={format:'prouve-spatial-field-pack-v1',manifest,imageDataUrl:rendered.dataUrl};
+    const packBlob=new Blob([JSON.stringify(pack)],{type:'application/json'});
+    if(packBlob.size>35*1024*1024)throw Error('ชุดภาพที่สร้างมีขนาดเกิน 35 เมกะไบต์ โปรดลดขนาดภาพต้นฉบับ');
+    generatedBrowserFieldPack={pack,blob:packBlob,fileName:(title||'prouve-field').replace(/[^\p{L}\p{N}_-]+/gu,'_')+'.prouvefield'};
+    const record={key:'active',format:pack.format,manifest,imageDataUrl:pack.imageDataUrl,importedAt:new Date().toISOString()};
+    let stored=false;
+    try{if(localDb){await idbRequest('fieldpacks','readwrite',store=>store.put(record));stored=true;localFieldPack=record;if(leafletMap&&window.L)addLocalFieldPackOverlay();}}catch(storageError){setGeoTiffStatus('สร้างชุดภาพแล้ว แต่เก็บในอุปกรณ์ไม่สำเร็จ: '+storageError.message+' กรุณาดาวน์โหลดไฟล์สำรองก่อนปิดหน้านี้','warn');}
+    $('downloadGeoTiffFieldPack').disabled=false;
+    if(stored){logEvent('BROWSER_GEOTIFF_FIELD_PACK_CREATED',pendingBrowserGeoTiff.file.name);setGeoTiffStatus('เตรียมภาพสำเร็จและเก็บไว้ในอุปกรณ์แล้ว · '+rendered.width+' × '+rendered.height+' พิกเซล · ดาวน์โหลดไฟล์สำรองไว้ด้วย','ok');}
+    else if(!document.getElementById('geoTiffStatus').classList.contains('warn'))setGeoTiffStatus('สร้างชุดภาพสำเร็จ แต่ยังไม่ยืนยันการบันทึกในอุปกรณ์ กรุณาดาวน์โหลดไฟล์สำรอง','warn');
+    $('geoTiffMetadataSummary').innerHTML=geoTiffInfoHtml(info)+'<div class="notice warn" style="margin-top:8px">ภาพนี้ใช้ช่วยดูพื้นที่และร่างแนวเขตเท่านั้น ไม่ใช่หลักฐานรับรองแนวเขตที่ดิน</div>';
+    return pack;
+  }finally{$('buildGeoTiffFieldPack').disabled=false;}
+}
+function downloadGeneratedGeoTiffFieldPack(){
+  if(!generatedBrowserFieldPack)throw Error('ยังไม่มีชุดภาพให้ดาวน์โหลด');
+  const url=URL.createObjectURL(generatedBrowserFieldPack.blob),a=document.createElement('a');a.href=url;a.download=generatedBrowserFieldPack.fileName;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+}
+
+async function importLocalFieldPack(){
+  const file=$('offlineFieldPackFile').files?.[0];if(!file)throw Error('กรุณาเลือกไฟล์ชุดภาพแปลงก่อน');
+  if(file.size>35*1024*1024)throw Error('ไฟล์ชุดภาพมีขนาดเกิน 35 เมกะไบต์สำหรับรุ่นทดลองนี้');
+  const pack=JSON.parse(await file.text()),m=pack?.manifest;
+  if(pack?.format!=='prouve-spatial-field-pack-v1'||!m)throw Error('ไฟล์นี้ไม่ใช่ชุดภาพแปลง PROUVÉ รุ่น 1');
+  if(!Array.isArray(m.boundsWgs84)||m.boundsWgs84.length!==4||!m.boundsWgs84.every(Number.isFinite))throw Error('ไฟล์ไม่มีขอบเขตภาพ WGS84 ที่ถูกต้อง');
+  const [west,south,east,north]=m.boundsWgs84;if(!(west>=-180&&east<=180&&west<east&&south>=-90&&north<=90&&south<north))throw Error('ขอบเขตภาพอยู่นอกช่วงพิกัดหรือเรียงลำดับไม่ถูกต้อง');
+  if(!m.sourceCrs||!m.attribution||!m.license)throw Error('ต้องระบุระบบพิกัด แหล่งที่มา และสิทธิ์การใช้ภาพให้ครบ');
+  if(typeof pack.imageDataUrl!=='string'||!/^data:image\/(png|jpeg);base64,/.test(pack.imageDataUrl))throw Error('ชุดภาพต้องมีข้อมูลภาพ PNG หรือ JPEG ที่ฝังอยู่ในไฟล์');
+  const imageBytes=Math.floor(pack.imageDataUrl.split(',')[1].length*3/4);if(imageBytes>25*1024*1024)throw Error('ภาพภายในชุดข้อมูลมีขนาดเกิน 25 เมกะไบต์');
+  const imageProbe=new Image();imageProbe.src=pack.imageDataUrl;await imageProbe.decode();
+  if(m.imageWidth&&imageProbe.naturalWidth!==m.imageWidth)throw Error('ความกว้างภาพไม่ตรงกับ metadata');if(m.imageHeight&&imageProbe.naturalHeight!==m.imageHeight)throw Error('ความสูงภาพไม่ตรงกับ metadata');
+  const record={key:'active',format:pack.format,manifest:m,imageDataUrl:pack.imageDataUrl,importedAt:new Date().toISOString()};
+  await idbRequest('fieldpacks','readwrite',store=>store.put(record));localFieldPack=record;
+  if(leafletMap&&window.L)addLocalFieldPackOverlay();
+  else setLocalStatus('offlineFieldPackMessage','เก็บชุดภาพแล้ว แต่ยังต้องติดตั้ง/เปิดแผนที่ส่วนประกอบให้พร้อมก่อนแสดงภาพ','warn');
+  logEvent('OFFLINE_FIELD_PACK_IMPORTED',file.name);$('offlineFieldPackFile').value='';
+}
+async function initLocalDataAndPwa(){
+  updateNetworkStatus();window.addEventListener('online',updateNetworkStatus);window.addEventListener('offline',updateNetworkStatus);
+  if('serviceWorker' in navigator&&(location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname))){
+    navigator.serviceWorker.register('./sw.js').then(()=>{}).catch(()=>setLocalStatus('networkStatus','PWA ยังไม่ได้ติดตั้งส่วนทำงานออฟไลน์'));
+  }
+  try{
+    localDb=await openLocalDatabase();
+    try{if(navigator.storage?.persisted)localStoragePersistent=await navigator.storage.persisted();if(!localStoragePersistent&&navigator.storage?.persist)localStoragePersistent=await navigator.storage.persist();}catch(e){localStoragePersistent=false;}
+    const restored=await restoreLocalDraft();
+    const pack=await idbRequest('fieldpacks','readonly',store=>store.get('active'));
+    if(pack){localFieldPack=pack;setLocalStatus('mapPackStatus','พบภาพแผนที่ในเครื่อง: '+(pack.manifest?.title||'ชุดภาพที่บันทึกไว้'));if(leafletMap)addLocalFieldPackOverlay();}
+    localDraftReady=true;
+    if(!restored)setLocalStatus('localSaveStatus','พร้อมบันทึกอัตโนมัติในอุปกรณ์นี้'+(localStoragePersistent?'':' · ควรดาวน์โหลดไฟล์สำรองเป็นระยะ'));
+    document.querySelectorAll('input:not([type=file]),select,textarea').forEach(el=>{el.addEventListener('input',scheduleLocalDraftSave);el.addEventListener('change',scheduleLocalDraftSave);});
+    // Capture any work made while IndexedDB was opening; do not leave early edits unsaved.
+    if(!restored&&(project.vertices.length>0||project.sourceVertices.length>0||$('fieldName').value.trim()!==''&&$('fieldName').value.trim()!=='แปลงของฉัน'))scheduleLocalDraftSave();
+    window.addEventListener('pagehide',()=>{if(localDraftTimer){clearTimeout(localDraftTimer);localDraftTimer=null;}saveLocalDraftNow();});
+  }catch(e){localDraftReady=false;setLocalStatus('localSaveStatus','พื้นที่เก็บข้อมูลในเครื่องไม่พร้อม กรุณาดาวน์โหลดไฟล์สำรอง','warn');}
+}
+
+$('geoTiffFile').addEventListener('change',()=>{$('geoTiffFileName').textContent=$('geoTiffFile').files?.[0]?.name||'ยังไม่ได้เลือกภาพ';pendingBrowserGeoTiff=null;generatedBrowserFieldPack=null;$('buildGeoTiffFieldPack').disabled=true;$('downloadGeoTiffFieldPack').disabled=true;$('geoTiffMetadataSummary').textContent='';setGeoTiffStatus('กด “ตรวจสอบไฟล์ภาพ” เพื่ออ่านขนาดภาพและระบบพิกัด');});
+$('inspectGeoTiff').addEventListener('click',async()=>{const file=$('geoTiffFile').files?.[0];pendingBrowserGeoTiff=null;$('buildGeoTiffFieldPack').disabled=true;$('downloadGeoTiffFieldPack').disabled=true;$('geoTiffMetadataSummary').textContent='';setGeoTiffStatus('กำลังตรวจไฟล์และโหลดเครื่องมืออ่านภาพ...');try{pendingBrowserGeoTiff=await inspectGeoTiffFile(file);$('geoTiffMetadataSummary').innerHTML=geoTiffInfoHtml(pendingBrowserGeoTiff.info);$('buildGeoTiffFieldPack').disabled=false;setGeoTiffStatus('ตรวจไฟล์ผ่าน โปรดตรวจแหล่งที่มาและสิทธิ์การใช้ภาพก่อนสร้างชุดภาพ','ok');}catch(e){pendingBrowserGeoTiff=null;setGeoTiffStatus(e.message,'err');}});
+$('buildGeoTiffFieldPack').addEventListener('click',()=>createBrowserGeoTiffFieldPack().catch(e=>setGeoTiffStatus(e.message,'err')));
+$('downloadGeoTiffFieldPack').addEventListener('click',()=>{try{downloadGeneratedGeoTiffFieldPack();}catch(e){setGeoTiffStatus(e.message,'err');}});
+$('geoTiffRights').addEventListener('change',()=>{if($('geoTiffRights').value==='own')$('geoTiffLicenseNote').value='ภาพที่ผู้ใช้ถ่ายหรือจัดทำเอง';});
+$('importOfflineFieldPack').addEventListener('click',()=>importLocalFieldPack().catch(e=>setLocalStatus('offlineFieldPackMessage',e.message,'err')));
+$('removeOfflineFieldPack').addEventListener('click',async()=>{try{if(localDb)await idbRequest('fieldpacks','readwrite',store=>store.delete('active'));if(localFieldPackLayer&&leafletMap)leafletMap.removeLayer(localFieldPackLayer);localFieldPack=null;localFieldPackLayer=null;$('basemapChoice').disabled=false;if(activeBaseLayer&&leafletMap&&navigator.onLine&&!leafletMap.hasLayer(activeBaseLayer))activeBaseLayer.addTo(leafletMap);setLocalStatus('mapPackStatus','ยังไม่มีชุดภาพแผนที่ในเครื่อง');setLocalStatus('offlineFieldPackMessage','ลบชุดภาพจากอุปกรณ์นี้แล้ว');}catch(e){setLocalStatus('offlineFieldPackMessage','ลบชุดภาพไม่สำเร็จ: '+e.message,'err');}});
+const renderBeforeAutosave=render;
+render=function(){renderBeforeAutosave();scheduleLocalDraftSave();};
+setระบบพิกัดUI();startFarmerBlank();
+initLocalDataAndPwa();
+if(window.L)initLeafletMap();else loadLeafletAsync();
+</script>
+</body></html>
