@@ -625,7 +625,19 @@ async function loadLeafletAsync(){
   // Give the service worker a chance to control this page before requesting Leaflet,
   // so the library can be stored for a later offline launch after one successful online visit.
   if('serviceWorker' in navigator&&(location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname))){
-    try{await navigator.serviceWorker.ready;if(!navigator.serviceWorker.controller){await Promise.race([new Promise(resolve=>navigator.serviceWorker.addEventListener('controllerchange',resolve,{once:true})),new Promise(resolve=>setTimeout(resolve,1500))]);}}catch(e){}
+    // Service Worker startup is best-effort: a failed install must never block Leaflet.
+    try{
+      await Promise.race([
+        navigator.serviceWorker.ready,
+        new Promise(resolve=>setTimeout(resolve,1800))
+      ]);
+      if(!navigator.serviceWorker.controller){
+        await Promise.race([
+          new Promise(resolve=>navigator.serviceWorker.addEventListener('controllerchange',resolve,{once:true})),
+          new Promise(resolve=>setTimeout(resolve,500))
+        ]);
+      }
+    }catch(e){}
   }
   const css=document.createElement('link');css.rel='stylesheet';css.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';css.crossOrigin='';document.head.appendChild(css);
   const js=document.createElement('script');js.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';js.async=true;js.crossOrigin='';js.onload=()=>initLeafletMap();js.onerror=()=>{showMapMessage('เปิดส่วนแผนที่ไม่สำเร็จ หากต้องการใช้แบบไม่มีสัญญาณ ต้องเปิดแอปออนไลน์ให้เก็บส่วนแผนที่ไว้ก่อน และนำเข้าชุดภาพแปลงในเครื่อง','notice warn');};document.head.appendChild(js);
