@@ -1,5 +1,5 @@
-const CACHE_NAME='prouve-spatial-v052-appshell-v3';
-const APP_SHELL=['./index.html','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png'];
+const CACHE_NAME='prouve-spatial-v052-appshell-v4';
+const APP_SHELL=['./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 const LEAFLET_ASSETS=[
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'
