@@ -67,6 +67,11 @@ html{font-size:21px}body{font-size:21px;line-height:1.75;color:#102117}button,in
 .self-service-geotiff details summary{font-size:17px;font-weight:800;cursor:pointer;padding:8px 0;color:#174d2b}
 @media(max-width:650px){.self-service-geotiff{padding:12px}.self-service-geotiff h3{font-size:22px!important}.self-service-geotiff .two{grid-template-columns:1fr}.self-service-geotiff .btnrow{display:grid;grid-template-columns:1fr}.self-service-geotiff .btnrow button{width:100%;min-height:60px}}
 </style>
+<style id="farmer-boundary-delete-control">
+.farmer-danger{min-height:60px;padding:14px 22px;font-size:20px;font-weight:800;border-radius:12px;background:#ffeded;color:#8a1717;border:2px solid #e1aaaa}
+.farmer-danger:disabled{opacity:.45;cursor:not-allowed}
+@media(max-width:650px){.farmer-action-row .farmer-danger{grid-column:1/-1}}
+</style>
 </head>
 <body>
 <header class="farmer-header">
@@ -158,7 +163,9 @@ html{font-size:21px}body{font-size:21px;line-height:1.75;color:#102117}button,in
           <button type="button" id="farmerStartDrawing" class="farmer-primary">เริ่มแตะมุมแปลง</button>
           <button type="button" id="farmerFinishDrawing" class="farmer-secondary">วาดครบแล้ว</button>
           <button type="button" id="farmerUndoDrawing" class="farmer-light">พักการวาด</button>
+          <button type="button" id="farmerClearBoundary" class="farmer-danger" disabled aria-describedby="farmerDeleteHelp">ลบพื้นที่ที่วาด</button>
         </div>
+        <p id="farmerDeleteHelp" class="small" style="margin:8px 0 12px">ลบเฉพาะขอบเขตและจุดมุมของแปลงนี้ หลังยืนยันอีกครั้ง ภาพพื้นหลังและ GeoTIFF ที่นำเข้าไว้จะไม่ถูกลบ</p>
         <div class="farmer-tip"><span aria-hidden="true">💡</span><span><b>วิธีวาด:</b> แตะตามมุมแปลงทีละจุด ไล่ไปตามขอบแปลงให้ครบ ระบบจะคำนวณระยะให้เอง</span></div>
       </div>
       <div class="notice warn farmer-caution"><b>โปรดทราบ:</b> ภาพแผนที่ใช้ช่วยร่างแนวเขตเท่านั้น ควรตรวจสอบกับพื้นที่จริงก่อนนำไปใช้</div>
@@ -353,7 +360,7 @@ function render(){project.validation=validatePoly(project.vertices);const v=proj
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function addแหล่งข้อมูลมุมแปลง(x,y){if(!viewBounds)viewBounds=computeViewBounds();const src=deep(project.sourceVertices);src.push([x,y]);drawing=true;applyแหล่งข้อมูลPoints(src,'เพิ่มมุมแปลง');$('canvasHint').textContent='แตะเพื่อเพิ่มมุม · ลากจุดเพื่อแก้ไข';}
 $('inputCrs').addEventListener('change',()=>{const previous=project.inputCrs,prior=project.sourceVertices.length?deep(project.sourceVertices):null;setระบบพิกัดUI();if(prior){if(confirm('ต้องการอ่านพิกัดเดิมตามรูปแบบที่เลือก แล้วแปลงเป็นระบบพิกัดสำหรับคำนวณหรือไม่?')){try{applyแหล่งข้อมูลPoints(prior,'เปลี่ยนวิธีอ่านพิกัดต้นทาง');}catch(e){alert(e.message);$('inputCrs').value=previous;setระบบพิกัดUI();}}else{$('inputCrs').value=previous;setระบบพิกัดUI();}}});$('workingCrs').addEventListener('change',()=>{const previous=project.workingCrs,prior=project.sourceVertices.length?deep(project.sourceVertices):null;if(prior){if(confirm('ต้องการแปลงพิกัดละติจูดและลองจิจูดไปเป็นพิกัดระนาบเขตที่เลือกใหม่หรือไม่?')){try{applyแหล่งข้อมูลPoints(prior,'เปลี่ยนระบบพิกัดที่ใช้คำนวณ');}catch(e){$('workingCrs').value=previous;setระบบพิกัดUI();render();alert(e.message);}}else{$('workingCrs').value=previous;setระบบพิกัดUI();}}else{project.workingCrs=$('workingCrs').value;setระบบพิกัดUI();}});$('applyCoords').addEventListener('click',()=>{try{const pts=parseText($('coordText').value);if(pts.length<3)throw Error('ต้องมีอย่างน้อย 3 จุด');applyแหล่งข้อมูลPoints(pts,'นำรายการพิกัดมาใช้');}catch(e){alert(e.message);}});
-$('loadDemo').addEventListener('click',resetSample);$('clearBoundary').addEventListener('click',()=>{if(!confirm('ต้องการลบแนวเขตแปลงปัจจุบันหรือไม่?'))return;snapshot();viewBounds=null;project.sourceVertices=[];project.vertices=[];project.surveyVertices=[];project.surveyComparison=null;recordEdit('ลบขอบเขตแปลง');syncText();render();});
+$('loadDemo').addEventListener('click',resetSample);$('clearBoundary').addEventListener('click',()=>{if(!project.sourceVertices.length){showMapMessage('ยังไม่มีขอบเขตแปลงให้ลบ','notice');return;}if(!confirm('ต้องการลบพื้นที่ที่วาดและจุดมุมทั้งหมดของแปลงนี้หรือไม่? ภาพพื้นหลังและ GeoTIFF ที่นำเข้าไว้จะยังคงอยู่'))return;snapshot();viewBounds=null;mapDrawingActive=false;drawing=false;project.sourceVertices=[];project.vertices=[];project.surveyVertices=[];project.survey={};project.surveyComparison=null;project.confirmation=null;project.surveyVerifiedAt=null;recordEdit('ลบขอบเขตแปลงทั้งหมด');syncText();render();showMapMessage('ลบพื้นที่ที่วาดแล้ว · ภาพแผนที่และ GeoTIFF ยังคงอยู่','notice ok');});
 $('addมุมแปลง').addEventListener('click',()=>{if($('newX').value.trim()===''||$('newY').value.trim()===''){alert('กรุณากรอกตัวเลขตำแหน่งให้ครบทั้งสองช่อง');return;}const x=Number($('newX').value),y=Number($('newY').value);if(!Number.isFinite(x)||!Number.isFinite(y)){alert('กรุณากรอกตัวเลขตำแหน่งให้ครบทั้งสองช่อง');return;}try{addแหล่งข้อมูลมุมแปลง(x,y);$('newX').value='';$('newY').value='';}catch(e){alert(e.message);}});
 $('closeRing').addEventListener('click',()=>{if(project.sourceVertices.length<3)return;drawing=false;syncText();$('canvasHint').textContent='จบการวาดแล้ว · ลากจุดยอดเพื่อแก้ไข หรือกดเพิ่มจุดยอดเพื่อวาดต่อ';alert('เชื่อมมุมสุดท้ายกลับไปยังมุมแรกแล้ว');});$('finishDrawing').addEventListener('click',()=>{$('closeRing').click();});
 $('undoBtn').addEventListener('click',()=>{const s=undoStack.pop();if(!s)return;project.sourceVertices=s.sourceVertices;project.vertices=s.vertices;project.surveyVertices=[];project.surveyComparison=null;project.status='DRAFT';logEvent('UNDO','ย้อนกลับไปยังตำแหน่งก่อนหน้าและเปลี่ยนสถานะเป็นร่างใหม่');syncText();render();});
@@ -655,6 +662,7 @@ function updateFarmerSummary(){
   if($('farmerSaveButton'))$('farmerSaveButton').disabled=!valid;
   if($('farmerFinishDrawing'))$('farmerFinishDrawing').disabled=!mapDrawingActive;
   if($('farmerStartDrawing'))$('farmerStartDrawing').disabled=!!mapDrawingActive;
+  if($('farmerClearBoundary'))$('farmerClearBoundary').disabled=!project.sourceVertices.length;
 }
 const renderBeforeFarmerUX=render;
 render=function(){renderBeforeFarmerUX();updateFarmerSummary();};
@@ -662,6 +670,7 @@ $('farmerFieldName').addEventListener('input',()=>{$('fieldName').value=$('farme
 $('farmerStartDrawing').addEventListener('click',()=>{document.querySelector('[data-tab="mapTab"]').click();startMapDrawing();if(leafletMap)setTimeout(()=>leafletMap.invalidateSize(),180);});
 $('farmerFinishDrawing').addEventListener('click',()=>{finishMapDrawing();updateFarmerSummary();});
 $('farmerUndoDrawing').addEventListener('click',()=>{cancelMapDrawing();updateFarmerSummary();});
+$('farmerClearBoundary').addEventListener('click',()=>{$('clearBoundary').click();updateFarmerSummary();});
 $('farmerSaveButton').addEventListener('click',()=>{if(!project.validation?.valid){alert('กรุณาวาดขอบเขตให้ครบอย่างน้อย 3 จุดก่อนบันทึก');return;}project.fieldName=$('farmerFieldName').value.trim()||'แปลงของฉัน';$('fieldName').value=project.fieldName;$('fieldId').value=$('fieldId').value||'MY-FARM-001';$('exportJson').click();});
 $('farmerAdvancedToggle').addEventListener('click',()=>{document.body.classList.toggle('show-advanced');const shown=document.body.classList.contains('show-advanced');$('farmerAdvancedToggle').textContent=shown?'ซ่อนการตั้งค่าเพิ่มเติม':'ตั้งค่าเพิ่มเติม';if(shown)document.getElementById('advancedDrawer')?.scrollIntoView({behavior:'smooth',block:'start'});});
 $('startMapDrawing').textContent='เริ่มวาดขอบเขต';$('finishMapDrawing').textContent='วาดเสร็จแล้ว';$('cancelMapDrawing').textContent='ยกเลิกการวาด';$('fitMapBoundary').textContent='แสดงแปลงของฉัน';
