@@ -790,7 +790,14 @@ function loadBrowserScript(url,ready){
 }
 async function waitForServiceWorkerControl(){
   if(!('serviceWorker' in navigator)||!(location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname)))return;
-  try{await navigator.serviceWorker.ready;if(!navigator.serviceWorker.controller)await Promise.race([new Promise(resolve=>navigator.serviceWorker.addEventListener('controllerchange',resolve,{once:true})),new Promise(resolve=>setTimeout(resolve,1200))]);}catch(e){}
+  // Never let a delayed service-worker lifecycle block GeoTIFF tools from loading.
+  try{
+    await Promise.race([navigator.serviceWorker.ready,new Promise(resolve=>setTimeout(resolve,1800))]);
+    if(!navigator.serviceWorker.controller)await Promise.race([
+      new Promise(resolve=>navigator.serviceWorker.addEventListener('controllerchange',resolve,{once:true})),
+      new Promise(resolve=>setTimeout(resolve,800))
+    ]);
+  }catch(e){}
 }
 async function ensureGeoTiffBrowserTools(){
   await waitForServiceWorkerControl();
