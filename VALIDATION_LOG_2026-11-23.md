@@ -69,6 +69,20 @@ The current declared support is limited to unrotated GeoTIFFs using EPSG:4326, E
 8. Test a fresh browser profile/device with no prior cache if first-use offline setup is a required product capability.
 9. Decide and document whether offline basemap tiles are a product requirement. If yes, design a lawful, bounded tile/area-pack workflow with attribution, storage limits, and explicit coverage before implementing it.
 
+## Code-level smoke checks performed during review
+
+After the validation log was committed, the current `index.html` and `sw.js` were fetched again from the Development Copy and checked:
+
+- The single inline application JavaScript block parses successfully.
+- The service-worker JavaScript parses successfully.
+- No duplicate static HTML `id` attributes were found.
+- The farmer-facing delete button, its click listener, its no-boundary disabled state, and its confirmation prompt are present.
+- The app-shell and on-demand geospatial library cache entries are present in the service worker.
+- No external basemap tile cache rule was found.
+- GitHub returned no commit status checks for the application change; this is not evidence of a passing CI pipeline.
+
+These are static/code-level checks only. They do not simulate a browser, device storage, touch interaction, real imagery alignment, or actual offline network behaviour.
+
 ## Gate status
 
 - Synthetic/demo and preliminary real-device evidence: recorded above.
