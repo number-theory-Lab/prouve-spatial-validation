@@ -1,0 +1,887 @@
+{
+  "project": "PROUVÉ Spatial",
+  "branch": "Engine Branch V0.2",
+  "benchmark_type": "synthetic research comparison; not field validation",
+  "environment": {
+    "python": "3.13"
+  },
+  "orientation_phase_budget_method": "two comparisons: equal incumbent layout-evaluation budget (grid 48; BnB up to four nodes) and BnB wall-clock target based on median of three grid runs; actual elapsed time and overshoot reported",
+  "results": [
+    {
+      "case": "concave_L",
+      "geometry_status": "PASS",
+      "usable_area_m2": 753.4907340339896,
+      "component_count": 1,
+      "certified_ub": {
+        "count": 215,
+        "certified": true,
+        "method": "exact-rational convex-hull Steiner enclosure",
+        "legacy_geos_estimate": 178
+      },
+      "stress_notes": [],
+      "orientation_phase_equal_budget": {
+        "grid": {
+          "best_count": 135,
+          "evaluated_layouts": 48,
+          "elapsed_seconds_median": 0.01015766600016832,
+          "elapsed_seconds_trials": [
+            0.010500391000050513,
+            0.009889602999919589,
+            0.01015766600016832
+          ],
+          "timing_repeats": 3,
+          "theta_deg": 0.0,
+          "phase_a": 0.5,
+          "phase_b": 0.25
+        },
+        "bnb_equal_layout_evaluation_budget": {
+          "best_count": 136,
+          "evaluated_layouts": 48,
+          "processed_nodes": 4,
+          "upper_bound_count": 735,
+          "candidate_index_envelope_size": 768,
+          "status": "NODE_LIMIT_BEST_FOUND_WITH_GAP",
+          "elapsed_seconds": 0.16092394899987994,
+          "theta_deg": 90.0,
+          "phase_a": 0.5,
+          "phase_b": 0.33333333333333304,
+          "numeric_note": "Candidate coordinate ranges use outward nextafter inflation and an 8-ulp trig margin; formal directed-rounding proof of libm sin/cos is not claimed. Independent high-precision interval verification is required before a formal optimum certificate."
+        },
+        "bnb_wall_clock_budget": {
+          "best_count": 133,
+          "evaluated_layouts": 12,
+          "processed_nodes": 0,
+          "upper_bound_count": 766,
+          "absolute_gap": 633,
+          "status": "TIME_LIMIT_BEST_FOUND_WITH_GAP",
+          "elapsed_seconds": 0.019729072000018277,
+          "time_budget_seconds": 0.01015766600016832,
+          "candidate_index_envelope_size": 768,
+          "theta_deg": 0.0,
+          "phase_a": 0.5,
+          "phase_b": 0.666666666666667,
+          "numeric_note": "Candidate coordinate ranges use outward nextafter inflation and an 8-ulp trig margin; formal directed-rounding proof of libm sin/cos is not claimed. Independent high-precision interval verification is required before a formal optimum certificate."
+        },
+        "budget_note": "Two comparisons are reported. First, BnB is limited to four nodes and its actual incumbent layout evaluations are counted against the 48-layout uniform grid; node-bound geometry work is additional and reflected in elapsed time. Second, BnB receives the median wall-clock runtime of three grid runs; the actual runtime may exceed the target by one uninterruptible layout or node-bound operation and is reported. BnB numeric upper bounds use platform libm trigonometric calculations and are not formal certificates.",
+        "bnb_equal_layout_candidate_verification": {
+          "reference_passed": true,
+          "shapely_passed": true,
+          "counts_agree": true,
+          "regenerated_count": 136,
+          "search_count_matches": true
+        },
+        "bnb_wall_clock_candidate_verification": {
+          "reference_passed": true,
+          "shapely_passed": true,
+          "counts_agree": true,
+          "regenerated_count": 133,
+          "search_count_matches": true
+        }
+      },
+      "fixed_orientation_phase": {
+        "theta_deg": 0.0,
+        "arrangement": {
+          "best_count": 135,
+          "candidate_phases": 863,
+          "boundary_fragments": 383,
+          "faces": 83,
+          "segments": 433,
+          "elapsed_seconds": 0.18833515699998316,
+          "status": "PHASE_ARRANGEMENT_COMPLETE_NUMERICAL_TOPOLOGY_UNVERIFIED"
+        },
+        "uniform_grid_near_equal_budget": {
+          "best_count": 135,
+          "candidate_phases": 841,
+          "elapsed_seconds_median": 0.24416115000008176,
+          "elapsed_seconds_trials": [
+            0.2517705879999994,
+            0.24416115000008176,
+            0.2345823720002045
+          ],
+          "timing_repeats": 3,
+          "divisions_per_axis": 29
+        },
+        "uniform_grid_40x40": {
+          "best_count": 135,
+          "candidate_phases": 1600,
+          "elapsed_seconds": 0.4439475440001388,
+          "timing_repeats": 1
+        },
+        "arrangement_vs_equal_budget_delta": 0,
+        "arrangement_vs_40x40_delta": 0,
+        "interpretation": "Arrangement is an all-phase candidate method for this fixed orientation only; topology remains floating-point and is not formally exact."
+      }
+    },
+    {
+      "case": "concave_U",
+      "geometry_status": "PASS",
+      "usable_area_m2": 791.1139758197129,
+      "component_count": 1,
+      "certified_ub": {
+        "count": 233,
+        "certified": true,
+        "method": "exact-rational convex-hull Steiner enclosure",
+        "legacy_geos_estimate": 190
+      },
+      "stress_notes": [],
+      "orientation_phase_equal_budget": {
+        "grid": {
+          "best_count": 142,
+          "evaluated_layouts": 48,
+          "elapsed_seconds_median": 0.013633337000101164,
+          "elapsed_seconds_trials": [
+            0.013633337000101164,
+            0.014503328000046167,
+            0.013078921999976956
+          ],
+          "timing_repeats": 3,
+          "theta_deg": 0.0,
+          "phase_a": 0.25,
+          "phase_b": 0.75
+        },
+        "bnb_equal_layout_evaluation_budget": {
+          "best_count": 141,
+          "evaluated_layouts": 48,
+          "processed_nodes": 4,
+          "upper_bound_count": 753,
+          "candidate_index_envelope_size": 768,
+          "status": "NODE_LIMIT_BEST_FOUND_WITH_GAP",
+          "elapsed_seconds": 0.1617134600001009,
+          "theta_deg": 90.0,
+          "phase_a": 0.5000000000000009,
+          "phase_b": 0.33333333333333304,
+          "numeric_note": "Candidate coordinate ranges use outward nextafter inflation and an 8-ulp trig margin; formal directed-rounding proof of libm sin/cos is not claimed. Independent high-precision interval verification is required before a formal optimum certificate."
+        },
+        "bnb_wall_clock_budget": {
+          "best_count": 140,
+          "evaluated_layouts": 12,
+          "processed_nodes": 0,
+          "upper_bound_count": 762,
+          "absolute_gap": 622,
+          "status": "TIME_LIMIT_BEST_FOUND_WITH_GAP",
+          "elapsed_seconds": 0.019766536999895834,
+          "time_budget_seconds": 0.013633337000101164,
+          "candidate_index_envelope_size": 768,
+          "theta_deg": 0.0,
+          "phase_a": 0.5,
+          "phase_b": 0.5,
+          "numeric_note": "Candidate coordinate ranges use outward nextafter inflation and an 8-ulp trig margin; formal directed-rounding proof of libm sin/cos is not claimed. Independent high-precision interval verification is required before a formal optimum certificate."
+        },
+        "budget_note": "Two comparisons are reported. First, BnB is limited to four nodes and its actual incumbent layout evaluations are counted against the 48-layout uniform grid; node-bound geometry work is additional and reflected in elapsed time. Second, BnB receives the median wall-clock runtime of three grid runs; the actual runtime may exceed the target by one uninterruptible layout or node-bound operation and is reported. BnB numeric upper bounds use platform libm trigonometric calculations and are not formal certificates.",
+        "bnb_equal_layout_candidate_verification": {
+          "reference_passed": true,
+          "shapely_passed": true,
+          "counts_agree": true,
+          "regenerated_count": 141,
+          "search_count_matches": true
+        },
+        "bnb_wall_clock_candidate_verification": {
+          "reference_passed": true,
+          "shapely_passed": true,
+          "counts_agree": true,
+          "regenerated_count": 140,
+          "search_count_matches": true
+        }
+      },
+      "fixed_orientation_phase": {
+        "theta_deg": 0.0,
+        "arrangement": {
+          "best_count": 150,
+          "candidate_phases": 883,
+          "boundary_fragments": 418,
+          "faces": 96,
+          "segments": 441,
+          "elapsed_seconds": 0.19517465300009462,
+          "status": "PHASE_ARRANGEMENT_COMPLETE_NUMERICAL_TOPOLOGY_UNVERIFIED"
+        },
+        "uniform_grid_near_equal_budget": {
+          "best_count": 150,
+          "candidate_phases": 841,
+          "elapsed_seconds_median": 0.2589821919998485,
+          "elapsed_seconds_trials": [
+            0.27228925999997955,
+            0.2589821919998485,
+            0.2584854899998845
+          ],
+          "timing_repeats": 3,
+          "divisions_per_axis": 29
+        },
+        "uniform_grid_40x40": {
+          "best_count": 150,
+          "candidate_phases": 1600,
+          "elapsed_seconds": 0.5003805159999501,
+          "timing_repeats": 1
+        },
+        "arrangement_vs_equal_budget_delta": 0,
+        "arrangement_vs_40x40_delta": 0,
+        "interpretation": "Arrangement is an all-phase candidate method for this fixed orientation only; topology remains floating-point and is not formally exact."
+      }
+    },
+    {
+      "case": "radial_concave_24",
+      "geometry_status": "PASS",
+      "usable_area_m2": 3274.739994003993,
+      "component_count": 1,
+      "certified_ub": {
+        "count": 842,
+        "certified": true,
+        "method": "exact-rational convex-hull Steiner enclosure",
+        "legacy_geos_estimate": 659
+      },
+      "stress_notes": [],
+      "orientation_phase_equal_budget": {
+        "grid": {
+          "best_count": 557,
+          "evaluated_layouts": 48,
+          "elapsed_seconds_median": 0.08614728499992452,
+          "elapsed_seconds_trials": [
+            0.09106361900012416,
+            0.08614728499992452,
+            0.08413767299998653
+          ],
+          "timing_repeats": 3,
+          "theta_deg": 60.0,
+          "phase_a": 0.75,
+          "phase_b": 0.75
+        },
+        "bnb_equal_layout_evaluation_budget": {
+          "best_count": 560,
+          "evaluated_layouts": 48,
+          "processed_nodes": 4,
+          "upper_bound_count": 2726,
+          "candidate_index_envelope_size": 2728,
+          "status": "NODE_LIMIT_BEST_FOUND_WITH_GAP",
+          "elapsed_seconds": 0.7208793909999258,
+          "theta_deg": 60.0,
+          "phase_a": 0.6506350946109691,
+          "phase_b": 0.899576603592692,
+          "numeric_note": "Candidate coordinate ranges use outward nextafter inflation and an 8-ulp trig margin; formal directed-rounding proof of libm sin/cos is not claimed. Independent high-precision interval verification is required before a formal optimum certificate."
+        },
+        "bnb_wall_clock_budget": {
+          "best_count": 560,
+          "evaluated_layouts": 12,
+          "processed_nodes": 0,
+          "upper_bound_count": 2728,
+          "absolute_gap": 2168,
+          "status": "TIME_LIMIT_BEST_FOUND_WITH_GAP",
+          "elapsed_seconds": 0.10365268499981539,
+          "time_budget_seconds": 0.08614728499992452,
+          "candidate_index_envelope_size": 2728,
+          "theta_deg": 60.0,
+          "phase_a": 0.6506350946109691,
+          "phase_b": 0.899576603592692,
+          "numeric_note": "Candidate coordinate ranges use outward nextafter inflation and an 8-ulp trig margin; formal directed-rounding proof of libm sin/cos is not claimed. Independent high-precision interval verification is required before a formal optimum certificate."
+        },
+        "budget_note": "Two comparisons are reported. First, BnB is limited to four nodes and its actual incumbent layout evaluations are counted against the 48-layout uniform grid; node-bound geometry work is additional and reflected in elapsed time. Second, BnB receives the median wall-clock runtime of three grid runs; the actual runtime may exceed the target by one uninterruptible layout or node-bound operation and is reported. BnB numeric upper bounds use platform libm trigonometric calculations and are not formal certificates.",
+        "bnb_equal_layout_candidate_verification": {
+          "reference_passed": true,
+          "shapely_passed": true,
+          "counts_agree": true,
+          "regenerated_count": 560,
+          "search_count_matches": true
+        },
+        "bnb_wall_clock_candidate_verification": {
+          "reference_passed": true,
+          "shapely_passed": true,
+          "counts_agree": true,
+          "regenerated_count": 560,
+          "search_count_matches": true
+        }
+      },
+      "fixed_orientation_phase": {
+        "status": "SKIPPED_COMPLEXITY_CAP",
+        "reason": "boundary arrangement exceeds 600 clipped fragments; use grid/adaptive fallback for this geometry",
+        "fallback": "Use angle-phase grid or bounded adaptive search; do not force arrangement."
+      }
+    },
+    {
+      "case": "many_obstacles_25",
+      "geometry_status": "PASS",
+      "usable_area_m2": 9119.119091241104,
+      "component_count": 1,
+      "certified_ub": {
+        "count": 1720,
+        "certified": true,
+        "method": "exact-rational convex-hull Steiner enclosure",
+        "legacy_geos_estimate": 1717
+      },
+      "stress_notes": [],
+      "orientation_phase_equal_budget": {
+        "grid": {
+          "best_count": 1550,
+          "evaluated_layouts": 48,
+          "elapsed_seconds_median": 0.07404132900001059,
+          "elapsed_seconds_trials": [
+            0.07272701600004439,
+            0.07558621999987736,
+            0.07404132900001059
+          ],
+          "timing_repeats": 3,
+          "theta_deg": 0.0,
+          "phase_a": 0.5,
+          "phase_b": 0.0
+        },
+        "bnb_equal_layout_evaluation_budget": {
+          "best_count": 1545,
+          "evaluated_layouts": 48,
+          "processed_nodes": 4,
+          "upper_bound_count": 4104,
+          "candidate_index_envelope_size": 4104,
+          "status": "NODE_LIMIT_BEST_FOUND_WITH_GAP",
+          "elapsed_seconds": 0.8024497179999344,
+          "theta_deg": 0.0,
+          "phase_a": 0.5,
+          "phase_b": 0.6666666666666679,
+          "numeric_note": "Candidate coordinate ranges use outward nextafter inflation and an 8-ulp trig margin; formal directed-rounding proof of libm sin/cos is not claimed. Independent high-precision interval verification is required before a formal optimum certificate."
+        },
+        "bnb_wall_clock_budget": {
+          "best_count": 1545,
+          "evaluated_layouts": 12,
+          "processed_nodes": 0,
+          "upper_bound_count": 4104,
+          "absolute_gap": 2559,
+          "status": "TIME_LIMIT_BEST_FOUND_WITH_GAP",
+          "elapsed_seconds": 0.10825608300001477,
+          "time_budget_seconds": 0.07404132900001059,
+          "candidate_index_envelope_size": 4104,
+          "theta_deg": 0.0,
+          "phase_a": 0.5,
+          "phase_b": 0.6666666666666679,
+          "numeric_note": "Candidate coordinate ranges use outward nextafter inflation and an 8-ulp trig margin; formal directed-rounding proof of libm sin/cos is not claimed. Independent high-precision interval verification is required before a formal optimum certificate."
+        },
+        "budget_note": "Two comparisons are reported. First, BnB is limited to four nodes and its actual incumbent layout evaluations are counted against the 48-layout uniform grid; node-bound geometry work is additional and reflected in elapsed time. Second, BnB receives the median wall-clock runtime of three grid runs; the actual runtime may exceed the target by one uninterruptible layout or node-bound operation and is reported. BnB numeric upper bounds use platform libm trigonometric calculations and are not formal certificates.",
+        "bnb_equal_layout_candidate_verification": {
+          "reference_passed": true,
+          "shapely_passed": true,
+          "counts_agree": true,
+          "regenerated_count": 1545,
+          "search_count_matches": true
+        },
+        "bnb_wall_clock_candidate_verification": {
+          "reference_passed": true,
+          "shapely_passed": true,
+          "counts_agree": true,
+          "regenerated_count": 1545,
+          "search_count_matches": true
+        }
+      },
+      "fixed_orientation_phase": {
+        "status": "SKIPPED_COMPLEXITY_CAP",
+        "reason": "boundary arrangement exceeds 600 clipped fragments; use grid/adaptive fallback for this geometry",
+        "fallback": "Use angle-phase grid or bounded adaptive search; do not force arrangement."
+      }
+    },
+    {
+      "case": "obstacle_dense_36",
+      "geometry_status": "PASS",
+      "usable_area_m2": 1995.8995159663357,
+      "component_count": 1,
+      "certified_ub": {
+        "count": 460,
+        "certified": true,
+        "method": "exact-rational convex-hull Steiner enclosure",
+        "legacy_geos_estimate": 461
+      },
+      "stress_notes": [],
+      "orientation_phase_equal_budget": {
+        "grid": {
+          "best_count": 353,
+          "evaluated_layouts": 48,
+          "elapsed_seconds_median": 0.04819061300008798,
+          "elapsed_seconds_trials": [
+            0.04819061300008798,
+            0.06911561700007951,
+            0.04612385300015376
+          ],
+          "timing_repeats": 3,
+          "theta_deg": 0.0,
+          "phase_a": 0.5,
+          "phase_b": 0.25
+        },
+        "bnb_equal_layout_evaluation_budget": {
+          "best_count": 371,
+          "evaluated_layouts": 48,
+          "processed_nodes": 4,
+          "upper_bound_count": 1260,
+          "candidate_index_envelope_size": 1260,
+          "status": "NODE_LIMIT_BEST_FOUND_WITH_GAP",
+          "elapsed_seconds": 0.27192809099983606,
+          "theta_deg": 0.0,
+          "phase_a": 0.5,
+          "phase_b": 0.3333333333333339,
+          "numeric_note": "Candidate coordinate ranges use outward nextafter inflation and an 8-ulp trig margin; formal directed-rounding proof of libm sin/cos is not claimed. Independent high-precision interval verification is required before a formal optimum certificate."
+        },
+        "bnb_wall_clock_budget": {
+          "best_count": 371,
+          "evaluated_layouts": 21,
+          "processed_nodes": 1,
+          "upper_bound_count": 1260,
+          "absolute_gap": 889,
+          "status": "TIME_LIMIT_BEST_FOUND_WITH_GAP",
+          "elapsed_seconds": 0.08691951300011169,
+          "time_budget_seconds": 0.04819061300008798,
+          "candidate_index_envelope_size": 1260,
+          "theta_deg": 0.0,
+          "phase_a": 0.5,
+          "phase_b": 0.3333333333333339,
+          "numeric_note": "Candidate coordinate ranges use outward nextafter inflation and an 8-ulp trig margin; formal directed-rounding proof of libm sin/cos is not claimed. Independent high-precision interval verification is required before a formal optimum certificate."
+        },
+        "budget_note": "Two comparisons are reported. First, BnB is limited to four nodes and its actual incumbent layout evaluations are counted against the 48-layout uniform grid; node-bound geometry work is additional and reflected in elapsed time. Second, BnB receives the median wall-clock runtime of three grid runs; the actual runtime may exceed the target by one uninterruptible layout or node-bound operation and is reported. BnB numeric upper bounds use platform libm trigonometric calculations and are not formal certificates.",
+        "bnb_equal_layout_candidate_verification": {
+          "reference_passed": true,
+          "shapely_passed": true,
+          "counts_agree": true,
+          "regenerated_count": 371,
+          "search_count_matches": true
+        },
+        "bnb_wall_clock_candidate_verification": {
+          "reference_passed": true,
+          "shapely_passed": true,
+          "counts_agree": true,
+          "regenerated_count": 371,
+          "search_count_matches": true
+        }
+      },
+      "fixed_orientation_phase": {
+        "status": "SKIPPED_COMPLEXITY_CAP",
+        "reason": "boundary arrangement exceeds 600 clipped fragments; use grid/adaptive fallback for this geometry",
+        "fallback": "Use angle-phase grid or bounded adaptive search; do not force arrangement."
+      }
+    },
+    {
+      "case": "narrow_corridor",
+      "geometry_status": "PASS",
+      "usable_area_m2": 79.84000000000002,
+      "component_count": 1,
+      "certified_ub": {
+        "count": 1936,
+        "certified": true,
+        "method": "exact-rational convex-hull Steiner enclosure",
+        "legacy_geos_estimate": 1937
+      },
+      "stress_notes": [],
+      "orientation_phase_equal_budget": {
+        "grid": {
+          "best_count": 1500,
+          "evaluated_layouts": 48,
+          "elapsed_seconds_median": 0.05853550200004065,
+          "elapsed_seconds_trials": [
+            0.10471219300006851,
+            0.05853550200004065,
+            0.05565671900012603
+          ],
+          "timing_repeats": 3,
+          "theta_deg": 0.0,
+          "phase_a": 0.5,
+          "phase_b": 0.0
+        },
+        "bnb_equal_layout_evaluation_budget": {
+          "status": "SKIPPED_CANDIDATE_INDEX_EXPLOSION",
+          "reason": "orientation-independent index envelope contains 172040 sites, exceeding max_candidate_indices=50000; use grid/adaptive fallback"
+        },
+        "bnb_wall_clock_budget": {
+          "status": "SKIPPED_CANDIDATE_INDEX_EXPLOSION",
+          "reason": "orientation-independent index envelope contains 172040 sites, exceeding max_candidate_indices=50000; use grid/adaptive fallback"
+        },
+        "budget_note": "Two comparisons are reported. First, BnB is limited to four nodes and its actual incumbent layout evaluations are counted against the 48-layout uniform grid; node-bound geometry work is additional and reflected in elapsed time. Second, BnB receives the median wall-clock runtime of three grid runs; the actual runtime may exceed the target by one uninterruptible layout or node-bound operation and is reported. BnB numeric upper bounds use platform libm trigonometric calculations and are not formal certificates."
+      },
+      "fixed_orientation_phase": {
+        "status": "SKIPPED_COMPLEXITY_CAP",
+        "reason": "boundary arrangement exceeds 600 clipped fragments; use grid/adaptive fallback for this geometry",
+        "fallback": "Use angle-phase grid or bounded adaptive search; do not force arrangement."
+      }
+    },
+    {
+      "case": "near_degenerate_sliver",
+      "geometry_status": "PASS",
+      "usable_area_m2": 0.7999839999999999,
+      "component_count": 1,
+      "certified_ub": {
+        "count": 193428,
+        "certified": true,
+        "method": "exact-rational convex-hull Steiner enclosure",
+        "legacy_geos_estimate": 193430
+      },
+      "stress_notes": [],
+      "orientation_phase_equal_budget": {
+        "grid": {
+          "best_count": 166665,
+          "evaluated_layouts": 48,
+          "elapsed_seconds_median": 6.057909633999998,
+          "elapsed_seconds_trials": [
+            6.4780808049999905,
+            6.057909633999998,
+            5.926364207000006
+          ],
+          "timing_repeats": 3,
+          "theta_deg": 0.0,
+          "phase_a": 0.0,
+          "phase_b": 0.5
+        },
+        "bnb_equal_layout_evaluation_budget": {
+          "status": "SKIPPED_CANDIDATE_INDEX_EXPLOSION",
+          "reason": "orientation-independent index envelope contains 1667200040 sites, exceeding max_candidate_indices=50000; use grid/adaptive fallback"
+        },
+        "bnb_wall_clock_budget": {
+          "status": "SKIPPED_CANDIDATE_INDEX_EXPLOSION",
+          "reason": "orientation-independent index envelope contains 1667200040 sites, exceeding max_candidate_indices=50000; use grid/adaptive fallback"
+        },
+        "budget_note": "Two comparisons are reported. First, BnB is limited to four nodes and its actual incumbent layout evaluations are counted against the 48-layout uniform grid; node-bound geometry work is additional and reflected in elapsed time. Second, BnB receives the median wall-clock runtime of three grid runs; the actual runtime may exceed the target by one uninterruptible layout or node-bound operation and is reported. BnB numeric upper bounds use platform libm trigonometric calculations and are not formal certificates."
+      },
+      "fixed_orientation_phase": {
+        "status": "SKIPPED_COMPLEXITY_CAP",
+        "reason": "phase arrangement requires 300,033 lattice index sites, exceeding max_lattice_index_sites=250,000; use grid/adaptive fallback",
+        "fallback": "Use angle-phase grid or bounded adaptive search; do not force arrangement."
+      }
+    },
+    {
+      "case": "near_touching_obstacles",
+      "geometry_status": "PASS",
+      "usable_area_m2": 832.9877930425745,
+      "component_count": 1,
+      "certified_ub": {
+        "count": 176,
+        "certified": true,
+        "method": "exact-rational convex-hull Steiner enclosure",
+        "legacy_geos_estimate": 177
+      },
+      "stress_notes": [],
+      "orientation_phase_equal_budget": {
+        "grid": {
+          "best_count": 150,
+          "evaluated_layouts": 48,
+          "elapsed_seconds_median": 0.007805734999919878,
+          "elapsed_seconds_trials": [
+            0.008696144000168715,
+            0.007805734999919878,
+            0.007096542999988742
+          ],
+          "timing_repeats": 3,
+          "theta_deg": 0.0,
+          "phase_a": 0.25,
+          "phase_b": 0.25
+        },
+        "bnb_equal_layout_evaluation_budget": {
+          "best_count": 148,
+          "evaluated_layouts": 48,
+          "processed_nodes": 4,
+          "upper_bound_count": 560,
+          "candidate_index_envelope_size": 560,
+          "status": "NODE_LIMIT_BEST_FOUND_WITH_GAP",
+          "elapsed_seconds": 0.11129790300014974,
+          "theta_deg": 0.0,
+          "phase_a": 0.5,
+          "phase_b": 0.5,
+          "numeric_note": "Candidate coordinate ranges use outward nextafter inflation and an 8-ulp trig margin; formal directed-rounding proof of libm sin/cos is not claimed. Independent high-precision interval verification is required before a formal optimum certificate."
+        },
+        "bnb_wall_clock_budget": {
+          "best_count": 148,
+          "evaluated_layouts": 12,
+          "processed_nodes": 0,
+          "upper_bound_count": 560,
+          "absolute_gap": 412,
+          "status": "TIME_LIMIT_BEST_FOUND_WITH_GAP",
+          "elapsed_seconds": 0.014338549000058265,
+          "time_budget_seconds": 0.007805734999919878,
+          "candidate_index_envelope_size": 560,
+          "theta_deg": 0.0,
+          "phase_a": 0.5,
+          "phase_b": 0.5,
+          "numeric_note": "Candidate coordinate ranges use outward nextafter inflation and an 8-ulp trig margin; formal directed-rounding proof of libm sin/cos is not claimed. Independent high-precision interval verification is required before a formal optimum certificate."
+        },
+        "budget_note": "Two comparisons are reported. First, BnB is limited to four nodes and its actual incumbent layout evaluations are counted against the 48-layout uniform grid; node-bound geometry work is additional and reflected in elapsed time. Second, BnB receives the median wall-clock runtime of three grid runs; the actual runtime may exceed the target by one uninterruptible layout or node-bound operation and is reported. BnB numeric upper bounds use platform libm trigonometric calculations and are not formal certificates.",
+        "bnb_equal_layout_candidate_verification": {
+          "reference_passed": true,
+          "shapely_passed": true,
+          "counts_agree": true,
+          "regenerated_count": 148,
+          "search_count_matches": true
+        },
+        "bnb_wall_clock_candidate_verification": {
+          "reference_passed": true,
+          "shapely_passed": true,
+          "counts_agree": true,
+          "regenerated_count": 148,
+          "search_count_matches": true
+        }
+      },
+      "fixed_orientation_phase": {
+        "theta_deg": 0.0,
+        "arrangement": {
+          "best_count": 150,
+          "candidate_phases": 377,
+          "boundary_fragments": 202,
+          "faces": 23,
+          "segments": 188,
+          "elapsed_seconds": 0.06454732299994248,
+          "status": "PHASE_ARRANGEMENT_COMPLETE_NUMERICAL_TOPOLOGY_UNVERIFIED"
+        },
+        "uniform_grid_near_equal_budget": {
+          "best_count": 150,
+          "candidate_phases": 361,
+          "elapsed_seconds_median": 0.06712608800012276,
+          "elapsed_seconds_trials": [
+            0.08217689399998562,
+            0.06614582699990024,
+            0.06712608800012276
+          ],
+          "timing_repeats": 3,
+          "divisions_per_axis": 19
+        },
+        "uniform_grid_40x40": {
+          "best_count": 150,
+          "candidate_phases": 1600,
+          "elapsed_seconds": 0.3038231040000028,
+          "timing_repeats": 1
+        },
+        "arrangement_vs_equal_budget_delta": 0,
+        "arrangement_vs_40x40_delta": 0,
+        "interpretation": "Arrangement is an all-phase candidate method for this fixed orientation only; topology remains floating-point and is not formally exact."
+      }
+    },
+    {
+      "case": "large_projected_coords",
+      "geometry_status": "PASS",
+      "usable_area_m2": 9752.851750929553,
+      "component_count": 1,
+      "certified_ub": {
+        "count": 1754,
+        "certified": true,
+        "method": "exact-rational convex-hull Steiner enclosure",
+        "legacy_geos_estimate": 1753
+      },
+      "stress_notes": [],
+      "orientation_phase_equal_budget": {
+        "grid": {
+          "best_count": 1691,
+          "evaluated_layouts": 48,
+          "elapsed_seconds_median": 0.050949226000057024,
+          "elapsed_seconds_trials": [
+            0.049633832999916194,
+            0.050949226000057024,
+            0.051121668999940084
+          ],
+          "timing_repeats": 3,
+          "theta_deg": 0.0,
+          "phase_a": 0.25,
+          "phase_b": 0.5
+        },
+        "bnb_equal_layout_evaluation_budget": {
+          "best_count": 1690,
+          "evaluated_layouts": 48,
+          "processed_nodes": 4,
+          "upper_bound_count": 4212,
+          "candidate_index_envelope_size": 4212,
+          "status": "NODE_LIMIT_BEST_FOUND_WITH_GAP",
+          "elapsed_seconds": 0.910019702999989,
+          "theta_deg": 0.0,
+          "phase_a": 0.5,
+          "phase_b": 0.5,
+          "numeric_note": "Candidate coordinate ranges use outward nextafter inflation and an 8-ulp trig margin; formal directed-rounding proof of libm sin/cos is not claimed. Independent high-precision interval verification is required before a formal optimum certificate."
+        },
+        "bnb_wall_clock_budget": {
+          "best_count": 1690,
+          "evaluated_layouts": 12,
+          "processed_nodes": 0,
+          "upper_bound_count": 4212,
+          "absolute_gap": 2522,
+          "status": "TIME_LIMIT_BEST_FOUND_WITH_GAP",
+          "elapsed_seconds": 0.10094894799999565,
+          "time_budget_seconds": 0.050949226000057024,
+          "candidate_index_envelope_size": 4212,
+          "theta_deg": 0.0,
+          "phase_a": 0.5,
+          "phase_b": 0.5,
+          "numeric_note": "Candidate coordinate ranges use outward nextafter inflation and an 8-ulp trig margin; formal directed-rounding proof of libm sin/cos is not claimed. Independent high-precision interval verification is required before a formal optimum certificate."
+        },
+        "budget_note": "Two comparisons are reported. First, BnB is limited to four nodes and its actual incumbent layout evaluations are counted against the 48-layout uniform grid; node-bound geometry work is additional and reflected in elapsed time. Second, BnB receives the median wall-clock runtime of three grid runs; the actual runtime may exceed the target by one uninterruptible layout or node-bound operation and is reported. BnB numeric upper bounds use platform libm trigonometric calculations and are not formal certificates.",
+        "bnb_equal_layout_candidate_verification": {
+          "reference_passed": true,
+          "shapely_passed": true,
+          "counts_agree": true,
+          "regenerated_count": 1690,
+          "search_count_matches": true
+        },
+        "bnb_wall_clock_candidate_verification": {
+          "reference_passed": true,
+          "shapely_passed": true,
+          "counts_agree": true,
+          "regenerated_count": 1690,
+          "search_count_matches": true
+        }
+      },
+      "fixed_orientation_phase": {
+        "theta_deg": 0.0,
+        "arrangement": {
+          "best_count": 1691,
+          "candidate_phases": 415,
+          "boundary_fragments": 314,
+          "faces": 36,
+          "segments": 207,
+          "elapsed_seconds": 0.4301872869998533,
+          "status": "PHASE_ARRANGEMENT_COMPLETE_NUMERICAL_TOPOLOGY_UNVERIFIED"
+        },
+        "uniform_grid_near_equal_budget": {
+          "best_count": 1691,
+          "candidate_phases": 400,
+          "elapsed_seconds_median": 0.7058750759999839,
+          "elapsed_seconds_trials": [
+            0.7196675519999189,
+            0.7058750759999839,
+            0.6985810559999663
+          ],
+          "timing_repeats": 3,
+          "divisions_per_axis": 20
+        },
+        "uniform_grid_40x40": {
+          "best_count": 1691,
+          "candidate_phases": 1600,
+          "elapsed_seconds": 2.908211976999837,
+          "timing_repeats": 1
+        },
+        "arrangement_vs_equal_budget_delta": 0,
+        "arrangement_vs_40x40_delta": 0,
+        "interpretation": "Arrangement is an all-phase candidate method for this fixed orientation only; topology remains floating-point and is not formally exact."
+      }
+    },
+    {
+      "case": "tiny_scale",
+      "geometry_status": "PASS",
+      "usable_area_m2": 0.00028616,
+      "component_count": 1,
+      "certified_ub": {
+        "count": 125,
+        "certified": true,
+        "method": "exact-rational convex-hull Steiner enclosure",
+        "legacy_geos_estimate": 126
+      },
+      "stress_notes": [],
+      "orientation_phase_equal_budget": {
+        "grid": {
+          "best_count": 104,
+          "evaluated_layouts": 48,
+          "elapsed_seconds_median": 0.005313903000114806,
+          "elapsed_seconds_trials": [
+            0.005732698999963759,
+            0.004852415999948789,
+            0.005313903000114806
+          ],
+          "timing_repeats": 3,
+          "theta_deg": 0.0,
+          "phase_a": 0.0,
+          "phase_b": 0.25
+        },
+        "bnb_equal_layout_evaluation_budget": {
+          "best_count": 112,
+          "evaluated_layouts": 48,
+          "processed_nodes": 4,
+          "upper_bound_count": 480,
+          "candidate_index_envelope_size": 480,
+          "status": "NODE_LIMIT_BEST_FOUND_WITH_GAP",
+          "elapsed_seconds": 0.10434292600007211,
+          "theta_deg": 0.0,
+          "phase_a": 0.16666666666666696,
+          "phase_b": 0.25,
+          "numeric_note": "Candidate coordinate ranges use outward nextafter inflation and an 8-ulp trig margin; formal directed-rounding proof of libm sin/cos is not claimed. Independent high-precision interval verification is required before a formal optimum certificate."
+        },
+        "bnb_wall_clock_budget": {
+          "best_count": 112,
+          "evaluated_layouts": 12,
+          "processed_nodes": 0,
+          "upper_bound_count": 480,
+          "absolute_gap": 368,
+          "status": "TIME_LIMIT_BEST_FOUND_WITH_GAP",
+          "elapsed_seconds": 0.014514364999968166,
+          "time_budget_seconds": 0.005313903000114806,
+          "candidate_index_envelope_size": 480,
+          "theta_deg": 0.0,
+          "phase_a": 0.16666666666666696,
+          "phase_b": 0.25,
+          "numeric_note": "Candidate coordinate ranges use outward nextafter inflation and an 8-ulp trig margin; formal directed-rounding proof of libm sin/cos is not claimed. Independent high-precision interval verification is required before a formal optimum certificate."
+        },
+        "budget_note": "Two comparisons are reported. First, BnB is limited to four nodes and its actual incumbent layout evaluations are counted against the 48-layout uniform grid; node-bound geometry work is additional and reflected in elapsed time. Second, BnB receives the median wall-clock runtime of three grid runs; the actual runtime may exceed the target by one uninterruptible layout or node-bound operation and is reported. BnB numeric upper bounds use platform libm trigonometric calculations and are not formal certificates.",
+        "bnb_equal_layout_candidate_verification": {
+          "reference_passed": true,
+          "shapely_passed": true,
+          "counts_agree": true,
+          "regenerated_count": 112,
+          "search_count_matches": true
+        },
+        "bnb_wall_clock_candidate_verification": {
+          "reference_passed": true,
+          "shapely_passed": true,
+          "counts_agree": true,
+          "regenerated_count": 112,
+          "search_count_matches": true
+        }
+      },
+      "fixed_orientation_phase": {
+        "theta_deg": 0.0,
+        "arrangement": {
+          "best_count": 112,
+          "candidate_phases": 49,
+          "boundary_fragments": 44,
+          "faces": 9,
+          "segments": 24,
+          "elapsed_seconds": 0.008757700000160185,
+          "status": "PHASE_ARRANGEMENT_COMPLETE_NUMERICAL_TOPOLOGY_UNVERIFIED"
+        },
+        "uniform_grid_near_equal_budget": {
+          "best_count": 104,
+          "candidate_phases": 49,
+          "elapsed_seconds_median": 0.007727638000005754,
+          "elapsed_seconds_trials": [
+            0.007798842000056538,
+            0.007727638000005754,
+            0.00755992199992761
+          ],
+          "timing_repeats": 3,
+          "divisions_per_axis": 7
+        },
+        "uniform_grid_40x40": {
+          "best_count": 112,
+          "candidate_phases": 1600,
+          "elapsed_seconds": 0.3250192580001112,
+          "timing_repeats": 1
+        },
+        "arrangement_vs_equal_budget_delta": 8,
+        "arrangement_vs_40x40_delta": 0,
+        "interpretation": "Arrangement is an all-phase candidate method for this fixed orientation only; topology remains floating-point and is not formally exact."
+      }
+    },
+    {
+      "case": "setback_erases_area",
+      "geometry_status": "PASS_EMPTY_USABLE_AREA",
+      "usable_area_m2": 0.0,
+      "component_count": 0,
+      "certified_ub": {
+        "count": 0,
+        "certified": true,
+        "method": "exact-rational convex-hull Steiner enclosure",
+        "legacy_geos_estimate": 0
+      },
+      "stress_notes": [
+        "Setback/clearance leaves no feasible area; no placement plan is produced. Certified upper bound is zero."
+      ]
+    },
+    {
+      "case": "very_large_offset",
+      "geometry_status": "SAFE_REJECT",
+      "usable_area_m2": null,
+      "component_count": null,
+      "certified_ub": null,
+      "stress_notes": [
+        "ความละเอียดพิกัด double-precision ไม่เพียงพอ: ULP ของพิกัดสูงสุด (0.00012207 m) มากกว่า geometry_tolerance_m (1e-07 m). โปรดแปลงข้อมูลเป็น local XY โดยเลื่อนจุดกำเนิดให้อยู่ใกล้แปลงก่อนคำนวณ"
+      ]
+    }
+  ],
+  "global_limitations": [
+    "All geometries and crop spacing profiles are synthetic.",
+    "Uniform grid is finite and does not prove continuous optimum.",
+    "BnB node upper bound uses platform libm trigonometric intervals; it is not a formal numerical certificate.",
+    "Phase arrangement is fixed-orientation only, capped at 600 boundary fragments and uses floating-point topology.",
+    "The rational Steiner bound certifies an integer upper bound for the ideal lattice family over the represented polygon vertices; candidate feasibility remains numerical, so no continuous optimum certificate is issued.",
+    "Extreme absolute coordinate offsets are rejected when floating-point ULP exceeds geometric tolerance.",
+    "Candidate locations are not agronomically approved or field validated."
+  ]
+}

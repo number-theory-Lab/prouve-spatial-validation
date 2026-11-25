@@ -1,0 +1,35 @@
+{
+  "adapter": "PROUVE Spatial Handoff Adapter V0.1",
+  "gate_status": "EXPLORATORY_ONLY",
+  "eligible_for_engine_run": true,
+  "field_deployment_authorized": false,
+  "mode": "exploratory",
+  "site_id": "SYNTH-FTS01",
+  "boundary_status": "USER_CONFIRMED",
+  "working_crs": "EPSG:32647",
+  "source_vertex_count": 4,
+  "vertex_count": 4,
+  "obstacle_count": 0,
+  "crop_profile_id": "SYNTH-CROP-01",
+  "input_hashes": {
+    "app_project_sha256": "8cf63759157ff984865fef0f77e95a3a2fe7bab1dc15135944f9225406fc3155",
+    "site_profile_sha256": "eacc9b9e4e6009f0c89b1f84e915978f6bc64fb06456c8fe4594206575a58d5b"
+  },
+  "engine_case_sha256": "cd6896e1663b82f8798bf0c890ff5afb94ef1da6d70f52ef9d6f7d02898d1bac",
+  "uncertainty": {
+    "status": "NOT_CALIBRATED",
+    "note": "Do not combine uncertainty with clearances automatically."
+  },
+  "warnings": [
+    "USER_CONFIRMED เป็นการยืนยันของผู้ใช้ ไม่เท่ากับการสำรวจอิสระหรือการรับรองโดยผู้เชี่ยวชาญ",
+    "ผลลัพธ์ใช้ทดสอบกระบวนการได้ แต่ห้ามอ้างว่าเป็นแผนภาคสนามที่ผ่านการตรวจรับ",
+    "ความไม่แน่นอนด้านตำแหน่งยังไม่ได้รับอนุมัติ/สอบเทียบ และไม่ถูกนำไปรวมกับ setback อัตโนมัติ"
+  ],
+  "notices": [
+    "adapter นี้จัดรูปแบบและตรวจประตูข้อมูลเท่านั้น; ไม่ได้เรียก Geometry Engine หรือ Optimization Engine",
+    "Geometry Engine ต้องตรวจความถูกต้องของ polygon และตำแหน่งสิ่งกีดขวางซ้ำ",
+    "Optimization Engine V0.4 มีประเด็น upper-bound/status ที่ต้องแก้และทดสอบก่อนใช้ผล optimum",
+    "Independent verifier ต้องปฏิเสธแผนว่าง และต้องแยก implementation/library ตามแผนทดสอบ",
+    "ค่า uncertainty แยกจาก clearance; ห้ามบวก/รวมอัตโนมัติโดยไม่มีแบบจำลองที่ผู้เชี่ยวชาญอนุมัติ"
+  ]
+}

@@ -1,30 +1,118 @@
 {
   "project": "PROUVÉ Spatial",
   "version": "handoff-v0.1",
-  "use_case": "SYNTH-FTS01",
+  "use_case": "SYNTH-MP-HOLE-01",
   "coordinate_system": "Local planar XY; metres; source working CRS=EPSG:32647",
   "crs": "EPSG:32647",
   "field": {
-    "vertices": [
-      [
-        500000.0,
-        1000000.0
-      ],
-      [
-        500020.0,
-        1000000.0
-      ],
-      [
-        500020.0,
-        1000020.0
-      ],
-      [
-        500000.0,
-        1000020.0
+    "geometry": {
+      "type": "MultiPolygon",
+      "coordinates": [
+        [
+          [
+            [
+              500000.0,
+              1000000.0
+            ],
+            [
+              500040.0,
+              1000000.0
+            ],
+            [
+              500040.0,
+              1000040.0
+            ],
+            [
+              500000.0,
+              1000040.0
+            ],
+            [
+              500000.0,
+              1000000.0
+            ]
+          ],
+          [
+            [
+              500015.0,
+              1000015.0
+            ],
+            [
+              500025.0,
+              1000015.0
+            ],
+            [
+              500025.0,
+              1000025.0
+            ],
+            [
+              500015.0,
+              1000025.0
+            ],
+            [
+              500015.0,
+              1000015.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              500050.0,
+              1000000.0
+            ],
+            [
+              500090.0,
+              1000000.0
+            ],
+            [
+              500090.0,
+              1000040.0
+            ],
+            [
+              500050.0,
+              1000040.0
+            ],
+            [
+              500050.0,
+              1000000.0
+            ]
+          ]
+        ]
       ]
-    ]
+    }
   },
-  "obstacles": [],
+  "obstacles": [
+    {
+      "name": "pond",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              500005.0,
+              1000005.0
+            ],
+            [
+              500009.0,
+              1000005.0
+            ],
+            [
+              500009.0,
+              1000009.0
+            ],
+            [
+              500005.0,
+              1000009.0
+            ],
+            [
+              500005.0,
+              1000005.0
+            ]
+          ]
+        ]
+      }
+    }
+  ],
   "settings": {
     "boundary_setback_m": 1.0,
     "obstacle_buffer_m": 1.0,
@@ -32,20 +120,95 @@
     "geometry_tolerance_m": 1e-07
   },
   "crop": {
-    "profile_id": "SYNTH-CROP-01",
+    "profile_id": "SYNTH-CROP-MP",
     "crop_name": "Synthetic crop - not agronomic advice",
-    "row_spacing_m": 3.0,
-    "in_row_spacing_m": 2.0,
+    "row_spacing_m": 5.0,
+    "in_row_spacing_m": 4.0,
     "plants_per_hole_after_thinning": 1
   },
   "handoff_metadata": {
     "source_app_schema": "prouve-spatial-boundary-v0.5",
     "boundary_status": "USER_CONFIRMED",
-    "boundary_id": "SYNTH-FTS01",
-    "boundary_name": "Synthetic integration fixture",
+    "boundary_id": "SYNTH-MP-HOLE-01",
+    "boundary_name": "Synthetic MultiPolygon with hole test",
     "source_input_crs": "EPSG:32647",
     "working_crs": "EPSG:32647",
-    "site_profile_id": "SYNTH-PROFILE-01",
-    "mode": "exploratory"
+    "site_profile_id": "SYNTH-MP-HOLE-PROFILE",
+    "mode": "exploratory",
+    "source_boundary_geometry": {
+      "type": "MultiPolygon",
+      "coordinates": [
+        [
+          [
+            [
+              500000.0,
+              1000000.0
+            ],
+            [
+              500040.0,
+              1000000.0
+            ],
+            [
+              500040.0,
+              1000040.0
+            ],
+            [
+              500000.0,
+              1000040.0
+            ],
+            [
+              500000.0,
+              1000000.0
+            ]
+          ],
+          [
+            [
+              500015.0,
+              1000015.0
+            ],
+            [
+              500025.0,
+              1000015.0
+            ],
+            [
+              500025.0,
+              1000025.0
+            ],
+            [
+              500015.0,
+              1000025.0
+            ],
+            [
+              500015.0,
+              1000015.0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              500050.0,
+              1000000.0
+            ],
+            [
+              500090.0,
+              1000000.0
+            ],
+            [
+              500090.0,
+              1000040.0
+            ],
+            [
+              500050.0,
+              1000040.0
+            ],
+            [
+              500050.0,
+              1000000.0
+            ]
+          ]
+        ]
+      ]
+    }
   }
 }

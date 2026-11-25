@@ -1,0 +1,51 @@
+{
+  "project": "PROUVE Spatial",
+  "version": "0.3.1",
+  "use_case": "PS-FU01",
+  "coordinate_system": "Local planar XY; metres",
+  "parameters": {
+    "boundary_setback_m": 1.0,
+    "obstacle_buffer_m": 1.0,
+    "buffer_quad_segs_per_quadrant": 64,
+    "obstacle_buffer_applied_radius_m": 1.0000753038310954,
+    "geometry_tolerance_m": 1e-07
+  },
+  "areas_m2": {
+    "total_field": 3100.0,
+    "after_boundary_setback": 2744.8323120968307,
+    "boundary_setback_loss": 355.1676879031693,
+    "obstacle_exclusion_inside_setback_field": 35.142955230482585,
+    "usable_planting_area": 2709.689356866348,
+    "total_excluded_area": 390.31064313365187
+  },
+  "geometry": {
+    "inset_field_type": "MultiPolygon",
+    "usable_area_type": "MultiPolygon",
+    "usable_component_count": 2,
+    "field_geometry_valid": true,
+    "inset_geometry_valid": true,
+    "usable_geometry_valid": true,
+    "minimum_boundary_clearance_m": 1.000000094327931,
+    "obstacle_clearances": [
+      {
+        "name": "pond",
+        "minimum_clearance_m": 0.9999999999490078
+      }
+    ]
+  },
+  "status": {
+    "input_geometry_validated": true,
+    "usable_area_calculated": true,
+    "usable_area_nonempty": true,
+    "boundary_clearance_verified": true,
+    "obstacle_clearance_verified": true,
+    "placement_optimization_performed": false,
+    "maximum_plant_count_proven": false
+  },
+  "notes": [
+    "ผลนี้เป็นพื้นที่เชิงเรขาคณิตหลังเว้นขอบและสิ่งกีดขวาง ไม่ใช่จำนวนต้นที่ปลูกได้",
+    "การ buffer แบบโค้งใช้การประมาณด้วยเส้นตรง 64 ส่วนต่อหนึ่งควอดแรนต์ และชดเชยรัศมีแบบ conservative เพื่อไม่ให้ระยะเคลียร์รันซ์ต่ำกว่าค่าที่กำหนด",
+    "พิกัดเป็น local XY หน่วยเมตร ไม่ใช่ latitude/longitude และยังไม่ใช่ขอบเขตสำรวจ GPS จริง",
+    "V0.3 accepts valid Polygon/MultiPolygon with interior rings (holes); inward setbacks and obstacle buffers are still represented by Shapely/GEOS polygonal approximations and require formal candidate verification."
+  ]
+}

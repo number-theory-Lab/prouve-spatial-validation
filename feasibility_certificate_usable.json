@@ -1,0 +1,1559 @@
+{
+  "schema": "prouve-formal-feasibility-certificate-v0.1",
+  "status": "CERTIFIED_FEASIBLE",
+  "certified": true,
+  "feasibility_passed": true,
+  "point_count": 153,
+  "passed_points": 153,
+  "failed_points": 0,
+  "pairwise_spacing_checks": 0,
+  "pairwise_spacing_failures": [],
+  "arithmetic": "exact rational arithmetic on canonical decimal inputs; no epsilon in point-in-polygon or squared-distance comparisons",
+  "input_interpretation": "decimal strings/integers are exact; finite floats are interpreted by their shortest round-trip decimal string",
+  "geometry_scope": "GeoJSON Polygon/MultiPolygon, including interior rings (holes); MultiPolygon components must be strictly disjoint and non-touching",
+  "clearance_policy": "required_clearance = declared_clearance + explicitly supplied uncertainty allowance; no uncertainty is inferred",
+  "optimality_claim": false,
+  "source_geometry_sha256": "8740a0ac825649c04f64e686a417ad784605a3114b423c928b2b78eb0053f165",
+  "candidate_set_sha256": "24fd95eaf047f8208cc9c291da1614375a1f0b1c47134cc4fbb4d219cfa828fd",
+  "effective_boundary_clearance_m": "0",
+  "effective_obstacle_clearance_m": "0",
+  "minimum_spacing_m": null,
+  "points": [
+    {
+      "plant_id": "V03-P00001",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00002",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00003",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00004",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00005",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00006",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00007",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00008",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00009",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00010",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00011",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00012",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00013",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00014",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00015",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00016",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00017",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00018",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00019",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00020",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00021",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00022",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00023",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00024",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00025",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00026",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00027",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00028",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00029",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00030",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00031",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00032",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00033",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00034",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00035",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00036",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00037",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00038",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00039",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00040",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00041",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00042",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00043",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00044",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00045",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00046",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00047",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00048",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00049",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00050",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00051",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00052",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00053",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00054",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00055",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00056",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00057",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00058",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00059",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00060",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00061",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00062",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00063",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00064",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00065",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00066",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00067",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00068",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00069",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00070",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00071",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00072",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00073",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00074",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00075",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00076",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00077",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00078",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00079",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00080",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00081",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00082",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00083",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00084",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00085",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00086",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00087",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00088",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00089",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00090",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00091",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00092",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00093",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00094",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00095",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00096",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00097",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00098",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00099",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00100",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00101",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00102",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00103",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00104",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00105",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00106",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00107",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00108",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00109",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00110",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00111",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00112",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00113",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00114",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00115",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00116",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00117",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00118",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00119",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00120",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00121",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00122",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00123",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00124",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00125",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00126",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00127",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00128",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00129",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00130",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00131",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00132",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00133",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00134",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00135",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00136",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00137",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00138",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00139",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00140",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00141",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00142",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00143",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00144",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00145",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00146",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00147",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00148",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00149",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00150",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00151",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00152",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    },
+    {
+      "plant_id": "V03-P00153",
+      "status": "PASS",
+      "reasons": [],
+      "field_relation": "INSIDE",
+      "boundary_clearance_passed": true,
+      "minimum_boundary_distance_squared": null,
+      "required_boundary_clearance_squared": "0/1",
+      "obstacles": []
+    }
+  ],
+  "limitations": [
+    "This certifies feasibility of the finite submitted candidate set relative to the serialized source geometry and declared margins; it does not certify global optimality.",
+    "CRS/datum correctness, survey accuracy, source provenance, and whether uncertainty allowances are adequate require separate gates.",
+    "MultiPolygon components that touch or cross are rejected rather than normalized.",
+    "Input decimal values are treated as exact mathematical values; this is not a claim about physical measurement truth."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "upper_bound_count": 209,
+  "certified": true,
+  "status": "CERTIFIED_RATIONAL_STEINER_ENCLOSURE",
+  "area_upper_bound_m2": 4182.974049890496,
+  "cell_area_lower_bound_m2": 20.0,
+  "quotient_upper_bound": 209.1487024945248,
+  "hull_area_m2": 3343.9809996763397,
+  "hull_perimeter_upper_m": 251.9993968144,
+  "cell_covering_radius_upper_m": 3.201562118717,
+  "hull_vertex_count": 4,
+  "arithmetic": "exact rational arithmetic over canonical decimal coordinate/spacing values; sqrt bounds use integer arithmetic at 1e-12 m; pi upper bound 355/113",
+  "proof_scope": "all translations and orientations in the declared Euclidean 2-D lattice family, with lattice centers in the represented valid polygonal usable geometry; not arbitrary point placement",
+  "proof_outline": "Centered fundamental cells of accepted lattice points are disjoint up to boundaries, each has area at least cell_area_lower_bound, and each lies in the radius-R parallel body of conv(U). Steiner's formula bounds that body's area by A_hull + P_hull*R + pi*R^2. All irrational terms are conservatively enclosed with rational bounds. Therefore N <= floor(area_upper/cell_area_lower).",
+  "exact_area_upper_fraction": "94535213527525208180021268799/22600000000000000000000000",
+  "exact_cell_area_lower_fraction": "20/1",
+  "exact_quotient_fraction": "94535213527525208180021268799/452000000000000000000000000"
+}

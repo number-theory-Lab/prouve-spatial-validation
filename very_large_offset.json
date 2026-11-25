@@ -1,0 +1,1 @@
+{"case": "very_large_offset", "geometry_status": "SAFE_REJECT", "usable_area_m2": null, "component_count": null, "certified_ub": null, "stress_notes": ["ความละเอียดพิกัด double-precision ไม่เพียงพอ: ULP ของพิกัดสูงสุด (0.00012207 m) มากกว่า geometry_tolerance_m (1e-07 m). โปรดแปลงข้อมูลเป็น local XY โดยเลื่อนจุดกำเนิดให้อยู่ใกล้แปลงก่อนคำนวณ"]}

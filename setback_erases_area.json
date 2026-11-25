@@ -1,0 +1,1 @@
+{"case": "setback_erases_area", "geometry_status": "PASS_EMPTY_USABLE_AREA", "usable_area_m2": 0.0, "component_count": 0, "certified_ub": {"count": 0, "certified": true, "method": "exact-rational convex-hull Steiner enclosure", "legacy_geos_estimate": 0}, "stress_notes": ["Setback/clearance leaves no feasible area; no placement plan is produced. Certified upper bound is zero."]}

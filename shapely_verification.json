@@ -1,0 +1,14 @@
+{
+  "verifier": "shapely_geos_v1",
+  "all_checks_passed": true,
+  "verified_point_count": 63,
+  "status": "VERIFIED_FEASIBLE",
+  "checks": {
+    "outside_usable_geometry": 0,
+    "invalid_coordinates": 0,
+    "duplicate_lattice_indices": 0,
+    "duplicate_coordinates": 0,
+    "declared_count_mismatch": 0
+  },
+  "scope": "GEOS/ Shapely coverage check against independently reconstructed usable geometry; shares geometry library with engine and is not the no-Shapely reference check."
+}

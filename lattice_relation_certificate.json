@@ -1,0 +1,21 @@
+{
+  "schema": "prouve-rational-lattice-relation-certificate-v0.2",
+  "status": "CERTIFIED_RATIONAL_LATTICE",
+  "certified": true,
+  "point_count": 153,
+  "orthogonal_basis_exact": true,
+  "basis_a_length_exact": true,
+  "basis_b_length_exact": true,
+  "rational_rotation_fields_consistent": true,
+  "basis_matches_declared_rotation": true,
+  "phase_values_valid": true,
+  "unique_index_pairs": true,
+  "minimum_pairwise_spacing_lower_bound_m": "4/1",
+  "pairwise_spacing_property_certified": true,
+  "spacing_proof": "For distinct integer index pairs, exact orthogonality gives squared separation m^2*a^2+n^2*b^2, hence at least min(a,b)^2 for strictly positive basis lengths.",
+  "failures": [],
+  "arithmetic": "exact rational arithmetic",
+  "limitations": [
+    "This certifies membership in the declared rational orthogonal lattice, not CRS correctness or field feasibility."
+  ]
+}
