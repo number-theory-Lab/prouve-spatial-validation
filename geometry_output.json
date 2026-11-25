@@ -1,37 +1,32 @@
 {
   "project": "PROUVE Spatial",
-  "version": "0.3.1",
+  "version": "0.2",
   "use_case": "PS-FU01",
   "coordinate_system": "Local planar XY; metres",
   "parameters": {
     "boundary_setback_m": 1.0,
     "obstacle_buffer_m": 1.0,
     "buffer_quad_segs_per_quadrant": 64,
-    "obstacle_buffer_applied_radius_m": 1.0000753038310954,
+    "obstacle_buffer_applied_radius_m": 0.0,
     "geometry_tolerance_m": 1e-07
   },
   "areas_m2": {
-    "total_field": 3100.0,
-    "after_boundary_setback": 2744.8323120968307,
-    "boundary_setback_loss": 355.1676879031693,
-    "obstacle_exclusion_inside_setback_field": 35.142955230482585,
-    "usable_planting_area": 2709.689356866348,
-    "total_excluded_area": 390.31064313365187
+    "total_field": 400.0,
+    "after_boundary_setback": 324.0,
+    "boundary_setback_loss": 76.0,
+    "obstacle_exclusion_inside_setback_field": 0.0,
+    "usable_planting_area": 324.0,
+    "total_excluded_area": 76.0
   },
   "geometry": {
-    "inset_field_type": "MultiPolygon",
-    "usable_area_type": "MultiPolygon",
-    "usable_component_count": 2,
+    "inset_field_type": "Polygon",
+    "usable_area_type": "Polygon",
+    "usable_component_count": 1,
     "field_geometry_valid": true,
     "inset_geometry_valid": true,
     "usable_geometry_valid": true,
-    "minimum_boundary_clearance_m": 1.000000094327931,
-    "obstacle_clearances": [
-      {
-        "name": "pond",
-        "minimum_clearance_m": 0.9999999999490078
-      }
-    ]
+    "minimum_boundary_clearance_m": 1.0,
+    "obstacle_clearances": []
   },
   "status": {
     "input_geometry_validated": true,

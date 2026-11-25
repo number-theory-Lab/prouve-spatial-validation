@@ -3,8 +3,8 @@
   "status": "CERTIFIED_FEASIBLE",
   "certified": true,
   "feasibility_passed": true,
-  "point_count": 153,
-  "passed_points": 153,
+  "point_count": 70,
+  "passed_points": 70,
   "failed_points": 0,
   "pairwise_spacing_checks": 0,
   "pairwise_spacing_failures": [],
@@ -13,8 +13,8 @@
   "geometry_scope": "GeoJSON Polygon/MultiPolygon, including interior rings (holes); MultiPolygon components must be strictly disjoint and non-touching",
   "clearance_policy": "required_clearance = declared_clearance + explicitly supplied uncertainty allowance; no uncertainty is inferred",
   "optimality_claim": false,
-  "source_geometry_sha256": "dc5289003acef7c8783675751055b8016c44a7155150982c9614ee995b453d44",
-  "candidate_set_sha256": "38e46ccd7ab229b9af01bc57d39f3cd75c9219a545784bc4206e0832c93fa106",
+  "source_geometry_sha256": "4da0681a91752e7d683835f62bfea0ee337e45015decbdfbfb89a94dce1abfa4",
+  "candidate_set_sha256": "44a4fe339f4a822158cd3a6e6ac33ae9c4352f6be425c7bed16b67b2ce10c465",
   "effective_boundary_clearance_m": "1",
   "effective_obstacle_clearance_m": "1",
   "minimum_spacing_m": null,
@@ -25,16 +25,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959999850001600015000207499759984299944500009001110034225/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "20372200000051838232380039999212114341/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00002",
@@ -42,16 +35,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959999690001600027800289099759982699880340009001158037249/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "1017610000002551813066001599574206607099760015100181660009000186000961/159999999999999968000000000000003199999999999999840000000000000004"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00003",
@@ -59,16 +45,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959999530001600040600421899759981099811060009001206040401/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "20359400000050558414780039999660107845/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00004",
@@ -76,16 +55,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959999370001600053400605899759979499736660009001254043681/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "20449000000049278382780039999852110597/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00005",
@@ -93,16 +65,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959999210001600066200841099759977899657140009001302047089/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "20641000000047998340540040000044113861/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00006",
@@ -110,16 +75,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959999050001600079001127499759976299572500009001350050625/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "20935400000046718288060040000236117637/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00007",
@@ -127,16 +85,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959998890001600091801465099759974699482740009001398054289/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "21332200000045438225340040000428121925/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00008",
@@ -144,16 +95,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "1479289940591708461547929613028721300354870410579053307700864249/946745562130177325443786982248539644970414201182485207100591716",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "1679338461541858319413849230816932825/246153846153846129230769230769232"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00009",
@@ -161,16 +105,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959998570001600117402293899759971499287860009001494062001/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "22433000000042878069180040000812132037/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00010",
@@ -178,16 +115,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959998410001600130202785099759969899182740009001542066049/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "23137000000041597975740040001004137861/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00011",
@@ -195,16 +125,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "3999999999839972400001600544048950000160000795377000003998660112225/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "17900200000048638463580039999292101341/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00012",
@@ -212,16 +135,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "6249999999799997450001600055801225099759981499803140009001158037249/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "9/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "894010000002391836746001599602205599099760013900169260009000186000961/159999999999999968000000000000003199999999999999840000000000000004"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00013",
@@ -229,16 +145,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "6249999999799996650001600068601453899759979899730660009001206040401/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "16/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "17887400000047358633180039999740095485/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00014",
@@ -246,16 +155,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "6249999999799995850001600081401733899759978299653060009001254043681/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "16/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "17977000000046078601180039999932098237/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00015",
@@ -263,16 +165,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "6249999999799995050001600094202065099759976699570340009001302047089/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "16/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "18169000000044798558940040000124101501/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00016",
@@ -280,16 +175,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "6249999999799994250001600107002447499759975099482500009001350050625/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "16/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "18463400000043518506460040000316105277/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00017",
@@ -297,16 +185,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "6249999999799993450001600119802881099759973499389540009001398054289/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "16/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "18860200000042238443740040000508109565/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00018",
@@ -314,16 +195,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "6249999999799992650001600132603365899759971899291460009001446058081/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "16/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "19359400000040958370780040000700114365/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00019",
@@ -331,16 +205,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "19360000000352055088001600518437647600160011037809000003999300030625/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "9/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "19961000000039678287580040000892119677/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00020",
@@ -348,16 +215,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "1440000000096015792001600531242876400160012317697000003999300030625/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "20665000000038398194140040001084125501/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00021",
@@ -365,16 +225,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "23668639052307538461547932023926094675502963289378698248513255025/3786982248520709301775147928994158579881656804729940828402366864",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "1199092307695802975290772307644006857/246153846153846129230769230769232"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00022",
@@ -382,16 +235,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "27039999999583929072001600524849788400160002075703400003998740099225/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "9/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "778410000002231858826001599630204671099760012700156860009000186000961/159999999999999968000000000000003199999999999999840000000000000004"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00023",
@@ -399,16 +245,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "70559999999327880048001600537656271600160003355501800003998740099225/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "25/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "15575400000044158835580039999820083925/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00024",
@@ -416,16 +255,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "20249999999639990730001600109402941899759977099569460009001254043681/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "49/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "15665000000042878803580040000012086677/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00025",
@@ -433,16 +265,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "20249999999639989290001600122203369099759975499483540009001302047089/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "49/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "15857000000041598761340040000204089941/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00026",
@@ -450,16 +275,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "20249999999639987850001600135003847499759973899392500009001350050625/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "49/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "16151400000040318708860040000396093717/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00027",
@@ -467,16 +285,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "20249999999639986410001600147804377099759972299296340009001398054289/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "49/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "16548200000039038646140040000588098005/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00028",
@@ -484,16 +295,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "57760000000608084208001600473628335600160009758282600003999380024025/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "25/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "17047400000037758573180040000780102805/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00029",
@@ -501,16 +305,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "19360000000352051568001600486432975600160011038183400003999380024025/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "9/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "17649000000036478489980040000972108117/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00030",
@@ -518,16 +315,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "1440000000096014832001600499237820400160012318084200003999380024025/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "18353000000035198396540040001164113941/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00031",
@@ -535,16 +325,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "3999999999839975600001600480038390000160000796401000003998820087025/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "13436200000042238877980039999452077741/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00032",
@@ -552,16 +335,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "27039999999583933232001600492844284400160002076212200003998820087025/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "9/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "670810000002071879306001599658203823099760011500144460009000186000961/159999999999999968000000000000003199999999999999840000000000000004"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00033",
@@ -569,16 +345,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "70559999999327886768001600505650383600160003356023400003998820087025/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "25/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "13423400000040959021980039999900073165/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00034",
@@ -586,16 +355,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "796213017745987196497050890641755547929940855833340828426028521225/3786982248520709301775147928994158579881656804729940828402366864",
+      "minimum_boundary_distance_squared": "49/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "1039461538464590691536926153853236609/246153846153846129230769230769232"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00035",
@@ -603,16 +365,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "3308794737213562685410102603978757388970160098629237998982011281/12530346933980732085519617824418764194533636150038374187485316",
+      "minimum_boundary_distance_squared": "81/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "121283185841047778298584424781275037/28318584070796457345132743362832"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00036",
@@ -620,16 +375,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "42249999999479979850001600163005327499759972699302500009001350050625/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "81/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "13999400000037118895260040000476082957/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00037",
@@ -637,16 +385,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "116640000000864104112001600428820316400160008478698600003999460018225/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "49/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "14396200000035838832540040000668087245/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00038",
@@ -654,16 +395,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "57760000000608078128001600441624367600160009758612200003999460018225/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "25/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "14895400000034558759580040000860092045/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00039",
@@ -671,16 +405,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "19360000000352048048001600454428623600160011038525800003999460018225/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "9/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "15497000000033278676380040001052097357/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00040",
@@ -688,16 +415,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "1440000000096013872001600467233084400160012318439400003999460018225/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "16201000000031998582940040001244103181/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00041",
@@ -705,16 +425,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "3999999999839977200001600448033590000160000796865000003998900075625/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "11444200000039039061180039999532067141/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00042",
@@ -722,16 +435,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "27039999999583937392001600460839100400160002076689000003998900075625/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "9/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "571210000001911898186001599686203055099760010300132060009000186000961/159999999999999968000000000000003199999999999999840000000000000004"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00043",
@@ -739,16 +445,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "70559999999327893488001600473644815600160003356513000003998900075625/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "25/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "11431400000037759192380039999980063205/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00044",
@@ -756,16 +455,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "134559999999071845488001600486450735600160004636337000003998900075625/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "49/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "11521000000036479160380040000172065957/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00045",
@@ -773,16 +465,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "219039999998815793392001600499256860400160005916161000003998900075625/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "49/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "11713000000035199118140040000364069221/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00046",
@@ -790,16 +475,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "196000000001120114800001600384013590000160007199057000003999540013225/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "49/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "12007400000033919065660040000556072997/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00047",
@@ -807,16 +485,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "690177514798012399242613020099509185799763363780966863928991361025/3786982248520709301775147928994158579881656804729940828402366864",
+      "minimum_boundary_distance_squared": "49/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "954169230771741461764618461596005945/246153846153846129230769230769232"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00048",
@@ -824,16 +495,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "57760000000608072048001600409620719600160009758909800003999540013225/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "25/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "12903400000031358929980040000940082085/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00049",
@@ -841,16 +505,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "19360000000352044528001600422424591600160011038836200003999540013225/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "9/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "13505000000030078846780040001132087397/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00050",
@@ -858,16 +515,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "1440000000096012912001600435228668400160012318762600003999540013225/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "14209000000028798753340040001324093221/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00051",
@@ -875,16 +525,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "3999999999839978800001600416029110000160000797297000003998980065025/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "9612200000035839228380039999612057341/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00052",
@@ -892,16 +535,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "27039999999583941552001600428834236400160002077133800003998980065025/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "9/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "479610000001751915466001599714202367099760009100119660009000186000961/159999999999999968000000000000003199999999999999840000000000000004"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00053",
@@ -909,16 +545,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "70559999999327900208001600441639567600160003356970600003998980065025/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "16/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "9599400000034559346780040000060054045/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00054",
@@ -926,16 +555,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "30250000000440000330001599969398581899759989499992260009000774016641/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "16/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "9689000000033279314780040000252056797/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00055",
@@ -943,16 +565,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "30250000000440002090001599982198529099759987899947940009000822018769/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "16/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "9881000000031999272540040000444060061/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00056",
@@ -960,16 +575,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "30250000000440003850001599994998527499759986299898500009000870021025/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "16/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "10175400000030719220060040000636063837/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00057",
@@ -977,16 +585,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "116640000000864086832001600364814108400160008479236200003999620009025/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "16/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "10572200000029439157340040000828068125/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00058",
@@ -994,16 +595,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "57760000000608065968001600377617391600160009759175400003999620009025/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "16/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "11071400000028159084380040001020072925/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00059",
@@ -1011,16 +605,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "19360000000352041008001600390420879600160011039114600003999620009025/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "9/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "11673000000026879001180040001212078237/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00060",
@@ -1028,16 +615,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "8520710059739715692317162149257824853017824373099408307690059225/3786982248520709301775147928994158579881656804729940828402366864",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "952076923078892223672310769338775697/246153846153846129230769230769232"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00061",
@@ -1045,16 +625,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "3999999999839980400001600384024950000160000797697000003999060055225/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "7940200000032639379580039999692048341/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00062",
@@ -1062,16 +635,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "27039999999583945712001600396829692400160002077546600003999060055225/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "396010000001591931146001599742201759099760007900107260009000186000961/159999999999999968000000000000003199999999999999840000000000000004"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00063",
@@ -1079,16 +645,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "12250000000280000490001599984599157899759989899983060009000726014641/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "7927400000031359485180040000140045685/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00064",
@@ -1096,16 +655,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "12250000000280001610001599997399149899759988299940660009000774016641/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "8017000000030079453180040000332048437/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00065",
@@ -1113,16 +665,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "12250000000280002730001600010199193099759986699893140009000822018769/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "8209000000028799410940040000524051701/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00066",
@@ -1130,16 +675,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "12250000000280003850001600022999287499759985099840500009000870021025/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "8503400000027519358460040000716055477/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00067",
@@ -1147,16 +685,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "12250000000280004970001600035799433099759983499782740009000918023409/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "8900200000026239295740040000908059765/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00068",
@@ -1164,16 +695,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "12250000000280006090001600048599629899759981899719860009000966025921/159999999999999968000000000000003199999999999999840000000000000004",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "9399400000024959222780040001100064565/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00069",
@@ -1181,16 +705,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "19360000000352037488001600358417487600160011039361000003999700005625/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "10001000000023679139580040001292069877/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     },
     {
       "plant_id": "V03-P00070",
@@ -1198,1427 +715,9 @@
       "reasons": [],
       "field_relation": "INSIDE",
       "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "1440000000096010992001600371220796400160012319313000003999700005625/639999999999999872000000000000012799999999999999360000000000000016",
+      "minimum_boundary_distance_squared": "1/1",
       "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "10705000000022399046140040001484075701/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00071",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "3999999999839982000001600352021110000160000798065000003999140046225/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "6428200000029439514780039999772040141/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00072",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "2250000000120000330001599999799673099759990299975140009000678012769/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "320410000001431945226001599770201231099760006700094860009000186000961/159999999999999968000000000000003199999999999999840000000000000004"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00073",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "13313609468165685266281656879288224258934844378311597686394828489/946745562130177325443786982248539644970414201182485207100591716",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "493492307694473815967695384632310625/246153846153846129230769230769232"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00074",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "2250000000120001290001600025399797899759987099889060009000774016641/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "6505000000026879575580040000412040877/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00075",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "2250000000120001770001600038199937099759985499838340009000822018769/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "6697000000025599533340040000604044141/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00076",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "2250000000120002250001600051000127499759983899782500009000870021025/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "6991400000024319480860040000796047917/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00077",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "2250000000120002730001600063800369099759982299721540009000918023409/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "7388200000023039418140040000988052205/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00078",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "2250000000120003210001600076600661899759980699655460009000966025921/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "7887400000021759345180040001180057005/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00079",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "2250000000120003690001600089401005899759979099584260009001014028561/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "8489000000020479261980040001372062317/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00080",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "1440000000096010032001600339217340400160012319540200003999780003025/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "9193000000019199168540040001564068141/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00081",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959999850001600015000107499759992299974500009000510007225/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "2852200000019839824380040000012020341/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00082",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959999690001600027800189099759990699942340009000558008649/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "141610000000951977866001599854200127099760003100057660009000186000961/159999999999999968000000000000003199999999999999840000000000000004"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00083",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959999530001600040600321899759989099905060009000606010201/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "2839400000018559878780040000460020245/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00084",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959999370001600053400505899759987499862660009000654011881/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "2929000000017279846780040000652022997/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00085",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959999210001600066200741099759985899815140009000702013689/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "3121000000015999804540040000844026261/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00086",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959999050001600079001027499759984299762500009000750015625/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "3415400000014719752060040001036030037/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00087",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959998890001600091801365099759982699704740009000798017689/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "3812200000013439689340040001228034325/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00088",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959998730001600104601753899759981099641860009000846019881/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "4311400000012159616380040001420039125/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00089",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959998570001600117402193899759979499573860009000894022201/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "4913000000010879533180040001612044437/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00090",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959998410001600130202685099759977899500740009000942024649/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "5617000000009599439740040001804050261/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00091",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "3999999999839988400001600224008950000160000799217000003999460018225/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "1980200000016639895580040000092015341/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00092",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "36982248519526612130186982578702515383195204141450532597636437921/946745562130177325443786982248539644970414201182485207100591716",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "579940828407053168911252070308875260945325455029853609520711159769/946745562130177325443786982248539644970414201182485207100591716"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00093",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "6249999999799996650001600068600953899759987899864660009000606010201/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "1967400000015359937180040000540015885/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00094",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "6249999999799995850001600081401233899759986299819060009000654011881/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "2057000000014079905180040000732018637/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00095",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "6249999999799995050001600094201565099759984699768340009000702013689/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "2249000000012799862940040000924021901/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00096",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "6249999999799994250001600107001947499759983099712500009000750015625/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "2543400000011519810460040001116025677/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00097",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "6249999999799993450001600119802381099759981499651540009000798017689/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "2940200000010239747740040001308029965/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00098",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "6249999999799992650001600132602865899759979899585460009000846019881/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "3439400000008959674780040001500034765/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00099",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "19360000000352019888001600198405327600160011040113000004000100000625/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "4041000000007679591580040001692040077/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00100",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "1440000000096006192001600211206716400160012320129000004000100000625/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "4745000000006399498140040001884045901/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00101",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "3999999999839990000001600192006710000160000799425000003999540013225/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "1268200000013439950780040000172011141/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00102",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "27039999999583970672001600204809148400160002079351400003999540013225/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "62410000000631991626001599910199791099760000700032860009000186000961/159999999999999968000000000000003199999999999999840000000000000004"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00103",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "109800000003840097020040001484023189/3199999999999999680000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "1255400000012159979580040000620012325/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00104",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "45800000002560039420040001676027989/3199999999999999680000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "1345000000010879947580040000812015077/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00105",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "13313609468165690946755029811834834909822423076315621355032674601/946745562130177325443786982248539644970414201182485207100591716",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "118230769231507685026156923154155257/246153846153846129230769230769232"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00106",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "2250000000120002250001600051000277499759987899857500009000570009025/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "1831400000008319852860040001196022117/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00107",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "52200000001920030780040002412042661/3199999999999999680000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "2228200000007039790140040001388026405/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00108",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "141800000000639957820040002604049509/3199999999999999680000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "2727400000005759717180040001580031205/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00109",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "19360000000352016368001600166403855600160011040167400004000180002025/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "3329000000004479633980040001772036517/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00110",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "1440000000096005232001600179204860400160012320196200004000180002025/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "4033000000003199540540040001964042341/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00111",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "3999999999839991600001600160004790000160000799601000003999620009025/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "716200000010239989980040000252007741/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00112",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "27039999999583974832001600172806844400160002079540200003999620009025/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "34810000000471996106001599938199743099759999500020460009000186000961/159999999999999968000000000000003199999999999999840000000000000004"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00113",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "12960000000288011088001600137602119600160003359892200003999860001225/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "703400000008960005980040000700009565/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00114",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "1439999999903995152001600156804068400160008480020200004000020000025/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "1676200000003839816540040001468023645/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00115",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "114556213015668517207110060175180068640000057751617751502958698225/3786982248520709301775147928994158579881656804729940828402366864",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "167338461538658441813849230896925265/246153846153846129230769230769232"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00116",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "19360000000352012848001600134402703600160011040189800004000260004225/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "2777000000001279660380040001852033757/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00117",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "1440000000096004272001600147203324400160012320231400004000260004225/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "3480999999999999566940040002044039581/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00118",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "3999999999839993200001600128003190000160000799745000003999700005625/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "324200000007040013180040000332005141/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00119",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "27039999999583978992001600140804860400160002079697000003999700005625/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "15210000000311998986001599966199775099759998300008060009000186000961/159999999999999968000000000000003199999999999999840000000000000004"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00120",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "12960000000288008208001600105601191600160003359965800003999940000225/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "311400000005760016380040000780007605/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00121",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "1439999999903996112001600124802564400160008480081000004000100000625/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "1284200000000639826940040001548021685/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00122",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "19359999999647982928001600137603543600160009760097000004000100000625/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "1783399999999359753980040001740026485/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00123",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "19360000000352009328001600102401871600160011040180200004000340007225/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "2384999999998079670780040001932031797/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00124",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "1440000000096003312001600115202108400160012320234600004000340007225/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "3088999999996799577340040002124037621/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00125",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "23668639052307661538471006485218402367810655620455621325442485225/3786982248520709301775147928994158579881656804729940828402366864",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "7092307692603078490772307724000257/246153846153846129230769230769232"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00126",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "27039999999583983152001600108803196400160002079821800003999780003025/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "3610000000152000266001599994199887099759997099995660009000186000961/159999999999999968000000000000003199999999999999840000000000000004"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00127",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "69800000000640024220040001244010429/3199999999999999680000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "79400000002560010780040000860006445/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00128",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "5799999999359992220040001436013949/3199999999999999680000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "169000000001279978780040001052009197/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00129",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "249999999959999210001600066200691099759989899894140009000402004489/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "360999999999999936540040001244012461/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00130",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "19578667081212236667053025217399757205731717429516799201225625/12530346933980732085519617824418764194533636150038374187485316",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "5799999999988671540354336295893949/28318584070796457345132743362832"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00131",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "12199999998719964380040002172029581/3199999999999999680000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "1052199999997439821340040001628020525/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00132",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "101799999997439917020040002364035149/3199999999999999680000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "1551399999996159748380040001820025325/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00133",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "19360000000352005808001600070401359600160011040138600004000420011025/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "2152999999994879665180040002012030637/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00134",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "1440000000096002352001600083201212400160012320205800004000420011025/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "2856999999993599571740040002204036461/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00135",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "3999999999839996400001600064000950000160000799937000003999860001225/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "4000000000160002000001600048000190000160000799985000003999940000225/639999999999999872000000000000012799999999999999360000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00136",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "189799999997439964220040001324011029/3199999999999999680000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "1439999999903998032001600060800670000160003360001640004000004000001/639999999999999872000000000000012799999999999999360000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00137",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "9676923076627687093849230885847273/246153846153846129230769230769232",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "114556213015668579692317160198824205918106536331374437893491147929/3786982248520709301775147928994158579881656804729940828402366864"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00138",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "6249999999799995050001600094201315099759988699867340009000402004489/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "57759999999391977808001600086402116400160005920002920004000004000001/639999999999999872000000000000012799999999999999360000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00139",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "6249999999799994250001600107001697499759987099827500009000450005625/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "116639999999135961552001600099203146800160007200003560004000004000001/639999999999999872000000000000012799999999999999360000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00140",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "132199999995519872380040002252031781/3199999999999999680000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "195999999998879941200001600112004382000160008480004200004000004000001/639999999999999872000000000000012799999999999999360000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00141",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "221799999994239825020040002444037349/3199999999999999680000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "295839999998623916752001600124805822000160009760004840004000004000001/639999999999999872000000000000012799999999999999360000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00142",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "19360000000352002288001600038401167600160011040065000004000500015625/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "416159999998367888208001600137607466800160011040005480004000004000001/639999999999999872000000000000012799999999999999360000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00143",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "1440000000096001392001600051200636400160012320145000004000500015625/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "556959999998111855568001600150409316400160012320006120004000004000001/639999999999999872000000000000012799999999999999360000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00144",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "3999999999839998000001600032000310000160000799985000003999940000225/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "25000000000000001500040000380000925/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00145",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "2250000000120000330001599999799973099759998299997140009000078000169/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "249999999959999690001600027800119099759996299985740009000138000529/159999999999999968000000000000003199999999999999840000000000000004"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00146",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "2250000000120000810001600012600009899759996699988660009000126000441/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "12199999998719986780040000828004285/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00147",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "2250000000120001290001600025400097899759995099975060009000174000841/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "101799999997439965020040001020006525/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00148",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "2250000000120001770001600038200237099759993499956340009000222001369/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "293799999996159933020040001212009277/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00149",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "2250000000120002250001600051000427499759991899932500009000270002025/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "588199999994879890780040001404012541/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00150",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "13313609468165696627228402744382657395029528401796094727812532561/946745562130177325443786982248539644970414201182485207100591716",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "75769230768738449100003077045847409/246153846153846129230769230769232"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00151",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "2250000000120003210001600076600961899759988699869460009000366003721/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "1484199999992319775580040001788020605/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00152",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "2250000000120003690001600089401305899759987099830260009000414004761/159999999999999968000000000000003199999999999999840000000000000004",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "2085799999991039702620040001980025405/3199999999999999680000000000000016"
-        }
-      ]
-    },
-    {
-      "plant_id": "V03-P00153",
-      "status": "PASS",
-      "reasons": [],
-      "field_relation": "INSIDE",
-      "boundary_clearance_passed": true,
-      "minimum_boundary_distance_squared": "1440000000096000432001600019200380400160012320052200004000580021025/639999999999999872000000000000012799999999999999360000000000000016",
-      "required_boundary_clearance_squared": "1/1",
-      "obstacles": [
-        {
-          "obstacle_index": 0,
-          "relation": "OUTSIDE",
-          "clearance_passed": true,
-          "minimum_distance_squared": "2789799999989759619420040002172030717/3199999999999999680000000000000016"
-        }
-      ]
+      "obstacles": []
     }
   ],
   "limitations": [
