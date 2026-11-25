@@ -1,0 +1,423 @@
+{
+  "benchmark_name": "fixed_orientation_phase_arrangement_vs_20x20_uniform_phase_grid",
+  "shape_count": 5,
+  "orientation_cases_per_shape": 4,
+  "total_cases": 20,
+  "arrangement_ge_grid_cases": 20,
+  "arrangement_strictly_better_cases": 3,
+  "max_count_improvement": 1,
+  "median_arrangement_seconds": 0.029881234999947992,
+  "median_grid20_seconds": 0.030142033499942045,
+  "median_runtime_ratio_arrangement_over_grid20": 0.991347680640241,
+  "bnb_exploratory_result": {
+    "status": "NODE_LIMIT_BEST_FOUND_WITH_GAP",
+    "best_found_count": 26,
+    "upper_bound_count": 33,
+    "absolute_gap": 7,
+    "processed_nodes": 300,
+    "elapsed_seconds": 1.2897348279998369
+  },
+  "scope": "Synthetic small polygons only; fixed orientation; Shapely/GEOS numerical topology; not farm validation; not proof of novelty; not proof of a formal mathematical certificate.",
+  "cases": [
+    {
+      "shape_id": 1,
+      "theta_deg": 0,
+      "arrangement_count": 18,
+      "arrangement_phase": [
+        0.5,
+        0.0
+      ],
+      "grid20_count": 18,
+      "grid20_phase": [
+        0.5,
+        0.0
+      ],
+      "arrangement_points_tested": 35,
+      "arrangement_pieces": 24,
+      "arrangement_seconds": 0.00838704499983578,
+      "grid20_seconds": 0.03029014699995969,
+      "count_delta": 0,
+      "runtime_ratio": 0.2768902045885397
+    },
+    {
+      "shape_id": 1,
+      "theta_deg": 15,
+      "arrangement_count": 15,
+      "arrangement_phase": [
+        0.0,
+        0.0
+      ],
+      "grid20_count": 15,
+      "grid20_phase": [
+        0.0,
+        0.0
+      ],
+      "arrangement_points_tested": 337,
+      "arrangement_pieces": 24,
+      "arrangement_seconds": 0.033330430000205524,
+      "grid20_seconds": 0.02793540699985897,
+      "count_delta": 0,
+      "runtime_ratio": 1.1931249113490199
+    },
+    {
+      "shape_id": 1,
+      "theta_deg": 37,
+      "arrangement_count": 16,
+      "arrangement_phase": [
+        0.0,
+        0.055539798828
+      ],
+      "grid20_count": 16,
+      "grid20_phase": [
+        0.0,
+        0.1
+      ],
+      "arrangement_points_tested": 385,
+      "arrangement_pieces": 28,
+      "arrangement_seconds": 0.10157764499990662,
+      "grid20_seconds": 0.029000623000229098,
+      "count_delta": 0,
+      "runtime_ratio": 3.5026021682052892
+    },
+    {
+      "shape_id": 1,
+      "theta_deg": 82,
+      "arrangement_count": 16,
+      "arrangement_phase": [
+        0.3811967709954,
+        0.1552916376671
+      ],
+      "grid20_count": 16,
+      "grid20_phase": [
+        0.4,
+        0.05
+      ],
+      "arrangement_points_tested": 361,
+      "arrangement_pieces": 24,
+      "arrangement_seconds": 0.02651206100017589,
+      "grid20_seconds": 0.028372015000059037,
+      "count_delta": 0,
+      "runtime_ratio": 0.9344440639877261
+    },
+    {
+      "shape_id": 2,
+      "theta_deg": 0,
+      "arrangement_count": 19,
+      "arrangement_phase": [
+        0.2222222222222,
+        0.0
+      ],
+      "grid20_count": 19,
+      "grid20_phase": [
+        0.15,
+        0.0
+      ],
+      "arrangement_points_tested": 77,
+      "arrangement_pieces": 30,
+      "arrangement_seconds": 0.00984848799998872,
+      "grid20_seconds": 0.030639803999747528,
+      "count_delta": 0,
+      "runtime_ratio": 0.3214279046977543
+    },
+    {
+      "shape_id": 2,
+      "theta_deg": 15,
+      "arrangement_count": 18,
+      "arrangement_phase": [
+        0.2742350471802,
+        0.2775037586793
+      ],
+      "grid20_count": 18,
+      "grid20_phase": [
+        0.3,
+        0.25
+      ],
+      "arrangement_points_tested": 549,
+      "arrangement_pieces": 29,
+      "arrangement_seconds": 0.03728458299974591,
+      "grid20_seconds": 0.03181272199981322,
+      "count_delta": 0,
+      "runtime_ratio": 1.1720022888945125
+    },
+    {
+      "shape_id": 2,
+      "theta_deg": 37,
+      "arrangement_count": 18,
+      "arrangement_phase": [
+        0.4689891566282,
+        0.0618885779103
+      ],
+      "grid20_count": 18,
+      "grid20_phase": [
+        0.5,
+        0.05
+      ],
+      "arrangement_points_tested": 577,
+      "arrangement_pieces": 29,
+      "arrangement_seconds": 0.043232249000084266,
+      "grid20_seconds": 0.031543384999622504,
+      "count_delta": 0,
+      "runtime_ratio": 1.3705646683322557
+    },
+    {
+      "shape_id": 2,
+      "theta_deg": 82,
+      "arrangement_count": 17,
+      "arrangement_phase": [
+        0.0,
+        0.0
+      ],
+      "grid20_count": 17,
+      "grid20_phase": [
+        0.0,
+        0.0
+      ],
+      "arrangement_points_tested": 553,
+      "arrangement_pieces": 30,
+      "arrangement_seconds": 0.03889140400042379,
+      "grid20_seconds": 0.03329531700001098,
+      "count_delta": 0,
+      "runtime_ratio": 1.1680742970673912
+    },
+    {
+      "shape_id": 3,
+      "theta_deg": 0,
+      "arrangement_count": 19,
+      "arrangement_phase": [
+        0.0,
+        0.0
+      ],
+      "grid20_count": 19,
+      "grid20_phase": [
+        0.0,
+        0.0
+      ],
+      "arrangement_points_tested": 81,
+      "arrangement_pieces": 30,
+      "arrangement_seconds": 0.010465978999945946,
+      "grid20_seconds": 0.029419965000215598,
+      "count_delta": 0,
+      "runtime_ratio": 0.35574410098275944
+    },
+    {
+      "shape_id": 3,
+      "theta_deg": 15,
+      "arrangement_count": 16,
+      "arrangement_phase": [
+        0.146097324139,
+        0.2736324236945
+      ],
+      "grid20_count": 16,
+      "grid20_phase": [
+        0.15,
+        0.25
+      ],
+      "arrangement_points_tested": 433,
+      "arrangement_pieces": 24,
+      "arrangement_seconds": 0.03033357200001774,
+      "grid20_seconds": 0.03211054100029287,
+      "count_delta": 0,
+      "runtime_ratio": 0.9446608825351487
+    },
+    {
+      "shape_id": 3,
+      "theta_deg": 37,
+      "arrangement_count": 16,
+      "arrangement_phase": [
+        0.138416296756,
+        0.9188165959586
+      ],
+      "grid20_count": 16,
+      "grid20_phase": [
+        0.2,
+        0.0
+      ],
+      "arrangement_points_tested": 465,
+      "arrangement_pieces": 24,
+      "arrangement_seconds": 0.039193438999973296,
+      "grid20_seconds": 0.0299939199999244,
+      "count_delta": 0,
+      "runtime_ratio": 1.3067127937952785
+    },
+    {
+      "shape_id": 3,
+      "theta_deg": 82,
+      "arrangement_count": 18,
+      "arrangement_phase": [
+        0.464815702221,
+        0.2295896342479
+      ],
+      "grid20_count": 18,
+      "grid20_phase": [
+        0.5,
+        0.25
+      ],
+      "arrangement_points_tested": 433,
+      "arrangement_pieces": 22,
+      "arrangement_seconds": 0.029428897999878245,
+      "grid20_seconds": 0.029092871999637282,
+      "count_delta": 0,
+      "runtime_ratio": 1.011550114414457
+    },
+    {
+      "shape_id": 4,
+      "theta_deg": 0,
+      "arrangement_count": 21,
+      "arrangement_phase": [
+        0.68,
+        0.2692307692308
+      ],
+      "grid20_count": 20,
+      "grid20_phase": [
+        0.0,
+        0.3
+      ],
+      "arrangement_points_tested": 287,
+      "arrangement_pieces": 27,
+      "arrangement_seconds": 0.02397406399995816,
+      "grid20_seconds": 0.031640172000152234,
+      "count_delta": 1,
+      "runtime_ratio": 0.757709660991818
+    },
+    {
+      "shape_id": 4,
+      "theta_deg": 15,
+      "arrangement_count": 20,
+      "arrangement_phase": [
+        0.3705570636387,
+        0.3141530483496
+      ],
+      "grid20_count": 19,
+      "grid20_phase": [
+        0.1,
+        0.3
+      ],
+      "arrangement_points_tested": 435,
+      "arrangement_pieces": 27,
+      "arrangement_seconds": 0.03141600400022071,
+      "grid20_seconds": 0.03298516999984713,
+      "count_delta": 1,
+      "runtime_ratio": 0.9524281366555427
+    },
+    {
+      "shape_id": 4,
+      "theta_deg": 37,
+      "arrangement_count": 20,
+      "arrangement_phase": [
+        0.2837566221568,
+        0.1592675133147
+      ],
+      "grid20_count": 20,
+      "grid20_phase": [
+        0.3,
+        0.15
+      ],
+      "arrangement_points_tested": 447,
+      "arrangement_pieces": 30,
+      "arrangement_seconds": 0.035825932000079774,
+      "grid20_seconds": 0.032273657000132516,
+      "count_delta": 0,
+      "runtime_ratio": 1.1100673220866377
+    },
+    {
+      "shape_id": 4,
+      "theta_deg": 82,
+      "arrangement_count": 21,
+      "arrangement_phase": [
+        0.0567056777136,
+        0.6461948280071
+      ],
+      "grid20_count": 20,
+      "grid20_phase": [
+        0.0,
+        0.6
+      ],
+      "arrangement_points_tested": 451,
+      "arrangement_pieces": 26,
+      "arrangement_seconds": 0.034342435999860754,
+      "grid20_seconds": 0.03296482899986586,
+      "count_delta": 1,
+      "runtime_ratio": 1.0417902061618611
+    },
+    {
+      "shape_id": 5,
+      "theta_deg": 0,
+      "arrangement_count": 10,
+      "arrangement_phase": [
+        0.6944444444444,
+        0.8709677419355
+      ],
+      "grid20_count": 10,
+      "grid20_phase": [
+        0.7,
+        0.9
+      ],
+      "arrangement_points_tested": 167,
+      "arrangement_pieces": 17,
+      "arrangement_seconds": 0.013111897999806388,
+      "grid20_seconds": 0.024223139999776322,
+      "count_delta": 0,
+      "runtime_ratio": 0.5412963802350754
+    },
+    {
+      "shape_id": 5,
+      "theta_deg": 15,
+      "arrangement_count": 9,
+      "arrangement_phase": [
+        0.03130640218,
+        0.0387636494155
+      ],
+      "grid20_count": 9,
+      "grid20_phase": [
+        0.6,
+        0.0
+      ],
+      "arrangement_points_tested": 257,
+      "arrangement_pieces": 15,
+      "arrangement_seconds": 0.01731139000003168,
+      "grid20_seconds": 0.022624561000156973,
+      "count_delta": 0,
+      "runtime_ratio": 0.7651591560124225
+    },
+    {
+      "shape_id": 5,
+      "theta_deg": 37,
+      "arrangement_count": 8,
+      "arrangement_phase": [
+        0.0,
+        0.1863314989251
+      ],
+      "grid20_count": 8,
+      "grid20_phase": [
+        0.0,
+        0.2
+      ],
+      "arrangement_points_tested": 257,
+      "arrangement_pieces": 15,
+      "arrangement_seconds": 0.0160724110000956,
+      "grid20_seconds": 0.023596824999913224,
+      "count_delta": 0,
+      "runtime_ratio": 0.6811259989492106
+    },
+    {
+      "shape_id": 5,
+      "theta_deg": 82,
+      "arrangement_count": 9,
+      "arrangement_phase": [
+        0.2732596932373,
+        0.3996167106571
+      ],
+      "grid20_count": 9,
+      "grid20_phase": [
+        0.85,
+        0.25
+      ],
+      "arrangement_points_tested": 253,
+      "arrangement_pieces": 14,
+      "arrangement_seconds": 0.015946841999721073,
+      "grid20_seconds": 0.024086743999760074,
+      "count_delta": 0,
+      "runtime_ratio": 0.6620588486297657
+    }
+  ]
+}

@@ -1,0 +1,664 @@
+{
+  "project": "PROUVÉ Spatial",
+  "version": "0.4",
+  "use_case": "PS-FU01",
+  "coordinate_system": "Local planar XY; metres (not geographic coordinates)",
+  "input": {
+    "row_spacing_m": 3.0,
+    "in_row_spacing_m": 2.0,
+    "plants_per_hole_after_thinning": 1,
+    "usable_area_m2": 324.0,
+    "field_area_m2": 400.0,
+    "boundary_setback_m": 1.0,
+    "obstacle_buffer_m": 1.0
+  },
+  "benchmark_methods": [
+    {
+      "method": "Area-per-plant estimate",
+      "category": "density_estimate_only",
+      "count": 54.0,
+      "integer_estimate_floor": 54,
+      "nominal_cell_area_m2": 6.0,
+      "agronomically_row_feasible": null,
+      "note": "ค่าประมาณจากพื้นที่หารพื้นที่ต่อหลุม ไม่ใช่ชุดพิกัดที่จัดวางได้ และไม่ใช่ upper bound"
+    },
+    {
+      "method": "V0.3 fixed rectangular grid",
+      "category": "feasible_fixed_layout",
+      "count": 54,
+      "theta_deg": 0.0,
+      "phase_a_fraction": 0.0,
+      "phase_b_fraction": 0.16666666666666666,
+      "agronomically_row_feasible": true,
+      "note": "แนวแถวขนานแกน X และ anchor เดิม (0.50, 0.50) เมตร"
+    },
+    {
+      "method": "Optimized rectangular crop-row lattice",
+      "category": "crop_row_lattice",
+      "count": 63,
+      "theta_deg": 0.0,
+      "phase_a_fraction": 0.0,
+      "phase_b_fraction": 0.6666666666666666,
+      "agronomically_row_feasible": true,
+      "note": "ค้นหาทิศทางและ phase ภายในชุดพารามิเตอร์ที่แจกแจงไว้; ยังไม่ใช่การจัดวางอิสระทุกรูปแบบ"
+    }
+  ],
+  "search": {
+    "rectangular_crop_row": {
+      "best_count": 63,
+      "best_theta_deg": 0.0,
+      "best_phase_a_fraction": 0.0,
+      "best_phase_b_fraction": 0.6666666666666666,
+      "evaluated_layouts": 55,
+      "coarse_layouts": 54,
+      "refinement_layouts": 0,
+      "angle_step_deg": 30,
+      "phase_divisions": 3,
+      "upper_bound_count": 78,
+      "relative_gap_to_upper_bound": 0.19230769230769232,
+      "best_over_enumerated_search_grid_proven": true,
+      "continuous_lattice_optimum_proven": false,
+      "top_results": [
+        {
+          "count": 63,
+          "theta_deg": 0.0,
+          "phase_a": 0.0,
+          "phase_b": 0.6666666666666666
+        },
+        {
+          "count": 63,
+          "theta_deg": 0.0,
+          "phase_a": 0.3333333333333333,
+          "phase_b": 0.6666666666666666
+        },
+        {
+          "count": 63,
+          "theta_deg": 0.0,
+          "phase_a": 0.6666666666666666,
+          "phase_b": 0.6666666666666666
+        },
+        {
+          "count": 55,
+          "theta_deg": 60.0,
+          "phase_a": 0.0,
+          "phase_b": 0.3333333333333333
+        },
+        {
+          "count": 55,
+          "theta_deg": 60.0,
+          "phase_a": 0.3333333333333333,
+          "phase_b": 0.0
+        },
+        {
+          "count": 55,
+          "theta_deg": 60.0,
+          "phase_a": 0.6666666666666666,
+          "phase_b": 0.6666666666666666
+        },
+        {
+          "count": 55,
+          "theta_deg": 120.0,
+          "phase_a": 0.0,
+          "phase_b": 0.6666666666666666
+        },
+        {
+          "count": 55,
+          "theta_deg": 120.0,
+          "phase_a": 0.3333333333333333,
+          "phase_b": 0.0
+        },
+        {
+          "count": 55,
+          "theta_deg": 120.0,
+          "phase_a": 0.6666666666666666,
+          "phase_b": 0.3333333333333333
+        },
+        {
+          "count": 55,
+          "theta_deg": 150.0,
+          "phase_a": 0.3333333333333333,
+          "phase_b": 0.3333333333333333
+        }
+      ],
+      "elapsed_seconds": 0.014951813000010361
+    },
+    "comparison_lattices": {}
+  },
+  "optimality_evidence": {
+    "rectangular_lattice_upper_bound": {
+      "expanded_area_m2": 464.01259366998977,
+      "cell_area_m2": 6.0,
+      "upper_bound_count": 78,
+      "circumradius_m": 1.8027756377319946,
+      "buffer_radius_used_m": 1.8028095751127702,
+      "bound_method": "fundamental-cell area bound using a circumscribed disk"
+    },
+    "interpretation": "ขอบเขตบนจากพื้นที่ของ fundamental cells ภายในการขยายพื้นที่ปลูกด้วยรัศมีครอบคลุม cell; ใช้กับ lattice family ที่ระบุเท่านั้น ไม่ใช่ upper bound สำหรับการจัดวางจุดอิสระทั่วไป",
+    "relative_gap_definition": "(upper_bound_count - best_found_count) / upper_bound_count",
+    "rectangular_relative_gap": 0.19230769230769232,
+    "best_found_count": 63,
+    "upper_bound_count": 78,
+    "continuous_lattice_optimum_proven": false
+  },
+  "verification": {
+    "independent_verifier_required": true,
+    "generated_points": 63,
+    "point_export": "optimized_planting_positions.csv",
+    "status_before_independent_verification": "PENDING"
+  },
+  "limitations": [
+    "Best found is exact only over the explicitly enumerated finite angle/phase search grid.",
+    "Refinement searches a finite local grid around the coarse winner; it is not a continuous search proof.",
+    "The geometric upper bound applies only to the specified lattice family, not arbitrary free point placements.",
+    "Square and triangular grids are equal-nominal-density geometric benchmarks; they do not preserve the 0.75 m crop row-spacing rule and are not agronomic recommendations.",
+    "Area-per-plant is a density estimate, not a feasible point placement or upper bound.",
+    "Coordinates and PS-FU01 field are synthetic local XY test data, not a surveyed farm boundary.",
+    "The model covers planting-hole centres and geometric clearances only; it does not establish crop health, yield, root competition, irrigation access, or machinery access."
+  ],
+  "planting_positions": [
+    {
+      "plant_id": "V04-P0001",
+      "lattice_i": 333333,
+      "lattice_j": 250001,
+      "x_m": 500002.0,
+      "y_m": 1000001.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0002",
+      "lattice_i": 333333,
+      "lattice_j": 250002,
+      "x_m": 500004.0,
+      "y_m": 1000001.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0003",
+      "lattice_i": 333333,
+      "lattice_j": 250003,
+      "x_m": 500006.0,
+      "y_m": 1000001.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0004",
+      "lattice_i": 333333,
+      "lattice_j": 250004,
+      "x_m": 500008.0,
+      "y_m": 1000001.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0005",
+      "lattice_i": 333333,
+      "lattice_j": 250005,
+      "x_m": 500010.0,
+      "y_m": 1000001.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0006",
+      "lattice_i": 333333,
+      "lattice_j": 250006,
+      "x_m": 500012.0,
+      "y_m": 1000001.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0007",
+      "lattice_i": 333333,
+      "lattice_j": 250007,
+      "x_m": 500014.0,
+      "y_m": 1000001.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0008",
+      "lattice_i": 333333,
+      "lattice_j": 250008,
+      "x_m": 500016.0,
+      "y_m": 1000001.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0009",
+      "lattice_i": 333333,
+      "lattice_j": 250009,
+      "x_m": 500018.0,
+      "y_m": 1000001.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0010",
+      "lattice_i": 333334,
+      "lattice_j": 250001,
+      "x_m": 500002.0,
+      "y_m": 1000004.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0011",
+      "lattice_i": 333334,
+      "lattice_j": 250002,
+      "x_m": 500004.0,
+      "y_m": 1000004.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0012",
+      "lattice_i": 333334,
+      "lattice_j": 250003,
+      "x_m": 500006.0,
+      "y_m": 1000004.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0013",
+      "lattice_i": 333334,
+      "lattice_j": 250004,
+      "x_m": 500008.0,
+      "y_m": 1000004.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0014",
+      "lattice_i": 333334,
+      "lattice_j": 250005,
+      "x_m": 500010.0,
+      "y_m": 1000004.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0015",
+      "lattice_i": 333334,
+      "lattice_j": 250006,
+      "x_m": 500012.0,
+      "y_m": 1000004.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0016",
+      "lattice_i": 333334,
+      "lattice_j": 250007,
+      "x_m": 500014.0,
+      "y_m": 1000004.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0017",
+      "lattice_i": 333334,
+      "lattice_j": 250008,
+      "x_m": 500016.0,
+      "y_m": 1000004.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0018",
+      "lattice_i": 333334,
+      "lattice_j": 250009,
+      "x_m": 500018.0,
+      "y_m": 1000004.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0019",
+      "lattice_i": 333335,
+      "lattice_j": 250001,
+      "x_m": 500002.0,
+      "y_m": 1000007.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0020",
+      "lattice_i": 333335,
+      "lattice_j": 250002,
+      "x_m": 500004.0,
+      "y_m": 1000007.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0021",
+      "lattice_i": 333335,
+      "lattice_j": 250003,
+      "x_m": 500006.0,
+      "y_m": 1000007.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0022",
+      "lattice_i": 333335,
+      "lattice_j": 250004,
+      "x_m": 500008.0,
+      "y_m": 1000007.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0023",
+      "lattice_i": 333335,
+      "lattice_j": 250005,
+      "x_m": 500010.0,
+      "y_m": 1000007.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0024",
+      "lattice_i": 333335,
+      "lattice_j": 250006,
+      "x_m": 500012.0,
+      "y_m": 1000007.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0025",
+      "lattice_i": 333335,
+      "lattice_j": 250007,
+      "x_m": 500014.0,
+      "y_m": 1000007.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0026",
+      "lattice_i": 333335,
+      "lattice_j": 250008,
+      "x_m": 500016.0,
+      "y_m": 1000007.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0027",
+      "lattice_i": 333335,
+      "lattice_j": 250009,
+      "x_m": 500018.0,
+      "y_m": 1000007.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0028",
+      "lattice_i": 333336,
+      "lattice_j": 250001,
+      "x_m": 500002.0,
+      "y_m": 1000010.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0029",
+      "lattice_i": 333336,
+      "lattice_j": 250002,
+      "x_m": 500004.0,
+      "y_m": 1000010.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0030",
+      "lattice_i": 333336,
+      "lattice_j": 250003,
+      "x_m": 500006.0,
+      "y_m": 1000010.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0031",
+      "lattice_i": 333336,
+      "lattice_j": 250004,
+      "x_m": 500008.0,
+      "y_m": 1000010.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0032",
+      "lattice_i": 333336,
+      "lattice_j": 250005,
+      "x_m": 500010.0,
+      "y_m": 1000010.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0033",
+      "lattice_i": 333336,
+      "lattice_j": 250006,
+      "x_m": 500012.0,
+      "y_m": 1000010.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0034",
+      "lattice_i": 333336,
+      "lattice_j": 250007,
+      "x_m": 500014.0,
+      "y_m": 1000010.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0035",
+      "lattice_i": 333336,
+      "lattice_j": 250008,
+      "x_m": 500016.0,
+      "y_m": 1000010.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0036",
+      "lattice_i": 333336,
+      "lattice_j": 250009,
+      "x_m": 500018.0,
+      "y_m": 1000010.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0037",
+      "lattice_i": 333337,
+      "lattice_j": 250001,
+      "x_m": 500002.0,
+      "y_m": 1000013.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0038",
+      "lattice_i": 333337,
+      "lattice_j": 250002,
+      "x_m": 500004.0,
+      "y_m": 1000013.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0039",
+      "lattice_i": 333337,
+      "lattice_j": 250003,
+      "x_m": 500006.0,
+      "y_m": 1000013.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0040",
+      "lattice_i": 333337,
+      "lattice_j": 250004,
+      "x_m": 500008.0,
+      "y_m": 1000013.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0041",
+      "lattice_i": 333337,
+      "lattice_j": 250005,
+      "x_m": 500010.0,
+      "y_m": 1000013.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0042",
+      "lattice_i": 333337,
+      "lattice_j": 250006,
+      "x_m": 500012.0,
+      "y_m": 1000013.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0043",
+      "lattice_i": 333337,
+      "lattice_j": 250007,
+      "x_m": 500014.0,
+      "y_m": 1000013.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0044",
+      "lattice_i": 333337,
+      "lattice_j": 250008,
+      "x_m": 500016.0,
+      "y_m": 1000013.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0045",
+      "lattice_i": 333337,
+      "lattice_j": 250009,
+      "x_m": 500018.0,
+      "y_m": 1000013.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0046",
+      "lattice_i": 333338,
+      "lattice_j": 250001,
+      "x_m": 500002.0,
+      "y_m": 1000016.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0047",
+      "lattice_i": 333338,
+      "lattice_j": 250002,
+      "x_m": 500004.0,
+      "y_m": 1000016.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0048",
+      "lattice_i": 333338,
+      "lattice_j": 250003,
+      "x_m": 500006.0,
+      "y_m": 1000016.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0049",
+      "lattice_i": 333338,
+      "lattice_j": 250004,
+      "x_m": 500008.0,
+      "y_m": 1000016.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0050",
+      "lattice_i": 333338,
+      "lattice_j": 250005,
+      "x_m": 500010.0,
+      "y_m": 1000016.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0051",
+      "lattice_i": 333338,
+      "lattice_j": 250006,
+      "x_m": 500012.0,
+      "y_m": 1000016.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0052",
+      "lattice_i": 333338,
+      "lattice_j": 250007,
+      "x_m": 500014.0,
+      "y_m": 1000016.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0053",
+      "lattice_i": 333338,
+      "lattice_j": 250008,
+      "x_m": 500016.0,
+      "y_m": 1000016.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0054",
+      "lattice_i": 333338,
+      "lattice_j": 250009,
+      "x_m": 500018.0,
+      "y_m": 1000016.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0055",
+      "lattice_i": 333339,
+      "lattice_j": 250001,
+      "x_m": 500002.0,
+      "y_m": 1000019.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0056",
+      "lattice_i": 333339,
+      "lattice_j": 250002,
+      "x_m": 500004.0,
+      "y_m": 1000019.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0057",
+      "lattice_i": 333339,
+      "lattice_j": 250003,
+      "x_m": 500006.0,
+      "y_m": 1000019.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0058",
+      "lattice_i": 333339,
+      "lattice_j": 250004,
+      "x_m": 500008.0,
+      "y_m": 1000019.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0059",
+      "lattice_i": 333339,
+      "lattice_j": 250005,
+      "x_m": 500010.0,
+      "y_m": 1000019.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0060",
+      "lattice_i": 333339,
+      "lattice_j": 250006,
+      "x_m": 500012.0,
+      "y_m": 1000019.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0061",
+      "lattice_i": 333339,
+      "lattice_j": 250007,
+      "x_m": 500014.0,
+      "y_m": 1000019.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0062",
+      "lattice_i": 333339,
+      "lattice_j": 250008,
+      "x_m": 500016.0,
+      "y_m": 1000019.0,
+      "plants_in_hole": 1
+    },
+    {
+      "plant_id": "V04-P0063",
+      "lattice_i": 333339,
+      "lattice_j": 250009,
+      "x_m": 500018.0,
+      "y_m": 1000019.0,
+      "plants_in_hole": 1
+    }
+  ]
+}

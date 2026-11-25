@@ -1,0 +1,43 @@
+{
+  "profile_schema": "prouve-spatial-site-profile-v0.1",
+  "profile_id": "SYNTH-PROFILE-01",
+  "site": {
+    "site_id": "SYNTH-FTS01",
+    "name": "Synthetic test field"
+  },
+  "settings": {
+    "boundary_setback_m": 1.0,
+    "obstacle_buffer_m": 0.0,
+    "quad_segs": 64,
+    "geometry_tolerance_m": 1e-07
+  },
+  "obstacles": [],
+  "crop": {
+    "profile_id": "SYNTH-CROP-01",
+    "crop_name": "Synthetic crop - not agronomic advice",
+    "row_spacing_m": 3.0,
+    "in_row_spacing_m": 2.0,
+    "plants_per_hole_after_thinning": 1
+  },
+  "reviews": {
+    "boundary": {
+      "status": "PENDING"
+    },
+    "obstacles": {
+      "status": "PENDING"
+    },
+    "crop": {
+      "status": "PENDING"
+    },
+    "uncertainty": {
+      "status": "PENDING"
+    },
+    "settings": {
+      "status": "PENDING"
+    }
+  },
+  "uncertainty": {
+    "status": "NOT_CALIBRATED",
+    "note": "Do not combine uncertainty with clearances automatically."
+  }
+}

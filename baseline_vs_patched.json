@@ -1,0 +1,14 @@
+{
+  "baseline_best_count": 63,
+  "patched_best_count": 63,
+  "baseline_upper_bound_count": 78,
+  "patched_upper_bound_count": 78,
+  "baseline_theta_deg": 0.0,
+  "patched_theta_deg": 0.0,
+  "baseline_phase_a": 0.0,
+  "patched_phase_a": 0.0,
+  "baseline_phase_b": 0.6666666666666666,
+  "patched_phase_b": 0.6666666666666666,
+  "patched_continuous_optimum_proven": false,
+  "note": "Expected core layout unchanged; status and validation semantics hardened."
+}

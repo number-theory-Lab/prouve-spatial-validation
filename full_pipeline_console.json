@@ -1,0 +1,9 @@
+{
+  "run_id": "1a10d891f053a4c8",
+  "pipeline_status": "SYNTHETIC_PIPELINE_PASS_EXPLORATORY_ONLY",
+  "best_found_count": 63,
+  "upper_bound_count_estimate": 78,
+  "optimality_status": "BEST_FOUND_NOT_PROVEN_OPTIMAL",
+  "verification_agreement": "AGREE",
+  "field_deployment_authorized": false
+}

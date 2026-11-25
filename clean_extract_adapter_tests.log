@@ -1,0 +1,18 @@
+test_draft_boundary_is_blocked (test_handoff_adapter.HandoffTests.test_draft_boundary_is_blocked) ... ok
+test_empty_obstacles_must_be_explicit (test_handoff_adapter.HandoffTests.test_empty_obstacles_must_be_explicit) ... ok
+test_field_candidate_needs_uncertainty_status_not_only_review_flag (test_handoff_adapter.HandoffTests.test_field_candidate_needs_uncertainty_status_not_only_review_flag) ... ok
+test_field_candidate_requires_settings_reviewer (test_handoff_adapter.HandoffTests.test_field_candidate_requires_settings_reviewer) ... ok
+test_field_candidate_requires_survey_verified_and_reviews (test_handoff_adapter.HandoffTests.test_field_candidate_requires_survey_verified_and_reviews) ... ok
+test_invalid_crs_is_blocked (test_handoff_adapter.HandoffTests.test_invalid_crs_is_blocked) ... ok
+test_invalid_source_coordinate_is_blocked (test_handoff_adapter.HandoffTests.test_invalid_source_coordinate_is_blocked) ... ok
+test_local_metric_not_allowed_as_real_site (test_handoff_adapter.HandoffTests.test_local_metric_not_allowed_as_real_site) ... ok
+test_missing_explicit_settings_is_blocked (test_handoff_adapter.HandoffTests.test_missing_explicit_settings_is_blocked) ... ok
+test_nan_coordinate_is_blocked (test_handoff_adapter.HandoffTests.test_nan_coordinate_is_blocked) ... ok
+test_reviewed_survey_verified_only_passes_input_gate (test_handoff_adapter.HandoffTests.test_reviewed_survey_verified_only_passes_input_gate) ... ok
+test_user_confirmed_is_exploratory_only (test_handoff_adapter.HandoffTests.test_user_confirmed_is_exploratory_only) ... ok
+test_zero_or_negative_crop_spacing_is_blocked (test_handoff_adapter.HandoffTests.test_zero_or_negative_crop_spacing_is_blocked) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.001s
+
+OK

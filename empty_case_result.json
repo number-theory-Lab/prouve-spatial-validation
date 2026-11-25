@@ -1,0 +1,170 @@
+{
+  "result": {
+    "project": "PROUVÉ Spatial",
+    "version": "0.4",
+    "use_case": "PS-FU01",
+    "coordinate_system": "Local planar XY; metres (not geographic coordinates)",
+    "input": {
+      "row_spacing_m": 2.0,
+      "in_row_spacing_m": 1.0,
+      "plants_per_hole_after_thinning": 1,
+      "usable_area_m2": 0.0,
+      "field_area_m2": 4.0,
+      "boundary_setback_m": 2.0,
+      "obstacle_buffer_m": 0.0
+    },
+    "benchmark_methods": [
+      {
+        "method": "Area-per-plant estimate",
+        "category": "density_estimate_only",
+        "count": 0.0,
+        "integer_estimate_floor": 0,
+        "nominal_cell_area_m2": 2.0,
+        "agronomically_row_feasible": null,
+        "note": "ค่าประมาณจากพื้นที่หารพื้นที่ต่อหลุม ไม่ใช่ชุดพิกัดที่จัดวางได้ และไม่ใช่ upper bound"
+      },
+      {
+        "method": "V0.3 fixed rectangular grid",
+        "category": "feasible_fixed_layout",
+        "count": 0,
+        "theta_deg": 0.0,
+        "phase_a_fraction": 0.0,
+        "phase_b_fraction": 0.25,
+        "agronomically_row_feasible": true,
+        "note": "แนวแถวขนานแกน X และ anchor เดิม (0.50, 0.50) เมตร"
+      },
+      {
+        "method": "Optimized rectangular crop-row lattice",
+        "category": "crop_row_lattice",
+        "count": 0,
+        "theta_deg": 0.0,
+        "phase_a_fraction": 0.0,
+        "phase_b_fraction": 0.0,
+        "agronomically_row_feasible": true,
+        "note": "ค้นหาทิศทางและ phase ภายในชุดพารามิเตอร์ที่แจกแจงไว้; ยังไม่ใช่การจัดวางอิสระทุกรูปแบบ"
+      }
+    ],
+    "search": {
+      "rectangular_crop_row": {
+        "best_count": 0,
+        "best_theta_deg": 0.0,
+        "best_phase_a_fraction": 0.0,
+        "best_phase_b_fraction": 0.0,
+        "evaluated_layouts": 9,
+        "coarse_layouts": 8,
+        "refinement_layouts": 0,
+        "angle_step_deg": 90,
+        "phase_divisions": 2,
+        "upper_bound_count": 0,
+        "relative_gap_to_upper_bound": null,
+        "best_over_enumerated_search_grid_proven": true,
+        "continuous_lattice_optimum_proven": false,
+        "optimality_status_pre_verification": "NO_FEASIBLE_POINTS_IN_ENUMERATED_SEARCH",
+        "top_results": [
+          {
+            "count": 0,
+            "theta_deg": 0.0,
+            "phase_a": 0.0,
+            "phase_b": 0.0
+          },
+          {
+            "count": 0,
+            "theta_deg": 0.0,
+            "phase_a": 0.0,
+            "phase_b": 0.5
+          },
+          {
+            "count": 0,
+            "theta_deg": 0.0,
+            "phase_a": 0.5,
+            "phase_b": 0.0
+          },
+          {
+            "count": 0,
+            "theta_deg": 0.0,
+            "phase_a": 0.5,
+            "phase_b": 0.5
+          },
+          {
+            "count": 0,
+            "theta_deg": 90.0,
+            "phase_a": 0.0,
+            "phase_b": 0.0
+          },
+          {
+            "count": 0,
+            "theta_deg": 90.0,
+            "phase_a": 0.0,
+            "phase_b": 0.5
+          },
+          {
+            "count": 0,
+            "theta_deg": 90.0,
+            "phase_a": 0.5,
+            "phase_b": 0.0
+          },
+          {
+            "count": 0,
+            "theta_deg": 90.0,
+            "phase_a": 0.5,
+            "phase_b": 0.5
+          }
+        ],
+        "elapsed_seconds": 0.001716334999969149
+      },
+      "comparison_lattices": {}
+    },
+    "optimality_evidence": {
+      "rectangular_lattice_upper_bound": {
+        "expanded_area_m2": 0.0,
+        "cell_area_m2": 2.0,
+        "upper_bound_count": 0,
+        "upper_bound_certified": false,
+        "upper_bound_status": "ESTIMATE_ONLY_EMPTY_GEOMETRY",
+        "circumradius_m": 1.118033988749895
+      },
+      "interpretation": "ขอบเขตบนจากพื้นที่ของ fundamental cells ภายในการขยายพื้นที่ปลูกด้วยรัศมีครอบคลุม cell; ใช้กับ lattice family ที่ระบุเท่านั้น ไม่ใช่ upper bound สำหรับการจัดวางจุดอิสระทั่วไป",
+      "relative_gap_definition": "(upper_bound_count - best_found_count) / upper_bound_count",
+      "rectangular_relative_gap": null,
+      "best_found_count": 0,
+      "upper_bound_count": 0,
+      "upper_bound_certified": false,
+      "upper_bound_status": "ESTIMATE_ONLY_EMPTY_GEOMETRY",
+      "continuous_lattice_optimum_proven": false,
+      "optimality_status_pre_verification": "NO_FEASIBLE_POINTS_IN_ENUMERATED_SEARCH"
+    },
+    "verification": {
+      "independent_verifier_required": true,
+      "generated_points": 0,
+      "point_export": "optimized_planting_positions.csv",
+      "status_before_independent_verification": "PENDING",
+      "verifier_passed": false,
+      "optimality_certified": false
+    },
+    "limitations": [
+      "Best found is exact only over the explicitly enumerated finite angle/phase search grid.",
+      "Refinement searches a finite local grid around the coarse winner; it is not a continuous search proof.",
+      "The geometric upper bound applies only to the specified lattice family, not arbitrary free point placements.",
+      "Square and triangular grids are equal-nominal-density geometric benchmarks; they do not preserve the 0.75 m crop row-spacing rule and are not agronomic recommendations.",
+      "Area-per-plant is a density estimate, not a feasible point placement or upper bound.",
+      "Coordinates and PS-FU01 field are synthetic local XY test data, not a surveyed farm boundary.",
+      "The model covers planting-hole centres and geometric clearances only; it does not establish crop health, yield, root competition, irrigation access, or machinery access."
+    ],
+    "planting_positions": []
+  },
+  "reference": {
+    "verifier": "python_reference_no_shapely_v2",
+    "implementation_independent_of_optimizer": true,
+    "all_checks_passed": false,
+    "verified_point_count": 0,
+    "status": "NO_FEASIBLE_POINTS",
+    "reason": "EMPTY_PLAN_NOT_ELIGIBLE_FOR_VERIFICATION"
+  },
+  "shapely": {
+    "verifier": "shapely_geos_v1",
+    "all_checks_passed": false,
+    "verified_point_count": 0,
+    "status": "NO_FEASIBLE_POINTS",
+    "reason": "EMPTY_PLAN_NOT_ELIGIBLE_FOR_VERIFICATION"
+  }
+}

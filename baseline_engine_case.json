@@ -1,0 +1,51 @@
+{
+  "project": "PROUVÉ Spatial",
+  "version": "handoff-v0.1",
+  "use_case": "SYNTH-FTS01",
+  "coordinate_system": "Local planar XY; metres; source working CRS=EPSG:32647",
+  "crs": "EPSG:32647",
+  "field": {
+    "vertices": [
+      [
+        500000.0,
+        1000000.0
+      ],
+      [
+        500020.0,
+        1000000.0
+      ],
+      [
+        500020.0,
+        1000020.0
+      ],
+      [
+        500000.0,
+        1000020.0
+      ]
+    ]
+  },
+  "obstacles": [],
+  "settings": {
+    "boundary_setback_m": 1.0,
+    "obstacle_buffer_m": 1.0,
+    "quad_segs": 64,
+    "geometry_tolerance_m": 1e-07
+  },
+  "crop": {
+    "profile_id": "SYNTH-CROP-01",
+    "crop_name": "Synthetic crop - not agronomic advice",
+    "row_spacing_m": 3.0,
+    "in_row_spacing_m": 2.0,
+    "plants_per_hole_after_thinning": 1
+  },
+  "handoff_metadata": {
+    "source_app_schema": "prouve-spatial-boundary-v0.5",
+    "boundary_status": "USER_CONFIRMED",
+    "boundary_id": "SYNTH-FTS01",
+    "boundary_name": "Synthetic integration fixture",
+    "source_input_crs": "EPSG:32647",
+    "working_crs": "EPSG:32647",
+    "site_profile_id": "SYNTH-PROFILE-01",
+    "mode": "exploratory"
+  }
+}

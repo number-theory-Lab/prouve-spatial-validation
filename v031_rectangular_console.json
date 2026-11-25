@@ -1,0 +1,9 @@
+{
+  "run_id": "4dca2143e0140a14",
+  "pipeline_status": "SYNTHETIC_PIPELINE_PASS_FEASIBILITY_CERTIFIED_EXPLORATORY_ONLY",
+  "best_found_count": 70,
+  "upper_bound_count": 77,
+  "optimality_status": "FEASIBLE_CERTIFIED_BEST_FOUND_NOT_PROVEN_OPTIMAL",
+  "formal_checks_passed": true,
+  "field_deployment_authorized": false
+}

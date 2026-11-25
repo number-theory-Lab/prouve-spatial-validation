@@ -1,0 +1,9 @@
+{
+  "run_id": "dabb1a7fd8978151",
+  "pipeline_status": "HOLD_EMPTY_USABLE_GEOMETRY",
+  "best_found_count": 0,
+  "upper_bound_count": 0,
+  "optimality_status": "NOT_COMPUTED_NO_FEASIBLE_INCUMBENT",
+  "formal_checks_passed": false,
+  "field_deployment_authorized": false
+}

@@ -1,0 +1,21 @@
+test_patch01_best_found_below_estimate_not_optimal (test_engine_branch.EngineBranchPatchTests.test_patch01_best_found_below_estimate_not_optimal) ... ok
+test_patch02_equality_needs_certified_bound_and_verifiers (test_engine_branch.EngineBranchPatchTests.test_patch02_equality_needs_certified_bound_and_verifiers) ... ok
+test_patch03_best_above_bound_is_conflict (test_engine_branch.EngineBranchPatchTests.test_patch03_best_above_bound_is_conflict) ... ok
+test_patch04_zero_empty_is_not_optimal (test_engine_branch.EngineBranchPatchTests.test_patch04_zero_empty_is_not_optimal) ... ok
+test_patch05_empty_plan_rejected_by_both_verifiers (test_engine_branch.EngineBranchPatchTests.test_patch05_empty_plan_rejected_by_both_verifiers) ... ok
+test_patch06_geometry_rejects_boolean_coordinate_and_setting (test_engine_branch.EngineBranchPatchTests.test_patch06_geometry_rejects_boolean_coordinate_and_setting) ... ok
+test_patch06_optimizer_rejects_boolean_spacing_and_noninteger_plants_per_hole (test_engine_branch.EngineBranchPatchTests.test_patch06_optimizer_rejects_boolean_spacing_and_noninteger_plants_per_hole) ... ok
+test_patch06_optimizer_rejects_nan_spacing_and_bad_angle (test_engine_branch.EngineBranchPatchTests.test_patch06_optimizer_rejects_nan_spacing_and_bad_angle) ... ok
+test_patch07_no_epsilon_subtraction_and_estimate_not_certified (test_engine_branch.EngineBranchPatchTests.test_patch07_no_epsilon_subtraction_and_estimate_not_certified) ... ok
+test_patch08_concave_field_and_obstacle_clearance (test_engine_branch.EngineBranchPatchTests.test_patch08_concave_field_and_obstacle_clearance) ... ok
+test_patch08_self_intersection_rejected (test_engine_branch.EngineBranchPatchTests.test_patch08_self_intersection_rejected) ... ok
+test_patch09_zero_obstacle_clearance_allows_boundary_not_interior (test_engine_branch.EngineBranchPatchTests.test_patch09_zero_obstacle_clearance_allows_boundary_not_interior) ... ok
+test_patch09_zero_setback_boundary_inclusive (test_engine_branch.EngineBranchPatchTests.test_patch09_zero_setback_boundary_inclusive) ... ok
+test_patch10_disagreement_holds (test_engine_branch.EngineBranchPatchTests.test_patch10_disagreement_holds) ... ok
+test_pipeline_end_to_end_synthetic (test_engine_branch.EngineBranchPatchTests.test_pipeline_end_to_end_synthetic) ... ok
+test_reference_rejects_fractional_lattice_index (test_engine_branch.EngineBranchPatchTests.test_reference_rejects_fractional_lattice_index) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.050s
+
+OK

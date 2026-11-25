@@ -1,0 +1,74 @@
+{
+  "profile_schema": "prouve-spatial-site-profile-v0.1",
+  "profile_id": "SYNTH-MP-HOLE-PROFILE",
+  "site": {
+    "site_id": "SYNTH-MP-HOLE-01",
+    "name": "Synthetic test field"
+  },
+  "settings": {
+    "boundary_setback_m": 1.0,
+    "obstacle_buffer_m": 1.0,
+    "quad_segs": 64,
+    "geometry_tolerance_m": 1e-07
+  },
+  "obstacles": [
+    {
+      "name": "pond",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              500005,
+              1000005
+            ],
+            [
+              500009,
+              1000005
+            ],
+            [
+              500009,
+              1000009
+            ],
+            [
+              500005,
+              1000009
+            ],
+            [
+              500005,
+              1000005
+            ]
+          ]
+        ]
+      }
+    }
+  ],
+  "crop": {
+    "profile_id": "SYNTH-CROP-MP",
+    "crop_name": "Synthetic crop - not agronomic advice",
+    "row_spacing_m": 5.0,
+    "in_row_spacing_m": 4.0,
+    "plants_per_hole_after_thinning": 1
+  },
+  "reviews": {
+    "boundary": {
+      "status": "PENDING"
+    },
+    "obstacles": {
+      "status": "PENDING"
+    },
+    "crop": {
+      "status": "PENDING"
+    },
+    "uncertainty": {
+      "status": "PENDING"
+    },
+    "settings": {
+      "status": "PENDING"
+    }
+  },
+  "uncertainty": {
+    "status": "NOT_CALIBRATED",
+    "note": "Do not combine uncertainty with clearances automatically."
+  }
+}

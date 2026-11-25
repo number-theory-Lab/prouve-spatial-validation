@@ -1,0 +1,27 @@
+test_empty_geometry_rejected (test_continuous_lattice_bnb.ContinuousLatticeBnbTests.test_empty_geometry_rejected) ... ok
+test_invalid_spacing_rejected (test_continuous_lattice_bnb.ContinuousLatticeBnbTests.test_invalid_spacing_rejected) ... ok
+test_rectangle_edge_boundary_is_included (test_continuous_lattice_bnb.ContinuousLatticeBnbTests.test_rectangle_edge_boundary_is_included) ... ok
+test_root_upper_bound_dominates_random_parameter_samples (test_continuous_lattice_bnb.ContinuousLatticeBnbTests.test_root_upper_bound_dominates_random_parameter_samples) ... ok
+test_seed_result_is_feasible_and_bound_dominates (test_continuous_lattice_bnb.ContinuousLatticeBnbTests.test_seed_result_is_feasible_and_bound_dominates) ... ok
+test_upper_bound_dominates_dense_small_grid (test_continuous_lattice_bnb.ContinuousLatticeBnbTests.test_upper_bound_dominates_dense_small_grid) ... ok
+test_patch01_bf_less_than_ub (test_engine_safety_and_reference.Patch01To10Tests.test_patch01_bf_less_than_ub) ... ok
+test_patch02_equal_positive_certified (test_engine_safety_and_reference.Patch01To10Tests.test_patch02_equal_positive_certified) ... ok
+test_patch03_bf_greater_than_ub (test_engine_safety_and_reference.Patch01To10Tests.test_patch03_bf_greater_than_ub) ... ok
+test_patch04_zero_zero_not_usable_solution (test_engine_safety_and_reference.Patch01To10Tests.test_patch04_zero_zero_not_usable_solution) ... ok
+test_patch05_empty_plan_is_not_verified (test_engine_safety_and_reference.Patch01To10Tests.test_patch05_empty_plan_is_not_verified) ... ok
+test_patch06_nan_infinity_and_bad_counts_rejected (test_engine_safety_and_reference.Patch01To10Tests.test_patch06_nan_infinity_and_bad_counts_rejected) ... ok
+test_patch07_quotient_just_above_integer_not_rounded_down (test_engine_safety_and_reference.Patch01To10Tests.test_patch07_quotient_just_above_integer_not_rounded_down) ... ok
+test_patch08_concave_polygon_and_obstacle_clearance (test_engine_safety_and_reference.Patch01To10Tests.test_patch08_concave_polygon_and_obstacle_clearance) ... ok
+test_patch08_self_intersection_is_rejected_by_reference_verifier (test_engine_safety_and_reference.Patch01To10Tests.test_patch08_self_intersection_is_rejected_by_reference_verifier) ... ok
+test_patch09_boundary_coverage_with_zero_setback (test_engine_safety_and_reference.Patch01To10Tests.test_patch09_boundary_coverage_with_zero_setback) ... ok
+test_patch10_verifier_disagreement_holds (test_engine_safety_and_reference.Patch01To10Tests.test_patch10_verifier_disagreement_holds) ... ok
+test_fixed_orientation_phase_max_dominates_dense_grid (test_exact_phase_arrangement.ExactPhaseArrangementTests.test_fixed_orientation_phase_max_dominates_dense_grid) ... ok
+test_invalid_polygon_rejected (test_exact_phase_arrangement.ExactPhaseArrangementTests.test_invalid_polygon_rejected) ... ok
+test_invalid_spacing_rejected (test_exact_phase_arrangement.ExactPhaseArrangementTests.test_invalid_spacing_rejected) ... ok
+test_polygon_with_obstacle_hole (test_exact_phase_arrangement.ExactPhaseArrangementTests.test_polygon_with_obstacle_hole) ... ok
+test_rotated_fixed_orientation_runs (test_exact_phase_arrangement.ExactPhaseArrangementTests.test_rotated_fixed_orientation_runs) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 1.943s
+
+OK

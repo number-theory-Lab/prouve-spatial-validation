@@ -1,0 +1,15 @@
+{
+  "schema": "prouve-spatial-boundary-v0.5",
+  "project": {"name": "Synthetic integration fixture", "id": "SYNTH-FTS01"},
+  "boundary": {
+    "status": "USER_CONFIRMED",
+    "inputระบบพิกัด": "EPSG:32647",
+    "workingระบบพิกัด": "EPSG:32647",
+    "units": "เมตร",
+    "sourceVertices": [[500000,1000000],[500020,1000000],[500020,1000020],[500000,1000020]],
+    "workingVertices": [[500000,1000000],[500020,1000000],[500020,1000020],[500000,1000020]],
+    "validation": {"valid": true}
+  },
+  "optimizerHandoff": {"acceptedForGeometryProcessing": true, "readyForFieldUse": true},
+  "surveyReference": null
+}
