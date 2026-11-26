@@ -173,8 +173,7 @@ jobs:
           })
           if not files:
               raise SystemExit("FAIL: no test modules found")
-          for folder in folders:
-              sys.path.insert(0, str(root / folder))
+          sys.path.insert(0, str(root / "tests"))
 
           suite = unittest.TestSuite()
           loader = unittest.TestLoader()
