@@ -173,6 +173,8 @@ jobs:
           })
           if not files:
               raise SystemExit("FAIL: no test modules found")
+          for folder in folders:
+              sys.path.insert(0, str(root / folder))
 
           suite = unittest.TestSuite()
           loader = unittest.TestLoader()
@@ -184,6 +186,7 @@ jobs:
                   raise SystemExit(f"FAIL: cannot load test module {rel}")
               module = importlib.util.module_from_spec(spec)
               sys.modules[module_name] = module
+              sys.modules.setdefault(path.stem, module)
               spec.loader.exec_module(module)
               suite.addTests(loader.loadTestsFromModule(module))
 
