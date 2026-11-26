@@ -47,7 +47,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p "$RUNNER_TEMP/prouve-v031-extract" "$RUNNER_TEMP/prouve-v031-results"
+          mkdir -p "$RUNNER_TEMP/prouve-v031-extract" "validation-results"
           python - <<'PY'
           import hashlib
           import os
@@ -62,8 +62,10 @@ jobs:
           manifest = repo / "V0_3_1_SOURCE_SHA256SUMS.txt"
           destination = Path(os.environ["RUNNER_TEMP"]) / "prouve-v031-extract"
 
-          match = re.search(r"^([0-9a-f]{64})\\s+PROUVE_Spatial_Engine_Branch_V0_3_1\\.zip\\s*$",
-                            sidecar.read_text(encoding="utf-8"), re.M)
+          match = re.search(
+              r"^([0-9a-f]{64})\s+PROUVE_Spatial_Engine_Branch_V0_3_1\.zip\s*$",
+              sidecar.read_text(encoding="utf-8"), re.M
+          )
           if not match:
               raise SystemExit("FAIL: ZIP sidecar format is invalid")
           expected_zip_hash = match.group(1)
@@ -78,7 +80,7 @@ jobs:
               if bad_member:
                   raise SystemExit(f"FAIL: ZIP CRC check failed at {bad_member}")
               for info in zf.infolist():
-                  name = info.filename.replace("\\\\", "/")
+                  name = info.filename.replace("\\", "/")
                   p = PurePosixPath(name)
                   mode = (info.external_attr >> 16) & 0o170000
                   if p.is_absolute() or ".." in p.parts or name.startswith("/"):
@@ -126,7 +128,7 @@ jobs:
           print("ZIP_SHA256=PASS")
           print("SOURCE_MANIFEST=PASS")
           with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as f:
-              f.write(f"PROUVE_SOURCE_ROOT={source_root}\\n")
+              f.write(f"PROUVE_SOURCE_ROOT={source_root}\n")
           PY
 
       - name: Install pinned runtime dependencies
@@ -156,7 +158,7 @@ jobs:
           set -euo pipefail
           cd "$PROUVE_SOURCE_ROOT"
           export PYTHONPATH="$PROUVE_SOURCE_ROOT:$PROUVE_SOURCE_ROOT/engine:$PROUVE_SOURCE_ROOT/adapter:$PROUVE_SOURCE_ROOT/prototype"
-          python - <<'PY' 2>&1 | tee "$RUNNER_TEMP/prouve-v031-results/tests.log"
+          python - <<'PY' 2>&1 | tee "$GITHUB_WORKSPACE/validation-results/tests.log"
           import importlib.util
           import sys
           import unittest
@@ -199,13 +201,14 @@ jobs:
           set -euo pipefail
           cd "$PROUVE_SOURCE_ROOT"
           export PYTHONPATH="$PROUVE_SOURCE_ROOT:$PROUVE_SOURCE_ROOT/engine:$PROUVE_SOURCE_ROOT/adapter:$PROUVE_SOURCE_ROOT/prototype"
-          python - <<'PY' 2>&1 | tee "$RUNNER_TEMP/prouve-v031-results/pipelines.log"
+          python - <<'PY' 2>&1 | tee "$GITHUB_WORKSPACE/validation-results/pipelines.log"
           import json
+          import os
           from pathlib import Path
           from engine.pipeline_runner_v03 import run_pipeline_v03
 
           root = Path.cwd()
-          results_dir = Path(__import__("os").environ["RUNNER_TEMP"]) / "prouve-v031-results"
+          results_dir = Path(os.environ["GITHUB_WORKSPACE"]) / "validation-results" / "pipelines"
           results_dir.mkdir(parents=True, exist_ok=True)
 
           cases = [
@@ -288,6 +291,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: prouve-v031-clean-validation
-          path: ${{ runner.temp }}/prouve-v031-results/
+          path: validation-results/
           if-no-files-found: warn
           retention-days: 90
